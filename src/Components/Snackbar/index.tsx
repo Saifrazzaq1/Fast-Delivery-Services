@@ -1,15 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import DropdownAlert, {
   CloseActionType,
   DropdownAlertType,
 } from 'react-native-dropdownalert';
-import { EventRegister } from 'react-native-event-listeners';
+import {EventRegister} from 'react-native-event-listeners';
+
 const Snackbar = () => {
   let dropDownAlertRef = useRef();
+
   useEffect(() => {
     let id = EventRegister.addEventListener(
       'showSnackbar',
-      ({ type, header, body, action, interval }) => {
+      ({type, header, body, action, interval}) => {
         // @ts-ignore
         dropDownAlertRef.alertWithType(type, header, body, action, interval);
       },
@@ -33,7 +35,9 @@ const Snackbar = () => {
     />
   );
 };
+
 export default Snackbar;
+
 type TSnackBar = {
   type: DropdownAlertType;
   header: string;
@@ -42,6 +46,7 @@ type TSnackBar = {
   action?: CloseActionType;
   interval?: number; // duration in milliseconds
 };
+
 export const showSnackbar = ({
   type = 'info',
   header,
@@ -49,6 +54,7 @@ export const showSnackbar = ({
   action = 'automatic',
   interval = 1000,
 }: TSnackBar) => {
-  EventRegister.emit('showSnackbar', { type, header, body, action, interval });
+  EventRegister.emit('showSnackbar', {type, header, body, action, interval});
 };
+
 // DOCS-https://github.com/testshallpass/react-native-dropdownalert/blob/master/docs/PROPS.md

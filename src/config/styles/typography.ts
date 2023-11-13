@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native';
-import { fontRef } from '../screenSize';
+import {StyleSheet} from 'react-native';
+import {fontRef} from '../screenSize';
 
-export const  TypographyStyles: any = StyleSheet.create({
+export const TypographyStyles = StyleSheet.create({
   bold: {
     fontWeight: '700',
   },
@@ -10,16 +10,16 @@ export const  TypographyStyles: any = StyleSheet.create({
     fontWeight: '700',
   },
   h2: {
-    fontSize: 24 * fontRef,
-    fontWeight: '600',
+    fontSize: 25 * fontRef,
+    fontWeight: '700',
   },
   h3: {
-    fontSize: 20 * fontRef,
-    fontWeight: '600',
+    fontSize: 18 * fontRef,
+    fontWeight: '700',
   },
   h4: {
     fontSize: 16 * fontRef,
-    fontWeight: '400',
+    fontWeight: '700',
   },
   h5: {
     fontSize: 14 * fontRef,
@@ -40,7 +40,7 @@ export const  TypographyStyles: any = StyleSheet.create({
     fontSize: 25 * fontRef,
   },
   a: {
-    fontSize: 12 * fontRef,
+    fontSize: 14 * fontRef,
     fontWeight: '400',
   },
   small: {

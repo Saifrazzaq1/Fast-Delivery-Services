@@ -1,7 +1,7 @@
 import { ViewProps } from 'react-native';
-import { AnimatedProps } from 'react-native-reanimated';
-import { FlexType } from '../../config/styles';
-interface IAnimatedViewProps extends AnimatedProps<ViewProps> {
+import { AnimateProps } from 'react-native-reanimated';
+import { FlexType } from 'src/config/styles';
+interface IAnimatedViewProps extends AnimateProps<ViewProps> {
   flexLayout?: FlexType | FlexType[];
   width?: number | string;
   height?: number | string;

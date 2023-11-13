@@ -1,64 +1,41 @@
-import { StyleSheet,  } from "react-native";
-import { fontRef, heightRef, widthRef } from "../../../config/screenSize";
+import {StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create({
-    cont: {
-        flex: 1,
-        backgroundColor:'white',
-       
-    },
-    main:{
-       flex:1,
-       backgroundColor:'white',
-       padding:20,
-       
-    },
-  
-    btn: {
-        backgroundColor:'white',
-        width:'100%',
-        borderRadius:40,
-    },
-    btn1: {
-        backgroundColor: '#1C7584',
-        padding: 15,
-        width:'100%',
-        alignSelf:'center',
-        borderRadius: 40,
-        marginTop:10 * heightRef,
-        marginBottom:0 * heightRef
+export default StyleSheet.create({
+  mainview: {
+    marginTop: 40,
+    margin: 20,
+  },
+  text: {
+    color: 'black',
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  text1: {
+    color: '#A0A0A0',
+    fontSize: 12,
+    textAlign: 'left',
+    marginTop: 10,
+  },
+  text3: {
+    color: '#000',
+    fontSize: 12,
+    textAlign: 'left',
+    marginLeft: 2,
+    fontWeight: '500',
+    alignSelf: 'center',
+  },
 
-    },
-    
-    text:{
-        fontSize:22 * fontRef,
-        fontWeight:'600',
-        color:'black',
-        marginBottom:10 * heightRef
-    },
-   field:{
-     width:'100%',
-     borderBottomWidth:0.7 * heightRef,
-     borderBottomColor:'black',
-     fontSize:16,
-     fontWeight:'500',
-     color:'black'
-     
-   },
-   t1:{
-    fontSize:16 * fontRef,
-        fontWeight:'600',
-        color:'#A0A0A0',
-        textAlign:'right'
-   },
-   t2:{
-    fontSize:14 * fontRef,
-        fontWeight:'500',
-        color:'#A0A0A0',
-       padding:5,
-       
-   },
-   
+  text4: {
+    color: '#A0A0A0',
+    fontWeight: '600',
+    marginTop: 30,
+    fontSize: 14,
+    textAlign: 'left',
+  },
+  text5: {
+    color: '#E0281C',
+    fontWeight: '600',
+    fontSize: 14,
+    textAlign: 'left',
+  },
 });
-
-export default styles;

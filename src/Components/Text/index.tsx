@@ -1,15 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { Text as RNText } from 'react-native';
-import globalStyles from '../../config/globalStyles';
-import { fontRef, heightRef } from '../../config/screenSize';
-import { TypographyStyles } from '../../config/styles';
-import { ITextProps } from './types';
+import {Text as RNText} from 'react-native';
+import globalStyles from 'src/config/globalStyles';
+import {fontRef, heightRef} from 'src/config/screenSize';
+import {TypographyStyles} from 'src/config/styles';
+import {ITextProps} from './types';
 
 const Text = ({
   color = 'PrimaryColor',
   typography = 'normal',
-  fontSize = 12,
+  fontSize = 24,
   bold,
   width,
   children,
@@ -17,7 +17,7 @@ const Text = ({
   marginTop = 0,
   style,
   textAlignVertical = 'center',
-  textAlign = 'left',
+  textAlign = 'center',
   onPress,
   ...rest
 }: ITextProps) => {
@@ -33,10 +33,9 @@ const Text = ({
           marginTop: marginTop * heightRef,
           textAlignVertical,
           textAlign,
-          fontFamily: 'Manrope-Regular',
         },
         TypographyStyles[typography],
-        width !== undefined ? { width } : {},
+        width !== undefined ? {width} : {},
         style,
       ]}
       onPress={onPress}

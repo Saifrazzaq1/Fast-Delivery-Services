@@ -1,8 +1,7 @@
 export default {
-    REGISTER: { method: "POST", url: 'user/register' },
-    LOGIN: { method: "POST", url: 'auth/login' },
-    Category: { method: "GET", url: 'category' },
-    SubCategory: { method: "GET", url: 'subCategory' },
-    Items: { method: "GET", url: 'item' },
-
-}
+  LOGIN: {method: 'POST', url: 'auth/login'},
+  SIGNUP: {method: 'POST', url: 'user/register'},
+  CATEGORY: {method: 'GET', url: 'category'},
+  SUBCATEGORY: {method: 'GET', url: 'subCategory'},
+  ITEM: {method: 'GET', url: 'item'},
+};

@@ -1,14 +1,11 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import auth from './Reducers/Auth/reducers';
-import countReducer from './Reducers/Count';
-import cartReducer from './Reducers/Cart/Cartreducers';
-import favoritesReducer from './Reducers/Favorite';
-
+import cart from './Reducers/Cart/reducer';
+import ItemCount from './Reducers/ItemCount/reducer';
 
 const reducers = combineReducers({
   auth,
-  cart: cartReducer,
-  countReducer,
-  favorites: favoritesReducer,
+  cart,
+  ItemCount,
 });
 export default reducers;

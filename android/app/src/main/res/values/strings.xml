@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FDS</string>
+      <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCWQZT4sNUYMJwWt5CLSLjD3Ml1yjxVdMQ</string>
 </resources>
