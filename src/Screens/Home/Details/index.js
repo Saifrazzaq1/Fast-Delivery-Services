@@ -18,6 +18,7 @@ import style from './style';
 import Button from 'src/Components/Button';
 import {useNavigation} from '@react-navigation/native';
 import ItemDetail from 'src/Components/ItemDetail';
+
 import {useDispatch} from 'react-redux';
 
 const ads = [
