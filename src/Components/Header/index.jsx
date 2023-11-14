@@ -4,10 +4,12 @@ import {StyleSheet, TouchableOpacity, Image, Text, View} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {LOGOUT} from 'src/Redux/Reducers/Auth/actions';
 import style from './style';
+import Images from'../../Assets'
 import {useNavigation} from '@react-navigation/native';
 
 const Header = ({
   guestbtn,
+  menu,
   loginbtn,
   backIcon,
   heartIcon,
@@ -19,8 +21,10 @@ const Header = ({
   headerShadow,
   loginmarginleft,
   searchIcon,
+  locationIcon,
   logoutIcon,
   locationText,
+  alignItems,
   locationtextPosition,
   headerBg,
   headerbgcolor,
@@ -93,8 +97,13 @@ const Header = ({
           <FontAwesome5 name="heart" size={20} color="black" />
         </TouchableOpacity>
       ) : null}
+      {locationIcon && (
+         <FontAwesome5 style={{marginRight:10}} name="map-marker-alt" size={18} color="#1C7584" />
+      )}
+        {menu && (<Image style={{height:23,width:23,tintColor:'red',position:'absolute',right:30}} source={Images.menuLines}/>)}
+      
       {locationText ? (
-        <View style={{alignItems:'center',width:'100%',marginRight:marginright}}>
+        <View style={{alignItems:alignItems,width:'100%',marginRight:marginright}}>
           <Text
             style={[
               style.delivtext,

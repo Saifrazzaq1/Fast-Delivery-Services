@@ -13,7 +13,6 @@ const AddItems = ({item}) => {
   const {cart} = useAppSelector(s => s.cart);
 
   const data = useSelector(state => state.ItemCount.count);
-
   const handleIncrement = () => {
     dispatch(increment());
   };

@@ -63,7 +63,10 @@ export default {
   Profile: require('src/Assets/Images/Profile.png'),
   cardc: require('src/Assets/Images/Cardc.png'),
   Riderlog: require('./Images/riderlog.png'),
-  Comp:require('./Images/Comp.png'),
-
-  
+  Comp: require('./Images/Comp.png'),
+  menuLines: require('src/Assets/Images/MenuLines.png'),
+  donut: require('src/Assets/Images/Donut.png'),
+  Dollar: require('src/Assets/Images/Dollar.png'),
+  Map: require('src/Assets/Images/map.png'),
+  banner: require('src/Assets/Images/Banner.png'),
 };

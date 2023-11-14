@@ -16,13 +16,15 @@ import Offers from 'src/Screens/Account/AccountScreens/Offers';
 import Notification from 'src/Screens/Account/AccountScreens/Notification';
 import FdsPay from 'src/Screens/Account/AccountScreens/FdsPay';
 import Help from 'src/Screens/Account/AccountScreens/Help';
+import Home from 'src/Screens/RiderSide/Home';
+import RiderOrderDetails from 'src/Screens/RiderSide/RiderOrderDetails';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName="BottomNavigation">
+      initialRouteName="Home">
       <Stack.Screen name={'BottomNavigation'} component={BottomNavigation} />
       <Stack.Screen name="Details" component={Details} />
       <Stack.Screen name="ItemDetail" component={ItemDetail} />
@@ -39,6 +41,8 @@ const HomeStack = () => {
       <Stack.Screen name="Notification" component={Notification} />
       <Stack.Screen name="FdsPay" component={FdsPay} />
       <Stack.Screen name="Help" component={Help} />
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="RiderOrderDetails" component={RiderOrderDetails} />
     </Stack.Navigator>
   );
 };
