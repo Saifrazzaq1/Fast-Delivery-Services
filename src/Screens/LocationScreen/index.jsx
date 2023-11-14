@@ -45,7 +45,7 @@ const Location = ({navigation}) => {
           <View style={style.buttonView}>
             <Button
               onPress={() => {
-                navigation.navigate('Login');
+                navigation.navigate('ChoiceScreen');
               }}
               buttonStyle={{position: 'absolute', width: '100%'}}
               btnheight={55}
