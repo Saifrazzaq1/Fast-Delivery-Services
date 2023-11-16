@@ -14,23 +14,12 @@ import RiderRigistered from 'src/Screens/AuthScreens/RiderAuth/CreateRiderAcc/Ri
 
 const Stack = createStackNavigator();
 
-const screens = [
-  {key: 'onboarding', name: 'Onboarding', component: Onboarding},
-];
-
 const AuthStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
       initialRouteName="Onboarding">
-      {screens.map(s => (
-        <Stack.Screen
-          key={s.key}
-          name={s.name}
-          component={s.component}
-          options={s?.options}
-        />
-      ))}
+      <Stack.Screen name="Onboarding" component={Onboarding} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Location" component={Location} />
       <Stack.Screen name="CreateAccount" component={CreateAccount} />
@@ -41,8 +30,6 @@ const AuthStack = () => {
       <Stack.Screen name="RiderCreateAccount" component={RiderCreateAccount} />
       <Stack.Screen name="VehicleDetails" component={VehicleDetails} />
       <Stack.Screen name="Rigistered" component={RiderRigistered} />
-
-   
     </Stack.Navigator>
   );
 };

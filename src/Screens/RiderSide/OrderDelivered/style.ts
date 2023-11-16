@@ -5,9 +5,12 @@ const styles = StyleSheet.create({
   text1: {
     fontWeight: '500',
     color: 'black',
-    fontSize: 16,
-    marginTop: 7,
-    marginLeft: 5,
+    fontSize: 14,
+    marginBottom: 10,
+  },
+  amountText: {
+    color: 'grey',
+    fontSize: 14,
   },
   text2: {
     color: 'grey',
@@ -27,6 +30,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: 'black',
     fontSize: 16,
+    marginTop: 20,
   },
   text5: {
     fontWeight: '500',
@@ -71,14 +75,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   orderView: {
-    marginTop: 10,
-    padding: 20,
+    paddingHorizontal: 20,
     borderRadius: 10,
     backgroundColor: '#FFFFFF',
   },
   details: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 20,
   },
   mapImg: {
     height: 16 * heightRef,
@@ -88,6 +92,23 @@ const styles = StyleSheet.create({
   dp: {
     height: 37 * heightRef,
     width: 35,
+  },
+  orderView3: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: '#FFFFFF',
+  },
+  text13: {
+    color: 'grey',
+    fontSize: 12,
+    marginLeft: 5,
+  },
+  text14: {
+    fontWeight: '500',
+    color: 'black',
+    fontSize: 16,
+    marginLeft: 40,
+    marginTop: -20,
   },
   smallView: {
     height: 25 * heightRef,
@@ -124,14 +145,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   container: {
-    ...StyleSheet.absoluteFillObject,
-    height: 70,
-    width: '30%',
-    position: 'absolute',
     borderRadius: 10,
-    marginLeft: 240,
-    marginTop: 20,
-    overflow: 'hidden',
+    marginTop: 10,
+    marginRight: 50,
   },
   orderDetail: {
     borderRadius: 10,
@@ -151,11 +167,13 @@ const styles = StyleSheet.create({
   },
   pinkView: {
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 20,
+    borderBottomEndRadius: 5,
+    borderBottomLeftRadius: 5,
     marginTop: 20,
     backgroundColor: '#E0281C1A',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 });
 export default styles;

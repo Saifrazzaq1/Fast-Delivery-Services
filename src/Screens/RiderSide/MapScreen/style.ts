@@ -23,15 +23,29 @@ const styles = StyleSheet.create({
     color: 'grey',
     fontSize: 12,
   },
+  text13: {
+    color: 'grey',
+    fontSize: 12,
+    marginLeft: 5,
+    marginTop: 2,
+  },
   text3: {
     fontWeight: '500',
     color: 'black',
     fontSize: 16,
+    marginTop: 20,
   },
   text5: {
     fontWeight: '500',
     color: 'black',
     fontSize: 16,
+  },
+  text14: {
+    fontWeight: '500',
+    color: 'black',
+    fontSize: 16,
+    marginLeft: 40,
+    marginTop: -15,
   },
   text6: {
     fontWeight: '400',
@@ -76,6 +90,28 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#FFFFFF',
   },
+  orderView3: {
+    paddingTop: 20,
+    marginTop: -18,
+    padding: 20,
+    paddingBottom: 20,
+    backgroundColor: '#FFFFFF',
+  },
+  orderView1: {
+    marginTop: 280,
+    padding: 20,
+    paddingTop: 30,
+    borderRadius: 20,
+    backgroundColor: '#fff',
+  },
+  mapView: {
+    marginBottom: 10,
+    marginTop: 30,
+    height: 160,
+    width: '100%',
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
   details: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -85,10 +121,18 @@ const styles = StyleSheet.create({
     width: 10.5,
     tintColor: '#1C7584',
   },
+  scroleView: {
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
+    flex: 1,
+  },
+  scroleView1: {
+    marginTop: 450,
+  },
   dp: {
     height: 37 * heightRef,
     width: 35,
   },
+
   smallView: {
     height: 25 * heightRef,
     width: 25,
@@ -124,13 +168,24 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   container: {
-    ...StyleSheet.absoluteFillObject,
+    // ...StyleSheet.absoluteFillObject,
     height: 70,
     width: '30%',
+    marginTop: 10,
+
     position: 'absolute',
     borderRadius: 10,
-    marginLeft: 240,
-    marginTop: 20,
+    // marginLeft: 240,
+    // marginTop: 20,
+    right: 20,
+    top: 20,
+    overflow: 'hidden',
+  },
+  container1: {
+    ...StyleSheet.absoluteFillObject,
+    height: '100%',
+    marginTop: 25,
+    position: 'absolute',
     overflow: 'hidden',
   },
   orderDetail: {

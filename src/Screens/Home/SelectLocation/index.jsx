@@ -17,7 +17,7 @@ const SelectLocation = ({navigation,route}) => {
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121,
     });
-  const {total,item,itemPrice,count}=route.params;
+  // const {total,item,itemPrice,count}=route.params;
   return (
     <View style={[style.main]}>
       <View style={style.container}>

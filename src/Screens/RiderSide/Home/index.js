@@ -27,7 +27,7 @@ const Orders = [
 const Home = () => {
   const navigation = useNavigation();
   return (
-    <View style={{paddingBottom: 100}}>
+    <View>
       <Header
         headerBg
         headerbgcolor={'#fff'}
@@ -40,7 +40,6 @@ const Home = () => {
       <ScrollView
         style={{
           marginHorizontal: 20,
-          marginBottom: '10%',
         }}>
         <OrderEarning />
         <Text style={{fontSize: 20, color: '#000', fontWeight: '500'}}>

@@ -345,4 +345,5 @@ const CheckOutDetails = ({route}) => {
     </ScrollView>
   );
 };
+
 export default CheckOutDetails;

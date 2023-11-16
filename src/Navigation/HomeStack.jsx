@@ -18,6 +18,8 @@ import FdsPay from 'src/Screens/Account/AccountScreens/FdsPay';
 import Help from 'src/Screens/Account/AccountScreens/Help';
 import Home from 'src/Screens/RiderSide/Home';
 import RiderOrderDetails from 'src/Screens/RiderSide/RiderOrderDetails';
+import MapScreen from 'src/Screens/RiderSide/MapScreen';
+import OrderDelivered from 'src/Screens/RiderSide/OrderDelivered';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -42,7 +44,9 @@ const HomeStack = () => {
       <Stack.Screen name="FdsPay" component={FdsPay} />
       <Stack.Screen name="Help" component={Help} />
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="MapScreen" component={MapScreen} />
       <Stack.Screen name="RiderOrderDetails" component={RiderOrderDetails} />
+      <Stack.Screen name="OrderDelivered" component={OrderDelivered} />
     </Stack.Navigator>
   );
 };
