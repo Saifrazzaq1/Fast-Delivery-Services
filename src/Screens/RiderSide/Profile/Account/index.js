@@ -26,10 +26,10 @@ const Payments = [
 ];
 
 const AccountRider = ({ navigation, route }) => {
-    const card = useSelector(state => state.cardReducer.cards);
+    const card = useSelector(state => state.card.cards);
     const lastCard = card.length > 0 ? card[card.length - 1] : null;
 
-    console.log('Last Card:', lastCard);
+    
 
     const hasAccountDetails = lastCard;
 

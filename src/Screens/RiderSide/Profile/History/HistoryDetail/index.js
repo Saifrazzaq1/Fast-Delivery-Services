@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View, Image, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import { StatusBar, Text, View, Image, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import Header from 'src/Components/Header';
 import style from './style';
 import Images from '../../../../../Assets'
@@ -22,7 +22,7 @@ const Items = [
         image: Images.salan,
 
     },
-    // Add more items as needed
+
 ];
 
 const HistoryFDetail = ({ navigation }) => {
@@ -114,4 +114,4 @@ const HistoryFDetail = ({ navigation }) => {
 
 export default HistoryFDetail;
 
-const styles = StyleSheet.create({});
+

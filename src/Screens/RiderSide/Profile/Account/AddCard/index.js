@@ -23,10 +23,7 @@ const AddCard = ({ navigation }) => {
         cvv,
       };
   
-      // Dispatch the action to add the card information to the Redux store
       dispatch(addCard(cardInfo));
-  
-      // Navigate to the next screen
       navigation.navigate('AccountR', cardInfo);
     };
     
@@ -114,4 +111,4 @@ const AddCard = ({ navigation }) => {
 
 export default AddCard;
 
-const styles = StyleSheet.create({});
+

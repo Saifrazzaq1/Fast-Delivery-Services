@@ -94,4 +94,3 @@ const VehicleDetails = ({navigation}) => {
 
 export default VehicleDetails;
 
-const styles = StyleSheet.create({});

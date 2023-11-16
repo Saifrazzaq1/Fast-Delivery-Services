@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StatusBar, StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity} from 'react-native';
+import {StatusBar, StyleSheet, Text, View, ImageBackground, TouchableOpacity} from 'react-native';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
@@ -7,7 +7,7 @@ import style from './style';
 import Images from '../../../../Assets'
 import Icon, { IconType } from 'react-native-dynamic-vector-icons';
 
-const EditProfile = ({navigation}) => {
+const EditProfile = () => {
   const [reTypepassword, setReTypepassword] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -15,12 +15,6 @@ const EditProfile = ({navigation}) => {
   const [email, setEmail] = useState('');
 
   const handleSubmit = () => {
-    const data = {
-      name: name,
-      email: email,
-      password: password,
-      phone: phone,
-    };
   }
 
   return (
@@ -142,4 +136,4 @@ const EditProfile = ({navigation}) => {
 
 export default EditProfile;
 
-const styles = StyleSheet.create({});
+

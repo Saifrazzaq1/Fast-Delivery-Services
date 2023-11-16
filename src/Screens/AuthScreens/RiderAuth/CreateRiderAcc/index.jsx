@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { StatusBar, Text, TouchableHighlight, View } from 'react-native';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import style from './style';
 
 const RiderCreateAccount = ({navigation}) => {
-;
+
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');

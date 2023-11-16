@@ -1,12 +1,12 @@
 import React from 'react';
-import { StatusBar, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StatusBar, Text, View, TouchableHighlight } from 'react-native';
 
 import Header from 'src/Components/Header';
 import style from './style';
 import Image from 'src/Components/Image';
 import Assets from 'src/Assets';
 
-const RiderRigistered = ({ navigation }) => {
+const RiderRigistered = () => {
 
 
   return (
@@ -52,4 +52,3 @@ const RiderRigistered = ({ navigation }) => {
 
 export default RiderRigistered;
 
-const styles = StyleSheet.create({});

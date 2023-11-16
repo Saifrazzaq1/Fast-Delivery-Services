@@ -6,7 +6,7 @@ const initialState = {
     cards: [],
   };
   
-  const cardReducer = (state = initialState, action) => {
+  const card = (state = initialState, action) => {
     switch (action.type) {
       case ADD_CARD:
         return {
@@ -18,5 +18,5 @@ const initialState = {
     }
   };
   
-  export default cardReducer;
+  export default card;
   

@@ -35,7 +35,7 @@ const Payments = [
         payment:52.00,
         Date: 'Nov - 12 - 2023'
     },
-    // Add more items as needed
+    
 ];
 
 const Transaction = () => {
@@ -85,4 +85,4 @@ const Transaction = () => {
 
 export default Transaction;
 
-const styles = StyleSheet.create({});
+

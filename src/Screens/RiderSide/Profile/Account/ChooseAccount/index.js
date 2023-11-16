@@ -47,4 +47,4 @@ const ChooseAccount = ({ navigation }) => {
 
 export default ChooseAccount;
 
-const styles = StyleSheet.create({});
+

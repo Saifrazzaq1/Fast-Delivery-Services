@@ -48,7 +48,6 @@ const Items = [
         image: Images.salan,
 
     },
-    // Add more items as needed
 ];
 
 const History = ({ navigation }) => {
