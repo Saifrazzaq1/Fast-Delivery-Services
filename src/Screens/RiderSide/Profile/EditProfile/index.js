@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import React, {useState} from 'react';
+import {StatusBar, StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity} from 'react-native';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import style from './style';
+import Images from '../../../../Assets'
+import Icon, { IconType } from 'react-native-dynamic-vector-icons';
 
-const RiderCreateAccount = ({navigation}) => {
-;
+const EditProfile = ({navigation}) => {
+  const [reTypepassword, setReTypepassword] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
 
+  const handleSubmit = () => {
+    const data = {
+      name: name,
+      email: email,
+      password: password,
+      phone: phone,
+    };
+  }
 
   return (
-    <View style={{backgroundColor:'white', flex:1}}>
+    <View style={{ flex:1,backgroundColor:'white'}}>
       <StatusBar
         backgroundColor={'transparent'}
         barStyle="dark-content"
@@ -24,27 +34,20 @@ const RiderCreateAccount = ({navigation}) => {
         loginbtn
         headerBg
         headerbgcolor={'white'}
-        loginmarginleft={"40%"}
+        loginmarginleft={"45%"}
         headerShadow
         backIcon
-        loginTitle={'Become a rider'}
+        loginTitle={'Edit Profile'}
         logintextcolor={"#1C7584"}
       />
-       <View style={{flexDirection:'row',margin:30 }}>
-                 <TouchableHighlight   style={style.Progbtn}  >
-                    <Text style={{fontSize:19, fontWeight:'500', color:'white',}}>1</Text>
-                    </TouchableHighlight>
-                    <View style={style.ProgView1} />
-                    <TouchableHighlight   style={style.Progbtn1}  >
-                    <Text style={style.ProbText1}>2</Text>
-                    </TouchableHighlight>
-                    <View style={style.ProgView1} />
-                    <TouchableHighlight   style={style.Progbtn1}  >
-                    <Text style={style.ProbText1}>3</Text>
-                    </TouchableHighlight>
-                </View> 
       <View style={style.mainview}>
-        <Text style={style.text}>Create Your Account</Text>
+       <View >
+       <ImageBackground style={style.dp} source={Images.dp}>
+           <TouchableOpacity style={style.btn}>
+           <Icon type={IconType.MaterialIcons} name='edit' size={8} color='white'  />
+           </TouchableOpacity>
+        </ImageBackground>
+       </View>
         <Textfield
           value={name}
           onChangeText={setName}
@@ -98,7 +101,21 @@ const RiderCreateAccount = ({navigation}) => {
           borderTopWidth={0}
           borderRightWidth={0}
           borderLeftWidth={0}
-         
+          placeholder={'New Password'}
+          secureIcon
+          secureTextEntry={true}
+        />
+        <Text style={style.text1}>
+          Your Password must be at least 6 characters
+        </Text>
+        <Textfield
+          value={reTypepassword}
+          onChangeText={setReTypepassword}
+          borderBottomWidth={1}
+          borderColor={'grey'}
+          borderTopWidth={0}
+          borderRightWidth={0}
+          borderLeftWidth={0}
           placeholder={'Re-type Password'}
           secureIcon
           secureTextEntry={true}
@@ -107,29 +124,22 @@ const RiderCreateAccount = ({navigation}) => {
           Your Password must be at least 6 characters
         </Text>
         <Button
-          onPress={() => navigation.navigate('VehicleDetails')}
+          onPress={() => handleSubmit()}
           btnheight={60}
           unseen={2}
-          title={'Continue'}
+          title={'Save Changes'}
+          fontSize={16}
           textColor={'#fff'}
           justifyContent={'center'}
           btnColor="#1C7584"
-          fontSize={16}
-          buttonStyle={{marginTop: 60}}
+          buttonStyle={{marginTop: 30}}
         />
-        <Text style={style.text4}>
-          By creating an account you agree to the{' '}
-          <Text style={style.text5}>
-            privacy policy <Text style={style.text4}>and to the</Text> terms of
-            use
-          </Text>
-        </Text>
+       
       </View>
     </View>
   );
 };
-<Text style={{}}></Text>
 
-export default RiderCreateAccount;
+export default EditProfile;
 
-
+const styles = StyleSheet.create({});

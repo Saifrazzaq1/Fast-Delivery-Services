@@ -69,4 +69,10 @@ export default {
   Dollar: require('src/Assets/Images/Dollar.png'),
   Map: require('src/Assets/Images/map.png'),
   banner: require('src/Assets/Images/Banner.png'),
+  Loading: require('./Images/loading.png'),
+  pay: require('./Images/pay.png'),
+  paypal: require('./Images/paypal.png'),
+  pay2: require('./Images/pay2.png'),
+  Master: require('./Images/master.png'),
+  Received: require('./Images/rec.png'),
 };

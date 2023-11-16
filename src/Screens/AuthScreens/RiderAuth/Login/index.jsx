@@ -1,11 +1,9 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
-import Header from 'src/Components/Header';
 
 import style from './style';
 import Button from 'src/Components/Button';
 import { TouchableHighlight } from 'react-native-gesture-handler';
-import { assets } from 'react-native.config';
 import Assets from 'src/Assets';
 
 const RiderLogin = ({navigation}) => {

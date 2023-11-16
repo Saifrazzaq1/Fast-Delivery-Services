@@ -18,6 +18,7 @@ const Textfield = ({
   paddingVertical,
   borderColor,
   marginTop,
+  marginRight,
   secureTextEntry = false,
 }) => {
   const [Enabled, setEnabled] = useState('false');
@@ -38,6 +39,7 @@ const Textfield = ({
             paddingLeft: paddingLeft,
             marginTop: marginTop,
             width: '100%',
+            marginRight: marginRight
           },
         ]}
         onChangeText={onChangeText}
