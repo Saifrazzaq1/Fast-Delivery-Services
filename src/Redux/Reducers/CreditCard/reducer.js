@@ -1,4 +1,3 @@
-// cardReducer.js
 
 import { ADD_CARD } from "./action";
 

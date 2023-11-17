@@ -22,16 +22,15 @@ const Payments = [
         payment: 52.00,
         Date: 'Nov - 12 - 2023'
     },
-    // Add more items as needed
 ];
 
 const AccountRider = ({ navigation, route }) => {
     const card = useSelector(state => state.card.cards);
     const lastCard = card.length > 0 ? card[card.length - 1] : null;
-
-    
-
     const hasAccountDetails = lastCard;
+    const maskCardNumber = (cardNumber) => {
+        return cardNumber.replace(/[^ ](?=.{4,}$)/g, '*');
+    };
 
     return (
         <View style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -50,7 +49,7 @@ const AccountRider = ({ navigation, route }) => {
                     <View style={style.card}>
                         <Image source={Images.Master} style={style.img} />
                         <View style={{ marginRight: 30 }}>
-                            <Text style={style.CardText}>{card && lastCard.cardNumber}</Text>
+                            <Text style={style.CardText}>{card && maskCardNumber(lastCard.cardNumber)}</Text>
                             <Text style={style.CardT1}>{card && lastCard.nameOnCard}</Text>
                         </View>
                         <TouchableOpacity onPress={()=> navigation.navigate('ChooseAccount')}>

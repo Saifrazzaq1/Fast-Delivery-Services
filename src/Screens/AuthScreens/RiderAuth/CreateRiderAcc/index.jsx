@@ -128,7 +128,6 @@ const RiderCreateAccount = ({navigation}) => {
     </View>
   );
 };
-<Text style={{}}></Text>
 
 export default RiderCreateAccount;
 

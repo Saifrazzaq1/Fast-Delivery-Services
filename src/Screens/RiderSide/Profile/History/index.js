@@ -117,4 +117,3 @@ const History = ({ navigation }) => {
 
 export default History;
 
-const styles = StyleSheet.create({});

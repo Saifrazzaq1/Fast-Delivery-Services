@@ -145,4 +145,3 @@ const CreateAccount = ({navigation}) => {
 
 export default CreateAccount;
 
-const styles = StyleSheet.create({});
