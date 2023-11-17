@@ -145,17 +145,7 @@ const MapScreen = () => {
             <View style={style.container}>
               <MapView style={{flex: 1}} initialRegion={pickUpCord} />
             </View>
-            <View
-              style={{
-                height: 5,
-                width: 60,
-                borderRadius: 30,
-                marginTop: 5,
-                position: 'absolute',
-                alignSelf: 'center',
-                backgroundColor: '#B1B1B1',
-              }}
-            />
+            <View style={style.dragline} />
             <View style={{flexDirection: 'row'}}>
               <Image style={style.dp} source={Images.dp} />
               <Text style={style.text1}>Foodie Hoodie</Text>
@@ -185,26 +175,8 @@ const MapScreen = () => {
               <View style={style.container}>
                 <MapView style={{flex: 1}} initialRegion={pickUpCord}></MapView>
               </View>
-              <View
-                style={{
-                  height: 5,
-                  width: 60,
-                  borderRadius: 30,
-                  marginTop: 5,
-                  position: 'absolute',
-                  alignSelf: 'center',
-                  backgroundColor: '#B1B1B1',
-                }}
-              />
-              <View
-                style={{
-                  height: 0.5,
-                  marginTop: -10,
-                  marginBottom: 10,
-                  borderRadius: 30,
-                  backgroundColor: '#AFAFAF80',
-                }}
-              />
+              <View style={style.dragline} />
+              <View style={style.Ldragline} />
               <View style={{flexDirection: 'row'}}>
                 <Image style={style.dp} source={Images.dp} />
                 <Text style={style.text1}>Foodie Hoodie</Text>

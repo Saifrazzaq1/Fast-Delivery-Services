@@ -12,7 +12,7 @@ const Navigation = () => {
       onReady={() => {
         RNBootSplash.hide({fade: true});
       }}>
-      {!isLoggedIn ? <HomeStack /> : <AuthStack />}
+      {isLoggedIn ? <HomeStack /> : <AuthStack />}
     </NavigationContainer>
   );
 };

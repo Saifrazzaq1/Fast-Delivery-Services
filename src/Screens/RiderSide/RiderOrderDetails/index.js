@@ -126,15 +126,7 @@ const RiderOrderDetials = ({route}) => {
               <Text style={style.redText}>AED 10.00</Text>
             </View>
           </View>
-          <View
-            style={{
-              marginBottom: 10,
-              marginTop: 30,
-              height: 160,
-              width: '100%',
-              borderRadius: 20,
-              overflow: 'hidden',
-            }}>
+          <View style={style.MapView}>
             <MapView
               style={{flex: 1}}
               initialRegion={{

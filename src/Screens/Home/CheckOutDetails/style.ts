@@ -169,6 +169,43 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  twoview: {
+    backgroundColor: 'black',
+    height: 20,
+    width: 20,
+    borderRadius: 15,
+    marginTop: 2.5,
+    borderColor: 'black',
+    borderWidth: 1,
+  },
+  mapview: {
+    marginBottom: 10,
+    height: 180,
+    width: '100%',
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+  check: {
+    flexDirection: 'row',
+    backgroundColor: '#fdf4f4',
+    borderRadius: 10,
+  },
+  check2: {
+    flexDirection: 'row',
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+    borderRadius: 10,
+  },
+  uncheck: {
+    backgroundColor: '#1C75840D',
+    padding: 20,
+    borderRadius: 10,
+    marginTop: 40,
+  },
+  btn: {
+    flexDirection: 'row',
+    marginTop: 130,
+  },
 });
 
 export default styles;

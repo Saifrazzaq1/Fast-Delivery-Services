@@ -26,7 +26,7 @@ const HomeStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName="Home">
+      initialRouteName="BottomNavigation">
       <Stack.Screen name={'BottomNavigation'} component={BottomNavigation} />
       <Stack.Screen name="Details" component={Details} />
       <Stack.Screen name="ItemDetail" component={ItemDetail} />

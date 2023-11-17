@@ -24,9 +24,13 @@ const Home = ({navigation}) => {
   const user = useAppSelector(s => s.auth.user);
   useEffect(() => {
     CATEGORIES(res => {
-      setCategories(res.Categories);
+      if(res.success){
+        setCategories(res.catagory);
+      }
+     
     });
   }, []);
+  console.log(categories,'sa')
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <ScrollView  stickyHeaderIndices={[0]}>
@@ -73,7 +77,7 @@ const Home = ({navigation}) => {
                 style={style.catView}>
                 <Image style={style.catimg} source={Images.gggg} />
                 <Text style={style.cattext} numberOfLines={1}>
-                  {item.name}
+                  {item.catagory}
                 </Text>
               </TouchableOpacity>
             )}

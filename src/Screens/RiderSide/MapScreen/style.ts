@@ -212,5 +212,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  dragline: {
+    height: 5,
+    width: 60,
+    borderRadius: 30,
+    marginTop: 5,
+    position: 'absolute',
+    alignSelf: 'center',
+    backgroundColor: '#B1B1B1',
+  },
+  Ldragline: {
+    height: 0.5,
+    marginTop: -10,
+    marginBottom: 10,
+    borderRadius: 30,
+    backgroundColor: '#AFAFAF80',
+  },
 });
 export default styles;

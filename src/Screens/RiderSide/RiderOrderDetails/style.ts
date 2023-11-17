@@ -89,6 +89,14 @@ const styles = StyleSheet.create({
     height: 37 * heightRef,
     width: 35,
   },
+  MapView: {
+    marginBottom: 10,
+    marginTop: 30,
+    height: 160,
+    width: '100%',
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
   smallView: {
     height: 25 * heightRef,
     width: 25,

@@ -47,14 +47,7 @@ const CheckOutDetails = ({route}) => {
         marginright={90}
       />
       <View style={{margin: 20}}>
-        <View
-          style={{
-            marginBottom: 10,
-            height: 180,
-            width: '100%',
-            borderRadius: 20,
-            overflow: 'hidden',
-          }}>
+        <View style={style.mapview}>
           <MapView
             style={{flex: 1}}
             provider={PROVIDER_GOOGLE}
@@ -92,18 +85,8 @@ const CheckOutDetails = ({route}) => {
             setIschecked(!ischecked);
             setEnabled(!Enabled);
           }}
-          style={{
-            flexDirection: 'row',
-            backgroundColor: '#fdf4f4',
-            borderRadius: 10,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              paddingVertical: 20,
-              paddingHorizontal: 15,
-              borderRadius: 10,
-            }}>
+          style={style.check}>
+          <View style={style.check2}>
             <View style={{flexDirection: 'row'}}>
               <Image
                 style={{width: 35, height: 35, marginTop: 5}}
@@ -164,17 +147,7 @@ const CheckOutDetails = ({route}) => {
                     width: 22.5,
                     marginLeft: -22.5,
                   }}>
-                  <View
-                    style={{
-                      backgroundColor: 'black',
-                      height: 20,
-                      width: 20,
-                      borderRadius: 15,
-                      marginTop: 2.5,
-                      borderColor: 'black',
-                      borderWidth: 1,
-                    }}
-                  />
+                  <View style={style.twoview} />
                 </View>
               ) : null}
               <Image
@@ -221,17 +194,7 @@ const CheckOutDetails = ({route}) => {
                     width: 22.5,
                     marginLeft: -22.5,
                   }}>
-                  <View
-                    style={{
-                      backgroundColor: 'black',
-                      height: 20,
-                      width: 20,
-                      borderRadius: 15,
-                      marginTop: 2.5,
-                      borderColor: 'black',
-                      borderWidth: 1,
-                    }}
-                  />
+                  <View style={style.twoview} />
                 </View>
               ) : null}
               <Image
@@ -251,13 +214,7 @@ const CheckOutDetails = ({route}) => {
               </Text>
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              backgroundColor: '#1C75840D',
-              padding: 20,
-              borderRadius: 10,
-              marginTop: 40,
-            }}>
+          <View style={style.uncheck}>
             <Text style={style.oshatextv}>
               Uncheck contactless delivery to use cash payment
             </Text>
@@ -300,11 +257,7 @@ const CheckOutDetails = ({route}) => {
             AED {total + serviceFee + riderTip}
           </Text>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 130,
-          }}>
+        <View style={style.btn}>
           <Button
             btnheight={55}
             unseen={2}

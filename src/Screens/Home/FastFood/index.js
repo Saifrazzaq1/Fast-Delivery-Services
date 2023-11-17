@@ -15,6 +15,7 @@ import AllResturant from 'src/Components/AllResturant';
 import AllResturant2 from 'src/Components/AllResturant2';
 import ChefList from 'src/Components/ChefList';
 import {useNavigation} from '@react-navigation/native';
+import styles from './style';
 
 const FastFood = () => {
   const navigation = useNavigation();
@@ -101,19 +102,9 @@ const FastFood = () => {
                 activeOpacity={0.1}
                 style={styles.restrtView}>
                 <Image style={styles.restrtimg} source={item.img} />
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    marginTop: 5,
-                  }}>
+                <View style={styles.main1}>
                   <Text style={styles.restrttext}>{item.name}</Text>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      marginLeft: 40,
-                      top: 3,
-                    }}>
+                  <View style={styles.main2}>
                     <Image style={styles.restrtclock} source={Images.clock} />
                     <Text style={styles.restrttime}>
                       within {item.time} mins
@@ -141,69 +132,3 @@ const FastFood = () => {
 };
 
 export default FastFood;
-
-const styles = StyleSheet.create({
-  text: {
-    color: 'black',
-    marginLeft: 5,
-  },
-  img: {
-    height: 15,
-    width: 15,
-    tintColor: 'black',
-  },
-  pickText: {
-    color: 'black',
-    fontWeight: 'bold',
-    fontSize: 20,
-    margin: 20,
-  },
-  restrtimg: {
-    width: 300,
-    height: 160,
-    borderRadius: 10,
-  },
-  restrtclock: {
-    width: 16,
-    height: 16,
-  },
-  restrttext: {
-    fontSize: 16,
-    fontWeight: '500',
-    textAlign: 'left',
-    color: 'black',
-  },
-  restrtView: {
-    marginLeft: 10,
-    alignItems: 'flex-start',
-    paddingBottom: 20,
-  },
-  restrttime: {
-    color: 'black',
-    fontSize: 12,
-    marginLeft: 5,
-  },
-  nameDes: {
-    color: 'grey',
-    fontSize: 14,
-    marginVertical: 3,
-  },
-  starimg: {
-    height: 15,
-    width: 15,
-  },
-  locimg: {
-    height: 15,
-    width: 9,
-  },
-  startext: {
-    color: 'grey',
-    fontSize: 12,
-    marginHorizontal: 5,
-  },
-  loctext: {
-    color: 'grey',
-    fontSize: 12,
-    marginHorizontal: 5,
-  },
-});

@@ -48,21 +48,13 @@ const CheckOut = ({route}) => {
           data={item}
           renderItem={({item}) => <AddItems item={item} />}
         />
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}></View>
+        <View style={style.checkView}></View>
         <View style={style.line} />
         <TouchableOpacity
           onPress={() => {
             setEnabled(prevNote => !prevNote);
           }}
-          style={{
-            flexDirection: 'row',
-            width: '100%',
-            justifyContent: 'space-between',
-          }}>
+          style={style.noview}>
           <View style={{}}>
             <View style={{flexDirection: 'row'}}>
               <Image
@@ -88,11 +80,7 @@ const CheckOut = ({route}) => {
           onPress={() => {
             setNote(prevNote => !prevNote);
           }}
-          style={{
-            flexDirection: 'row',
-            width: '100%',
-            justifyContent: 'space-between',
-          }}>
+          style={style.noteview}>
           <View style={{}}>
             <View style={{flexDirection: 'row'}}>
               <Image

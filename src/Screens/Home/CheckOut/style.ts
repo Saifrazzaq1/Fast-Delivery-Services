@@ -137,6 +137,20 @@ const styles = StyleSheet.create({
     width: 118,
     borderRadius: 10,
   },
+  checkView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  noview: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+  },
+  noteview: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+  },
 });
 
 export default styles;

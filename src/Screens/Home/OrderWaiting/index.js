@@ -44,20 +44,8 @@ const OrderWaiting = ({route}) => {
           <Text style={style.oshatext2}>25 mins</Text>
           <Image style={{width: 250, height: 250}} source={Images.pmake} />
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            backgroundColor: '#fdf4f4',
-            borderRadius: 10,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              paddingVertical: 15,
-              paddingHorizontal: 15,
-              borderRadius: 10,
-            }}>
+        <View style={style.totalView}>
+          <View style={style.totalV}>
             <View style={{flexDirection: 'row'}}>
               <Image
                 style={{width: 25, height: 25, marginTop: 5}}
@@ -79,37 +67,17 @@ const OrderWaiting = ({route}) => {
           <FlatList
             data={itemsArray}
             renderItem={({item}) => (
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  marginTop: 20,
-                }}>
+              <View style={style.itemlist}>
                 <View style={style.view1}>
                   <Text style={style.oshatext}>{item.name}</Text>
                   <Text style={style.revtext}>AED {itemPrice}</Text>
                 </View>
-                <Image
-                  style={{
-                    height: 70,
-                    width: 100,
-                    borderRadius: 20,
-                  }}
-                  source={Images.burger}
-                />
+                <Image style={listimg} source={Images.burger} />
               </View>
             )}
           />
         </View>
-        <View
-          style={{
-            marginBottom: 10,
-            marginTop: 30,
-            height: 160,
-            width: '100%',
-            borderRadius: 20,
-            overflow: 'hidden',
-          }}>
+        <View style={mapv}>
           <MapView
             style={{flex: 1}}
             provider={PROVIDER_GOOGLE}

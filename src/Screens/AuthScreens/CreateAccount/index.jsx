@@ -17,7 +17,7 @@ const CreateAccount = ({navigation}) => {
 
   const handleSubmit = () => {
     const data = {
-      name: name,
+      first_name: name,
       email: email,
       password: password,
       phone: phone,

@@ -2,10 +2,11 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import AllResturant from 'src/Components/AllResturant';
 import Header from 'src/Components/Header';
+import styles from './style';
 
 const Favorite = () => {
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
+    <View style={styles.main}>
       <Header
         backIcon
         loginTitle={'Favorite'}
@@ -24,9 +25,3 @@ const Favorite = () => {
 };
 
 export default Favorite;
-
-const styles = StyleSheet.create({
-  btnsview: {
-    marginTop: 10,
-  },
-});

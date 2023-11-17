@@ -1,10 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, Image, View} from 'react-native';
+import {Image, View} from 'react-native';
+import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Images from '../../../../Assets';
-import {heightRef} from 'src/config/screenSize';
-import Button from 'src/Components/Button';
-
+import styles from './style';
 const FdsPay = () => {
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
@@ -37,16 +36,3 @@ const FdsPay = () => {
 };
 
 export default FdsPay;
-
-const styles = StyleSheet.create({
-  btnsview: {
-    marginHorizontal: 20,
-    flex: 1,
-    paddingVertical: 10,
-  },
-  btnsimg: {
-    height: 190 * heightRef,
-    width: '100%',
-    alignSelf: 'center',
-  },
-});
