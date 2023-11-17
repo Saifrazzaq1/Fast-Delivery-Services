@@ -72,4 +72,10 @@ export default {
   call: require('src/Assets/Images/call.png'),
   sms: require('src/Assets/Images/sms.png'),
   bike2: require('src/Assets/Images/bike2.png'),
+  Loading: require('./Images/loading.png'),
+  pay: require('./Images/pay.png'),
+  paypal: require('./Images/paypal.png'),
+  pay2: require('./Images/pay2.png'),
+  Master: require('./Images/master.png'),
+  Received: require('./Images/rec.png'),
 };

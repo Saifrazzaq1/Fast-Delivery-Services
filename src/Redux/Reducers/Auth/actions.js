@@ -26,6 +26,7 @@ export const SIGNUP = (data, cb) => {
       });
     });
 };
+
 export const CATEGORIES = cb => {
   const {method, url} = API.CATEGORY;
   Api.request({method, url})
@@ -72,12 +73,15 @@ export const SUBCATEGORIES = cb => {
 export const LOGIN = data => {
   const {dispatch} = getRedux();
   const {method, url} = API.LOGIN;
+  console.log("got there ?", API.LOGIN );
+
   Api.request({method, url, data})
     .then(res => {
       dispatch({
         type: USER_LOGIN,
         payload: res,
       });
+      console.log("got there ?")
     })
     .catch(error => {
       showSnackbar({

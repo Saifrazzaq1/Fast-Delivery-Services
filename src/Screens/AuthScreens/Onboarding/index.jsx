@@ -10,7 +10,7 @@ import style from './style';
 const Onboarding = ({navigation}) => {
   const inset = useSafeAreaInsets();
   const pressHandler = () => {
-    console.log('working');
+    
     navigation.navigate('Location');
   };
   const [index, setIndex] = useState(0);

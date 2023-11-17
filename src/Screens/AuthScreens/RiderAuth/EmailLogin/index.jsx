@@ -3,20 +3,12 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
-import {LOGIN} from 'src/Redux/Reducers/Auth/actions';
 import style from './style';
 
 const RiderSignin = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
-//   const handleSignin = () => {
-//     const data = {
-//       email: email,
-//       password: password,
-//     };
-//     LOGIN(data);
-//   };
 
   return (
     <View style={{backgroundColor:'white', flex:1}}>
@@ -55,10 +47,10 @@ const RiderSignin = ({navigation}) => {
           secureTextEntry={true}
         />
         <TouchableOpacity>
-          <Text style={style.text1}>Forgot Password</Text>
+          <Text style={{alignSelf:'flex-end'}}>Forgot Password</Text>
         </TouchableOpacity>
         <Button
-        //   onPress={handleSignin}
+        onPress={() => navigation.navigate('Home')}
           btnheight={60}
           unseen={2}
           title={'Login'}

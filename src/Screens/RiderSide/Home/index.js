@@ -24,8 +24,8 @@ const Orders = [
     cm: 'Haris iramani',
   },
 ];
-const Home = () => {
-  const navigation = useNavigation();
+const Home = ({navigation}) => {
+
   return (
     <View>
       <Header

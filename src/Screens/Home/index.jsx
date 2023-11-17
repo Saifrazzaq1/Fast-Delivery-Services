@@ -21,7 +21,6 @@ const Home = ({navigation}) => {
     {name: 'Past Order', img: Images.two},
   ];
   const offers = [{img: Images.pop1}, {img: Images.pop2}, {img: Images.pop3}];
-  const user = useAppSelector(s => s.auth.user);
   useEffect(() => {
     CATEGORIES(res => {
       if(res.success){

@@ -11,31 +11,6 @@ const VehicleDetails = ({navigation}) => {
   const [vehicle, setVehicle] = useState('');
   const [name, setName] = useState('');
 
-//   const handleSubmit = () => {
-//     const data = {
-//       name: name,
-//       email: email,
-//       password: password,
-//       phone: phone,
-//     };
-
-//     SIGNUP(data, ({success}) => {
-//       if (success) {
-//         showSnackbar({
-//           body: 'Signup Successfully',
-//           type: 'success',
-//           header: 'SUCCESS',
-//         });
-//         navigation.navigate('Signin');
-//       } else {
-//         showSnackbar({
-//           body: 'Signup error',
-//           type: 'error',
-//           header: 'ERROR',
-//         });
-//       }
-//     });
-//   };
 
   return (
     <View style={{backgroundColor:'white', flex:1}}>
@@ -119,4 +94,3 @@ const VehicleDetails = ({navigation}) => {
 
 export default VehicleDetails;
 
-const styles = StyleSheet.create({});

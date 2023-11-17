@@ -11,7 +11,7 @@ import style from './style';
 const CreateAccount = ({navigation}) => {
   const [isChecked, setisChecked] = useState(false);
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [first_name, setfirst_name] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
 
@@ -61,8 +61,8 @@ const CreateAccount = ({navigation}) => {
       <View style={style.mainview}>
         <Text style={style.text}>Continue with email</Text>
         <Textfield
-          value={name}
-          onChangeText={setName}
+          value={first_name}
+          onChangeText={setfirst_name}
           borderBottomWidth={1}
           borderColor={'grey'}
           placeholder={'First Name'}
@@ -145,4 +145,3 @@ const CreateAccount = ({navigation}) => {
 
 export default CreateAccount;
 
-const styles = StyleSheet.create({});

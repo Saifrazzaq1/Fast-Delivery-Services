@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import React from 'react';
+import { StatusBar, Text, View, TouchableHighlight } from 'react-native';
 
-import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
-import { SIGNUP } from 'src/Redux/Reducers/Auth/actions';
-import Textfield from 'src/Components/Textfield';
-import { showSnackbar } from 'src/Components/Snackbar';
 import style from './style';
 import Image from 'src/Components/Image';
 import Assets from 'src/Assets';
 
-const RiderRigistered = ({ navigation }) => {
+const RiderRigistered = () => {
 
 
   return (
@@ -56,4 +52,3 @@ const RiderRigistered = ({ navigation }) => {
 
 export default RiderRigistered;
 
-const styles = StyleSheet.create({});

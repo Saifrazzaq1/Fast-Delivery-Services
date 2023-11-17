@@ -10,6 +10,7 @@ import {useNavigation} from '@react-navigation/native';
 const Header = ({
   guestbtn,
   menu,
+  onMenuPress,
   loginbtn,
   backIcon,
   heartIcon,
@@ -100,7 +101,7 @@ const Header = ({
       {locationIcon && (
          <FontAwesome5 style={{marginRight:10}} name="map-marker-alt" size={18} color="#1C7584" />
       )}
-        {menu && (<Image style={{height:23,width:23,tintColor:'red',position:'absolute',right:30}} source={Images.menuLines}/>)}
+      
       
       {locationText ? (
         <View style={{alignItems:alignItems,width:'100%',marginRight:marginright}}>
@@ -120,6 +121,14 @@ const Header = ({
           </Text>
         </View>
       ) : null}
+        {menu && (
+      <TouchableOpacity
+      onPress={()=> navigation.navigate('Profile')}
+      style={{position: 'absolute', right: 30}}
+    >
+      <Image style={{height: 23, width: 23, tintColor: 'red'}} source={Images.menuLines} />
+    </TouchableOpacity>
+        )}
     </View>
   );
 };
