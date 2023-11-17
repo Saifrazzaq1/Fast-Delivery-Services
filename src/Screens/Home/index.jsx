@@ -37,10 +37,9 @@ const Home = ({navigation}) => {
           searchIcon
           searchmarginRight={20}
           locationText
-          backIcon
           headerbgcolor={"#fff"}
           headerBg
-          locationtextPosition={'center'}
+          locationtextPosition={'left'}
         />
         <View style={style.storesView}>
           <Text style={style.storesViewText1}>Stores</Text>
