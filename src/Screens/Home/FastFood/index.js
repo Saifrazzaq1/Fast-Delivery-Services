@@ -1,21 +1,21 @@
+import {useNavigation} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
 import {
-  StyleSheet,
   FlatList,
-  TouchableOpacity,
   Image,
-  Text,
   ScrollView,
+  Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
-import AssitBar from 'src/Components/AssitBar';
-import Header from 'src/Components/Header';
-import Images from '../../../Assets/';
 import AllResturant from 'src/Components/AllResturant';
 import AllResturant2 from 'src/Components/AllResturant2';
+import AssitBar from 'src/Components/AssitBar';
 import ChefList from 'src/Components/ChefList';
-import {useNavigation} from '@react-navigation/native';
+import Header from 'src/Components/Header';
+import Images from '../../../Assets/';
 import styles from './style';
+import {BUSSINESS} from 'src/Redux/Reducers/Auth/actions';
 
 const FastFood = () => {
   const navigation = useNavigation();
@@ -49,6 +49,16 @@ const FastFood = () => {
       tctext: '',
     },
   ];
+  const [bussiness, setBussiness] = useState([]);
+  useEffect(() => {
+    BUSSINESS(res => {
+      if (res.success) {
+        console.log(JSON.stringify(res, null, 2));
+        setBussiness(res);
+        console.log(res);
+      }
+    });
+  }, []);
   return (
     <View style={{backgroundColor: '#fff', paddingBottom: '29%', flex: 1}}>
       <Header
@@ -90,7 +100,6 @@ const FastFood = () => {
       <ScrollView>
         <AssitBar marginTop={20} />
         <Text style={styles.pickText}>Pick</Text>
-
         <View style={{marginHorizontal: 20}}>
           <FlatList
             horizontal={true}

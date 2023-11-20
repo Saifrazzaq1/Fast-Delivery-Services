@@ -15,7 +15,7 @@ const Signin = ({navigation}) => {
       email: email,
       password: password,
     };
-    console.log('data', data)
+    console.log('data', data);
     LOGIN(data);
   };
 
@@ -25,9 +25,9 @@ const Signin = ({navigation}) => {
         loginbtn
         headerBg
         headerbgcolor={'white'}
-        loginmarginleft={"55%"}
-        logintextcolor={"#1C7584"}
-        headerShadow 
+        loginmarginleft={'55%'}
+        logintextcolor={'#1C7584'}
+        headerShadow
         loginTitle={'Login'}
         backIcon
       />

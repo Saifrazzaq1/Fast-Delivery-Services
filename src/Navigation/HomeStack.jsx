@@ -40,7 +40,6 @@ const HomeStack = () => {
       <Stack.Screen name="Notification" component={Notification} />
       <Stack.Screen name="FdsPay" component={FdsPay} />
       <Stack.Screen name="Help" component={Help} />
- 
     </Stack.Navigator>
   );
 };

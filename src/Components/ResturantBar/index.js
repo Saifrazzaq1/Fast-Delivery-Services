@@ -11,13 +11,6 @@ const ResturantBar = () => {
     {name: 'Osha Emirati\nGourmet', time: '22', img: Images.pop3},
   ];
 
-  // const [subcategories, setSubcategories] = useState([]);
-  // const Subcategory = useAppSelector(s => s.auth.user);
-  // useEffect(() => {
-  //   SUBCATEGORIES(sub => {
-  //     setSubcategories(sub.Subcategories);
-  //   });
-  // }, []);
   return (
     <View style={{marginHorizontal: 20}}>
       <FlatList

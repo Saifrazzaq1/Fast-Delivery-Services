@@ -22,56 +22,10 @@ export const SIGNUP = (data, cb) => {
       });
     });
 };
-
-export const CATEGORIES = cb => {
-  const {method, url} = API.CATEGORY;
-  Api.request({method, url})
-    .then(res => {
-      cb(res);
-    })
-    .catch(error => {
-      showSnackbar({
-        type: 'error',
-        header: 'Login ERROR',
-        body: getError(error),
-      });
-    });
-};
-export const MENU = cb => {
-  const {method, url} = API.MENU;
-  Api.request({method, url})
-    .then(res => {
-      cb(res);
-    })
-    .catch(error => {
-      showSnackbar({
-        type: 'error',
-        header: 'Login ERROR',
-        body: getError(error),
-      });
-    });
-};
-export const BUSSINESS = cb => {
-  const {method, url} = API.BUSSINESS;
-  console.log(Api.BUSSINESS);
-
-  Api.request({method, url})
-    .then(res => {
-      cb(res);
-      console.log(res);
-    })
-    .catch(error => {
-      showSnackbar({
-        type: 'error',
-        header: 'Bussiness ERROR',
-        body: getError(error),
-      });
-    });
-};
 export const LOGIN = data => {
   const {dispatch} = getRedux();
-  const {method, url} = API.LOGIN;
-  console.log('got there ?', API.LOGIN);
+  const {method, url} = API.RIDER_LOGIN;
+  console.log('got there ?', API.RIDER_LOGIN);
 
   Api.request({method, url, data})
     .then(res => {
@@ -79,7 +33,7 @@ export const LOGIN = data => {
         type: USER_LOGIN,
         payload: res,
       });
-      console.log('got there ?');
+      console.log('got there ? 3333333');
     })
     .catch(error => {
       showSnackbar({

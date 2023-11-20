@@ -6,10 +6,10 @@ import Header from 'src/Components/Header';
 import ResturantBar from 'src/Components/ResturantBar';
 import Text from 'src/Components/Text';
 import View from 'src/Components/View';
-import {useAppSelector} from 'src/Helper/Hooks/reduxHooks';
-import Images from '../../Assets/';
-import style from './style';
 import {CATEGORIES} from 'src/Redux/Reducers/Auth/actions';
+import Images from '../../Assets/';
+import Order from '../Account/AccountScreens/Order';
+import style from './style';
 
 const Home = ({navigation}) => {
   const [categories, setCategories] = useState([]);
@@ -23,21 +23,21 @@ const Home = ({navigation}) => {
   const offers = [{img: Images.pop1}, {img: Images.pop2}, {img: Images.pop3}];
   useEffect(() => {
     CATEGORIES(res => {
-      if(res.success){
+      if (res.success) {
         setCategories(res.catagory);
       }
-     
     });
   }, []);
-  console.log(categories,'sa')
+  console.log(categories, 'sa');
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <ScrollView  stickyHeaderIndices={[0]}>
+      <ScrollView stickyHeaderIndices={[0]}>
         <Header
           searchIcon
           searchmarginRight={20}
           locationText
-          headerbgcolor={"#fff"}
+          backIcon
+          headerbgcolor={'#fff'}
           headerBg
           locationtextPosition={'left'}
         />
@@ -96,7 +96,7 @@ const Home = ({navigation}) => {
           <FlatList
             horizontal={true}
             style={{flexDirection: 'row'}}
-            data={offers}
+            data={Order}
             renderItem={({item}) => (
               <TouchableOpacity activeOpacity={0.1} style={style.offerView}>
                 <Image style={style.offerimg} source={item.img} />

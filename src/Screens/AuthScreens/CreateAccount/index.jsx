@@ -40,7 +40,6 @@ const CreateAccount = ({navigation}) => {
       }
     });
   };
-
   return (
     <View>
       <StatusBar
@@ -52,11 +51,11 @@ const CreateAccount = ({navigation}) => {
         loginbtn
         headerBg
         headerbgcolor={'white'}
-        loginmarginleft={"55%"}
+        loginmarginleft={'55%'}
         headerShadow
         backIcon
         loginTitle={'Login'}
-        logintextcolor={"#1C7584"}
+        logintextcolor={'#1C7584'}
       />
       <View style={style.mainview}>
         <Text style={style.text}>Continue with email</Text>
@@ -144,4 +143,3 @@ const CreateAccount = ({navigation}) => {
 };
 
 export default CreateAccount;
-

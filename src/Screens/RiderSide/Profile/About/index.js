@@ -5,7 +5,7 @@ import Header from 'src/Components/Header';
 import styles from './styles';
 const AboutR = () => {
   return (
-    <View style={{flex:1,backgroundColor: '#fff'}}>
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
       <Header
         backIcon
         loginTitle={'About'}
@@ -17,8 +17,7 @@ const AboutR = () => {
         headerShadow
       />
       <View style={styles.btnsview}>
-        <View
-          style={styles.btn}>
+        <View style={styles.btn}>
           <View style={{alignSelf: 'center'}}>
             <Text style={styles.username}>FAQ</Text>
           </View>
@@ -31,8 +30,7 @@ const AboutR = () => {
             />
           </View>
         </View>
-        <View
-          style={styles.btn}>
+        <View style={styles.btn}>
           <View style={{alignSelf: 'center'}}>
             <Text style={styles.username}>App Feedback</Text>
           </View>
@@ -45,8 +43,7 @@ const AboutR = () => {
             />
           </View>
         </View>
-        <View
-          style={styles.btn}>
+        <View style={styles.btn}>
           <View style={{alignSelf: 'center'}}>
             <Text style={styles.username}>Privacy Policy</Text>
           </View>
@@ -59,8 +56,7 @@ const AboutR = () => {
             />
           </View>
         </View>
-        <View
-        style={styles.btn}>
+        <View style={styles.btn}>
           <View style={{alignSelf: 'center'}}>
             <Text style={styles.username}>Terms of use</Text>
           </View>
@@ -73,8 +69,7 @@ const AboutR = () => {
             />
           </View>
         </View>
-        <View
-         style={styles.btn}>
+        <View style={styles.btn}>
           <View style={{alignSelf: 'center'}}>
             <Text style={styles.username}>FaceBook</Text>
           </View>
@@ -87,8 +82,7 @@ const AboutR = () => {
             />
           </View>
         </View>
-        <View
-          style={styles.btn}>
+        <View style={styles.btn}>
           <View style={{alignSelf: 'center'}}>
             <Text style={styles.username}>Twitter</Text>
           </View>
@@ -101,8 +95,7 @@ const AboutR = () => {
             />
           </View>
         </View>
-        <View
-         style={styles.btn}>
+        <View style={styles.btn}>
           <View style={{alignSelf: 'center'}}>
             <Text style={styles.username}>Instagram</Text>
           </View>
@@ -121,4 +114,3 @@ const AboutR = () => {
 };
 
 export default AboutR;
-

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StatusBar, Text, TouchableHighlight, View } from 'react-native';
+import React, {useState} from 'react';
+import {StatusBar, Text, TouchableHighlight, View} from 'react-native';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
@@ -7,9 +7,7 @@ import style from './style';
 import { RiderSIGNUP } from 'src/Redux/Reducers/Rider/actions';
 import { showSnackbar } from 'src/Components/Snackbar';
 
-
-
-const RiderCreateAccount = ({ navigation }) => {
+const RiderCreateAccount = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [first_name, setFirst_name] = useState('');
   const [phone, setPhone] = useState('');

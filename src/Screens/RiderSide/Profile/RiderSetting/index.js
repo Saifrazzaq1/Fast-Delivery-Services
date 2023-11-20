@@ -60,4 +60,3 @@ const RiderSetting = () => {
 };
 
 export default RiderSetting;
-

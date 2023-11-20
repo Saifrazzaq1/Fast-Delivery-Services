@@ -6,10 +6,9 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
   },
   text3: {
-   bottom:20,
+    bottom: 20,
     color: 'black',
     fontSize: 28,
     fontWeight: '600',
   },
-
 });
