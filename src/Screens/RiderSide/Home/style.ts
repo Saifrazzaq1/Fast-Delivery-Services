@@ -2,6 +2,11 @@ import {StyleSheet} from 'react-native';
 import {heightRef} from 'src/config/screenSize';
 
 const styles = StyleSheet.create({
+  body:{
+    marginHorizontal: 20,
+  },
+  maintext:{fontSize: 20, color: '#000', fontWeight: '500'},
+  row:{flexDirection: 'row'},
   text1: {
     fontWeight: '500',
     color: 'black',

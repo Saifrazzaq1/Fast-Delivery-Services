@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  body:{backgroundColor: '#fff', flex: 1},
   storesView: {
     backgroundColor: '#1C7584',
     width: '100%',
@@ -135,6 +136,65 @@ const styles = StyleSheet.create({
     width: 300,
     justifyContent: 'center',
   },
+  row:{flexDirection: 'row'},
+  active:{
+    backgroundColor: '#1C7584',
+    height: 4,
+    marginLeft: -2,
+    width: '105%',
+  },
+  t1:{
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 17,
+    paddingTop: 20,
+  },
+  downView1: {
+    marginHorizontal: 10,
+    marginTop: -20,
+    borderRadius: 50,
+  },
+  eyeBtn1: {
+    position: 'absolute',
+    height: 50,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    width: '10%',
+    right: 10,
+    top: '10%',
+  },
+  RecSearch: {
+    color: 'grey',
+    margin: 5,
+    borderWidth: 0.5,
+    width: '22%',
+    fontSize: 12,
+    padding: 10,
+    textAlign: 'center',
+    borderRadius: 20,
+    borderColor: '#0000000D',
+    backgroundColor: '#0000000D',
+  },
+  menulist: {
+    width: '95%',
+    marginLeft: 20,
+    marginTop: 10,
+  },
+  menulist2: {
+    marginTop: 2,
+    marginHorizontal: 10,
+  },
+  menutext: {
+    color: '#1C7584',
+    fontWeight: '500',
+    fontSize: 15,
+    marginRight: 5,
+    textAlign: 'center',
+    paddingBottom: 5,
+  },
+  meenu:{flexWrap: 'wrap', flexDirection: 'row', marginHorizontal: 10},
+  
+
 });
 
 export default styles;

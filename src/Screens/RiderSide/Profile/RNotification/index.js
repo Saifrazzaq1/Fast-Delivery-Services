@@ -6,7 +6,7 @@ import style from './style';
 
 const RNotification = () => {
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
+    <View style={style.body}>
       <Header
         backIcon
         loginTitle={'Notification'}
@@ -18,16 +18,11 @@ const RNotification = () => {
         headerShadow
       />
       <View style={style.btnsview}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={style.main}>
           <Image style={style.dpview} source={Images.Profile} />
           <View style={{alignSelf: 'center', marginLeft: 10}}>
             <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                width: '76%',
-              }}>
+              style={style.mainview}>
               <Text style={style.username}>Congratulations </Text>
               <Text style={style.useraddress}>1h </Text>
             </View>
@@ -38,16 +33,11 @@ const RNotification = () => {
           </View>
         </View>
         <View style={style.line} />
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={style.main}>
           <Image style={style.dpview} source={Images.Profile} />
-          <View style={{alignSelf: 'center', marginLeft: 10}}>
+          <View style={style.pro}>
             <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                width: '76%',
-              }}>
+              style={style.mainview}>
               <Text style={style.username}>Congratulations </Text>
               <Text style={style.useraddress}>1h </Text>
             </View>
@@ -59,16 +49,11 @@ const RNotification = () => {
         </View>
         <View style={style.line} />
 
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={style.main}>
           <Image style={style.dpview} source={Images.Profile} />
-          <View style={{alignSelf: 'center', marginLeft: 10}}>
+          <View style={style.pro}>
             <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                width: '76%',
-              }}>
+              style={style.mainview}>
               <Text style={style.username}>Congratulations </Text>
               <Text style={style.useraddress}>1h </Text>
             </View>
@@ -79,16 +64,11 @@ const RNotification = () => {
           </View>
         </View>
         <View style={style.line} />
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={style.main}>
           <Image style={style.dpview} source={Images.Profile} />
-          <View style={{alignSelf: 'center', marginLeft: 10}}>
+          <View style={style.pro}>
             <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                width: '76%',
-              }}>
+              style={style.mainview}>
               <Text style={style.username}>Congratulations </Text>
               <Text style={style.useraddress}>1h </Text>
             </View>

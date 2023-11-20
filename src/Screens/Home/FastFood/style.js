@@ -1,9 +1,25 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  body:{backgroundColor: '#fff', paddingBottom: '29%', flex: 1},
   text: {
     color: 'black',
     marginLeft: 5,
+  },
+  main:{
+    backgroundColor: '#FFF',
+    height: 50,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    paddingHorizontal: 25,
+    shadowColor: 'grey',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+    elevation: 6,
   },
   main1: {
     flexDirection: 'row',
@@ -74,6 +90,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginHorizontal: 5,
   },
+  btn:{flexDirection: 'row', alignItems: 'center'},
+  
 });
 
 export default styles;

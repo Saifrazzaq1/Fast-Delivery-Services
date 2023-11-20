@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  body:{flex: 1, backgroundColor: '#fff'},
   dpview: {
     height: 50,
     width: 50,

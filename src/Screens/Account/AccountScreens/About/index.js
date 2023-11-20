@@ -1,13 +1,12 @@
 import React from 'react';
-import {StyleSheet, Image, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Header from 'src/Components/Header';
-import Images from '../../../../Assets';
 import styles from './style';
 
 const About = () => {
   return (
-    <View style={{backgroundColor: '#fff'}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'About'}

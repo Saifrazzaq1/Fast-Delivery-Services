@@ -1,6 +1,5 @@
 import React from 'react';
 import {StatusBar, Text, View, TouchableHighlight} from 'react-native';
-
 import Header from 'src/Components/Header';
 import style from './style';
 import Image from 'src/Components/Image';
@@ -8,7 +7,7 @@ import Assets from 'src/Assets';
 
 const RiderRigistered = () => {
   return (
-    <View style={{backgroundColor: 'white', flex: 1}}>
+    <View style={style.body}>
       <StatusBar
         backgroundColor={'transparent'}
         barStyle="dark-content"
@@ -22,9 +21,9 @@ const RiderRigistered = () => {
         loginTitle={'Become a rider'}
         logintextcolor={'#1C7584'}
       />
-      <View style={{flexDirection: 'row', margin: 30}}>
+      <View style={style.progView}>
         <TouchableHighlight style={style.Progbtn}>
-          <Text style={{fontSize: 19, fontWeight: '500', color: 'white'}}>
+          <Text style={style.t1}>
             1
           </Text>
         </TouchableHighlight>

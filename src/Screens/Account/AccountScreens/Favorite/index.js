@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {View} from 'react-native';
 import AllResturant from 'src/Components/AllResturant';
 import Header from 'src/Components/Header';
 import styles from './style';

@@ -4,7 +4,7 @@ import Header from 'src/Components/Header';
 import styles from './style';
 const HelpR = () => {
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'Help'}
@@ -23,13 +23,9 @@ const HelpR = () => {
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s Lorem Ipsum is simply dummy text of the printing and
-          {'\n'}
-          {'\n'}
           typesetting industry. Lorem Ipsum has been the industry's standard
           dummy text ever since the 1500sLorem Ipsum standard dummy text ever
           since the 1500s Lorem Ipsum is simply dummy text of the printing and
-          {'\n'}
-          {'\n'}
           typesetting industry. Lorem Ipsum has been the industry's standard
           dummy text ever since the 1500sLorem Ipsum standard dummy text ever
           since the 1500s

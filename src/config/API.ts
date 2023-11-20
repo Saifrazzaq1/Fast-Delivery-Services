@@ -4,4 +4,6 @@ export default {
   CATEGORY: {method: 'GET', url: 'catagory/getAll/'},
   MENU: {method: 'GET', url: 'menu/getAll/'},
   BUSSINESS: {method: 'GET', url: 'bussiness//getAll/'},
+  RIDER_LOGIN: {method: 'POST', url: 'auth/riderLogin'},
+  RIDERSIGNUP: {method: 'POST', url: 'rider/'},
 };

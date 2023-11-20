@@ -2,6 +2,11 @@ import {StyleSheet} from 'react-native';
 import {heightRef} from 'src/config/screenSize';
 
 const styles = StyleSheet.create({
+  body:{flex: 1, backgroundColor: 'white'},
+  scroll:{
+    marginHorizontal: 20,
+  },
+  pay:{flexDirection: 'row', justifyContent: 'space-between'},
   text1: {
     fontWeight: '500',
     color: 'black',

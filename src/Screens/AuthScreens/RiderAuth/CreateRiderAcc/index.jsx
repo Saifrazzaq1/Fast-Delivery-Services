@@ -45,9 +45,7 @@ const RiderCreateAccount = ({navigation}) => {
           type: 'error',
           header: 'ERROR',
         });
-        console.log('error')
       }
-      console.log(data,'hkjhlkhlhj')
     });
   };
   
@@ -59,7 +57,7 @@ const RiderCreateAccount = ({navigation}) => {
         translucent
       />
       {isButtonPressed ? (
-        <View style={{ backgroundColor: 'white' }}>
+        <View style={style.body}>
           <StatusBar
             backgroundColor={'transparent'}
             barStyle="dark-content"
@@ -75,9 +73,9 @@ const RiderCreateAccount = ({navigation}) => {
             loginTitle={'Become a rider'}
             logintextcolor={'#1C7584'}
           />
-          <View style={{ flexDirection: 'row', margin: 30 }}>
+          <View style={style.progressView}>
             <TouchableHighlight style={style.Progbtn}>
-              <Text style={{ fontSize: 19, fontWeight: '500', color: 'white' }}>
+              <Text style={style.t1}>
                 1
               </Text>
             </TouchableHighlight>
@@ -147,9 +145,9 @@ const RiderCreateAccount = ({navigation}) => {
             loginTitle={'Become a rider'}
             logintextcolor={'#1C7584'}
           />
-          <View style={{ flexDirection: 'row', margin: 30 }}>
+          <View style={style.progressView}>
             <TouchableHighlight style={style.Progbtn}>
-              <Text style={{ fontSize: 19, fontWeight: '500', color: 'white' }}>
+              <Text style={style.t1}>
                 1
               </Text>
             </TouchableHighlight>
@@ -210,8 +208,7 @@ const RiderCreateAccount = ({navigation}) => {
               Your Password must be at least 6 characters
             </Text>
             <Textfield
-              // value={password}
-              // onChangeText={setPassword}
+             
               borderBottomWidth={1}
               borderColor={'grey'}
               borderTopWidth={0}

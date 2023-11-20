@@ -5,6 +5,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  btnview:{flex: 1, justifyContent: 'center', paddingHorizontal: 20},
   text3: {
     top: 10,
     color: 'black',

@@ -1,11 +1,16 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+  body:{backgroundColor: '#fff', flex: 1},
   mainview: {
-    marginHorizontal: 20,
+  
     paddingVertical: 20,
   },
+  mainb:{flexDirection: 'row', alignItems: 'center'},
+  mainc:{alignSelf: 'center'},
+  img:{height: 25, width: 25, marginLeft: 70},
   btnsview: {
+    left:0,
     marginTop: 40,
   },
   countryImg: {
@@ -19,6 +24,7 @@ export default StyleSheet.create({
     width: 28,
   },
   dpview: {
+    marginLeft:20,
     height: 90,
     width: 90,
     backgroundColor: '#ff1',

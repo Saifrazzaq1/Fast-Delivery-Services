@@ -7,23 +7,6 @@ import Images from '../../../Assets';
 import style from './style';
 import {useNavigation} from '@react-navigation/native';
 
-const Orders = [
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-];
 const RiderOrderDetials = ({route}) => {
   const {itemNo} = route.params;
   const [region, setRegion] = useState({
@@ -34,7 +17,7 @@ const RiderOrderDetials = ({route}) => {
   });
   const navigation = useNavigation();
   return (
-    <View style={{paddingBottom: 45}}>
+    <View style={style.head}>
       <Header
         headerBg
         headerbgcolor={'#fff'}
@@ -48,27 +31,24 @@ const RiderOrderDetials = ({route}) => {
       />
 
       <ScrollView
-        style={{
-          marginHorizontal: 20,
-          marginBottom: '10%',
-        }}>
+        style={style.body}>
         <View style={style.orderView}>
           <View style={style.container}>
             <MapView
-              style={{flex: 1}}
+              style={style.map}
               provider={PROVIDER_GOOGLE}
               region={region}
               onRegionChangeComplete={region => setRegion(region)}></MapView>
           </View>
-          <View style={{flexDirection: 'row'}}>
+          <View style={style.row}>
             <Image style={style.dp} source={Images.dp} />
             <Text style={style.text1}>Foodie Hoodie</Text>
           </View>
-          <View style={{flexDirection: 'row', marginTop: 10}}>
+          <View style={style.row}>
             <Image style={style.mapImg} source={Images.loc} />
             <Text style={style.text2}>Sweihan Road, 4th Floor 17th ABD</Text>
           </View>
-          <View style={{flexDirection: 'row'}}>
+          <View style={style.row}>
             <View style={style.smallView}>
               <Image style={style.smallViewImg} source={Images.call} />
             </View>
@@ -99,26 +79,26 @@ const RiderOrderDetials = ({route}) => {
               <Text style={style.text4}>Foodie Hoodie</Text>
               <Text style={style.text5}>Hussam Noor</Text>
             </View>
-            <View style={{flexDirection: 'row'}}>
+            <View style={style.row}>
               <Image style={style.bigViewImg} source={Images.sms} />
               <Image style={style.bigViewImg} source={Images.call} />
             </View>
           </View>
           <Text style={style.text6}>Payment Summary</Text>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={style.pay}>
             <Text style={style.text7}>Subtotal</Text>
             <Text style={style.text7}>AED 23</Text>
           </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={style.pay}>
             <Text style={style.text7}>Delivery fee</Text>
             <Text style={style.text7}>AED 99</Text>
           </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={style.pay}>
             <Text style={style.text8}>Total Amount</Text>
             <Text style={style.text8}>AED 89</Text>
           </View>
           <View style={style.pinkView}>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View style={style.bottom}>
               <Image style={style.bigViewImg2} source={Images.ccard} />
               <Text style={style.text9}>Paid Online</Text>
             </View>
@@ -150,7 +130,7 @@ const RiderOrderDetials = ({route}) => {
             </View>
             <View style={style.view1}>
               <Image
-                style={{width: 35, height: 35, marginTop: 10}}
+                style={style.img}
                 source={Images.bike1}
               />
             </View>
@@ -163,7 +143,7 @@ const RiderOrderDetials = ({route}) => {
           }}
           btnheight={45}
           btnColor="#1C7584"
-          buttonStyle={{marginTop: 40, marginBottom: 40}}
+          buttonStyle={style.btn}
           textColor="#fff"
           unseen={2}
           justifyContent="center"

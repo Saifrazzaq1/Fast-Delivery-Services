@@ -4,20 +4,18 @@ import {Text, View} from 'react-native';
 import MapView, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Button from 'src/Components/Button';
-import Textfield from 'src/Components/Textfield';
 import style from './style';
 
 const SelectLocation = ({navigation, route}) => {
-  console.log('🚀 ~ file: index.jsx:11 ~ SelectLocation ~ route:', route);
-  const [index, setIndex] = useState(2);
-  const [value, setValue] = useState(false);
+
+
   const [region, setRegion] = useState({
     latitude: 31.5204,
     longitude: 74.3587,
     latitudeDelta: 0.015,
     longitudeDelta: 0.0121,
   });
-  // const {total,item,itemPrice,count}=route.params;
+
   return (
     <View style={[style.main]}>
       <View style={style.container}>
@@ -56,7 +54,7 @@ const SelectLocation = ({navigation, route}) => {
             },
           }}
           onPress={(data, details = null) => {
-            console.log(data, details);
+      
           }}
           query={{
             key: 'YOUR API KEY',

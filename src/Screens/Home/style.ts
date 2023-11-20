@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  body:{flex: 1, backgroundColor: '#fff'},
   storesView: {
     backgroundColor: '#1C7584',
     width: '100%',

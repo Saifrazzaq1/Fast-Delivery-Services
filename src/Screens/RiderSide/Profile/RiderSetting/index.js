@@ -5,7 +5,7 @@ import ToggleSwitch from 'toggle-switch-react-native';
 import style from './style';
 const RiderSetting = () => {
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={style.body}>
       <Header
         backIcon
         loginTitle={'Settings'}
@@ -18,14 +18,7 @@ const RiderSetting = () => {
       />
       <View style={style.btnsview}>
         <TouchableOpacity
-          style={{
-            alignSelf: 'flex-start',
-            marginBottom: 30,
-            flexDirection: 'row',
-            width: '100%',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
+          style={style.btn}>
           <Text style={style.btnsname}>Notification</Text>
           <ToggleSwitch
             isOn={true}
@@ -37,19 +30,13 @@ const RiderSetting = () => {
         </TouchableOpacity>
         <View style={style.line} />
         <TouchableOpacity
-          style={{
-            alignSelf: 'flex-start',
-            marginBottom: 30,
-          }}>
+          style={style.btn1}>
           <Text style={style.btnsname}>Language</Text>
           <Text style={style.btnsnames}>English</Text>
         </TouchableOpacity>
         <View style={style.line} />
         <TouchableOpacity
-          style={{
-            alignSelf: 'flex-start',
-            marginBottom: 30,
-          }}>
+          style={style.btn1}>
           <Text style={style.btnsname}>Country</Text>
           <Text style={style.btnsnames}>United Arab Emirates</Text>
         </TouchableOpacity>

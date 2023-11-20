@@ -1,5 +1,5 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
 import {
   FlatList,
   Image,
@@ -15,7 +15,7 @@ import ChefList from 'src/Components/ChefList';
 import Header from 'src/Components/Header';
 import Images from '../../../Assets/';
 import styles from './style';
-import {BUSSINESS} from 'src/Redux/Reducers/Auth/actions';
+import { BUSSINESS } from 'src/Redux/Reducers/Auth/actions';
 
 const FastFood = () => {
   const navigation = useNavigation();
@@ -53,14 +53,13 @@ const FastFood = () => {
   useEffect(() => {
     BUSSINESS(res => {
       if (res.success) {
-        console.log(JSON.stringify(res, null, 2));
         setBussiness(res);
-        console.log(res);
+
       }
     });
   }, []);
   return (
-    <View style={{backgroundColor: '#fff', paddingBottom: '29%', flex: 1}}>
+    <View style={styles.body}>
       <Header
         headerBg
         backIcon
@@ -69,30 +68,16 @@ const FastFood = () => {
         heartIcon
       />
       <View
-        style={{
-          backgroundColor: '#FFF',
-          height: 50,
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-          paddingHorizontal: 25,
-          shadowColor: 'grey',
-          shadowOffset: {
-            width: 0,
-            height: 3,
-          },
-          shadowOpacity: 0.27,
-          shadowRadius: 4.65,
-          elevation: 6,
-        }}>
-        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+        style={styles.main}>
+        <TouchableOpacity style={styles.btn}>
           <Image style={styles.img} source={Images.filter} />
           <Text style={styles.text}>Filter</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+        <TouchableOpacity style={styles.btn}>
           <Image style={styles.img} source={Images.cos} />
           <Text style={styles.text}>Coisines</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+        <TouchableOpacity style={styles.btn}>
           <Image style={styles.img} source={Images.search} />
           <Text style={styles.text}>Search</Text>
         </TouchableOpacity>
@@ -100,12 +85,12 @@ const FastFood = () => {
       <ScrollView>
         <AssitBar marginTop={20} />
         <Text style={styles.pickText}>Pick</Text>
-        <View style={{marginHorizontal: 20}}>
+        <View style={{ marginHorizontal: 20 }}>
           <FlatList
             horizontal={true}
-            style={{flexDirection: 'row'}}
+            style={{ flexDirection: 'row' }}
             data={resturants}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => navigation.navigate('Details')}
                 activeOpacity={0.1}
@@ -121,7 +106,7 @@ const FastFood = () => {
                   </View>
                 </View>
                 <Text style={styles.nameDes}>{item.des}</Text>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                   <Image style={styles.starimg} source={Images.star} />
                   <Text style={styles.startext}>{item.startext}</Text>
                   <Image style={styles.locimg} source={Images.loc} />

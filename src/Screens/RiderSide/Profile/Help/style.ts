@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
+  body:{backgroundColor: '#fff', flex: 1},
     btnsview: {
       marginTop: 20,
       marginHorizontal: 10,

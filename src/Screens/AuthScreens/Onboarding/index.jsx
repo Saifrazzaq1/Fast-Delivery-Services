@@ -72,7 +72,6 @@ const Onboarding = ({navigation}) => {
                 setIndex(index + 1);
                 if (index >= 2) {
                   pressHandler();
-                  console.log(index);
                 }
               }}
             />

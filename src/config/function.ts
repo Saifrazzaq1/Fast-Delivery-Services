@@ -30,13 +30,12 @@ export const objectClone = (data: any) => {
 };
 
 export const prettierJSON = (...arg: any) => {
-  console.log(
+
     arg
       .map((item: any) =>
         typeof item === 'object' ? JSON.stringify(item, null, 2) : item,
       )
-      .join(',  '),
-  );
+      
 };
 
 export const EnableSnackBar = (

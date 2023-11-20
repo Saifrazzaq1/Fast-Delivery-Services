@@ -2,6 +2,15 @@ import { StyleSheet } from "react-native";
 
 
 export default StyleSheet.create({
+  body:{flex: 1, backgroundColor: '#fff'},
+  main:{flexDirection: 'row', alignItems: 'center'},
+  mainview:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '76%',
+  },
+  pro:{alignSelf: 'center', marginLeft: 10},
     dpview: {
       height: 50,
       width: 50,

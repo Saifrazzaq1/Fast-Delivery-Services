@@ -11,7 +11,6 @@ export const SIGNUP = (data, cb) => {
   const {method, url} = API.SIGNUP;
   Api.request({method, url, data})
     .then(response => {
-      console.log('response', response);
       cb(response);
     })
     .catch(error => {
@@ -25,7 +24,6 @@ export const SIGNUP = (data, cb) => {
 export const LOGIN = data => {
   const {dispatch} = getRedux();
   const {method, url} = API.RIDER_LOGIN;
-  console.log('got there ?', API.RIDER_LOGIN);
 
   Api.request({method, url, data})
     .then(res => {
@@ -33,7 +31,6 @@ export const LOGIN = data => {
         type: USER_LOGIN,
         payload: res,
       });
-      console.log('got there ? 3333333');
     })
     .catch(error => {
       showSnackbar({

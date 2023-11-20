@@ -6,7 +6,7 @@ import styles from './style';
 
 const Order = () => {
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'Your Order'}
@@ -19,10 +19,7 @@ const Order = () => {
       />
       <View style={styles.btnsview}>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+          style={styles.card}>
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Beef burger</Text>
             <Text style={styles.emitext}>
@@ -34,10 +31,7 @@ const Order = () => {
           <Image style={styles.all} source={Images.burger} />
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+          style={styles.card}>
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Pizza burger</Text>
             <Text style={styles.emitext}>
@@ -49,10 +43,7 @@ const Order = () => {
           <Image style={styles.all} source={Images.burger} />
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+       style={styles.card}>
           <View style={styles.view1}>
             <Text style={styles.oshatext}>hunt burger</Text>
             <Text style={styles.emitext}>

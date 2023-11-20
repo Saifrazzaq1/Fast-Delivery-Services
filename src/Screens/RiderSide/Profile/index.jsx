@@ -12,7 +12,7 @@ const Profile = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={styles.body}>
       <Header
         loginbtn
         headerBg
@@ -23,11 +23,11 @@ const Profile = () => {
         loginTitle={'Profile'}
       />
       <View style={styles.mainview}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={styles.mainb}>
           <Image style={styles.dpview} source={Images.dp} />
-          <View style={{alignSelf: 'center'}}>
+          <View style={styles.mainc}>
             <Text style={styles.username}>Saif</Text>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View style={styles.mainb}>
               <Image style={styles.countryImg} source={Images.palestine} />
               <Text style={styles.useraddress}>United Arab Emirates</Text>
             </View>
@@ -37,7 +37,7 @@ const Profile = () => {
               navigation.navigate('RiderSetting');
             }}>
             <Image
-              style={{height: 25, width: 25, marginLeft: 70}}
+              style={styles.img}
               source={Images.setting}
             />
           </TouchableOpacity>

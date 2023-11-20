@@ -1,11 +1,14 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+  body:{flex: 1},
   mainview: {
    flex:1,
     margin: 20,
    
   },
+  drop:{flexDirection: 'row', justifyContent: 'space-between'},
+  img:{height: 37, width: 37, alignSelf: 'center'},
   Card:{
     backgroundColor:'white',
     height:135,

@@ -5,7 +5,7 @@ import styles from './style';
 
 const Help = () => {
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'Help'}
@@ -24,13 +24,9 @@ const Help = () => {
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s Lorem Ipsum is simply dummy text of the printing and
-          {'\n'}
-          {'\n'}
           typesetting industry. Lorem Ipsum has been the industry's standard
           dummy text ever since the 1500sLorem Ipsum standard dummy text ever
           since the 1500s Lorem Ipsum is simply dummy text of the printing and
-          {'\n'}
-          {'\n'}
           typesetting industry. Lorem Ipsum has been the industry's standard
           dummy text ever since the 1500sLorem Ipsum standard dummy text ever
           since the 1500s

@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  body:{backgroundColor: '#fff', flex: 1},
+  btn:{
+    flexDirection: 'row',
+    marginTop: 20,
+  },
   btnsview: {
     width: '100%',
     marginHorizontal: 20,

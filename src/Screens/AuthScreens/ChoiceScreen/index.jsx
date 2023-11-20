@@ -1,7 +1,6 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {View} from 'react-native';
 import Header from 'src/Components/Header';
-import Images from '../../../Assets';
 import Button from '../../../Components/Button';
 import style from './style';
 
@@ -18,7 +17,7 @@ const ChoiceScreen = ({navigation}) => {
         loginTitle={'Choose Account'}
         loginmarginleft={'40%'}
       />
-      <View style={{flex: 1, justifyContent: 'center', paddingHorizontal: 20}}>
+      <View style={style.btnview}>
         <Button
           onPress={() => {
             navigation.navigate('Login');
