@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
-import { StatusBar, Text, TouchableHighlight, View } from 'react-native';
+import React, {useState} from 'react';
+import {StatusBar, Text, TouchableHighlight, View} from 'react-native';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import style from './style';
 
 const RiderCreateAccount = ({navigation}) => {
-
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
 
-
   return (
-    <View style={{backgroundColor:'white', flex:1}}>
+    <View style={{backgroundColor: 'white', flex: 1}}>
       <StatusBar
         backgroundColor={'transparent'}
         barStyle="dark-content"
@@ -24,25 +22,27 @@ const RiderCreateAccount = ({navigation}) => {
         loginbtn
         headerBg
         headerbgcolor={'white'}
-        loginmarginleft={"40%"}
+        loginmarginleft={'40%'}
         headerShadow
         backIcon
         loginTitle={'Become a rider'}
-        logintextcolor={"#1C7584"}
+        logintextcolor={'#1C7584'}
       />
-       <View style={{flexDirection:'row',margin:30 }}>
-                 <TouchableHighlight   style={style.Progbtn}  >
-                    <Text style={{fontSize:19, fontWeight:'500', color:'white',}}>1</Text>
-                    </TouchableHighlight>
-                    <View style={style.ProgView1} />
-                    <TouchableHighlight   style={style.Progbtn1}  >
-                    <Text style={style.ProbText1}>2</Text>
-                    </TouchableHighlight>
-                    <View style={style.ProgView1} />
-                    <TouchableHighlight   style={style.Progbtn1}  >
-                    <Text style={style.ProbText1}>3</Text>
-                    </TouchableHighlight>
-                </View> 
+      <View style={{flexDirection: 'row', margin: 30}}>
+        <TouchableHighlight style={style.Progbtn}>
+          <Text style={{fontSize: 19, fontWeight: '500', color: 'white'}}>
+            1
+          </Text>
+        </TouchableHighlight>
+        <View style={style.ProgView1} />
+        <TouchableHighlight style={style.Progbtn1}>
+          <Text style={style.ProbText1}>2</Text>
+        </TouchableHighlight>
+        <View style={style.ProgView1} />
+        <TouchableHighlight style={style.Progbtn1}>
+          <Text style={style.ProbText1}>3</Text>
+        </TouchableHighlight>
+      </View>
       <View style={style.mainview}>
         <Text style={style.text}>Create Your Account</Text>
         <Textfield
@@ -98,7 +98,6 @@ const RiderCreateAccount = ({navigation}) => {
           borderTopWidth={0}
           borderRightWidth={0}
           borderLeftWidth={0}
-         
           placeholder={'Re-type Password'}
           secureIcon
           secureTextEntry={true}
@@ -130,5 +129,3 @@ const RiderCreateAccount = ({navigation}) => {
 };
 
 export default RiderCreateAccount;
-
-

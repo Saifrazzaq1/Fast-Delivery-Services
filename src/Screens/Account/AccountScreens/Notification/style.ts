@@ -32,13 +32,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     width: 28,
   },
-
-  btnsname: {
-    color: '#000',
-    fontSize: 16,
-    fontWeight: '400',
-    marginLeft: 10,
-  },
   btnsnames: {
     color: '#1C7584',
     fontSize: 14,

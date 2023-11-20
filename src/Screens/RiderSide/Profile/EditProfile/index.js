@@ -1,11 +1,18 @@
 import React, {useState} from 'react';
-import {StatusBar, StyleSheet, Text, View, ImageBackground, TouchableOpacity} from 'react-native';
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  TouchableOpacity,
+} from 'react-native';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import style from './style';
-import Images from '../../../../Assets'
-import Icon, { IconType } from 'react-native-dynamic-vector-icons';
+import Images from '../../../../Assets';
+import Icon, {IconType} from 'react-native-dynamic-vector-icons';
 
 const EditProfile = () => {
   const [reTypepassword, setReTypepassword] = useState('');
@@ -14,11 +21,10 @@ const EditProfile = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleSubmit = () => {
-  }
+  const handleSubmit = () => {};
 
   return (
-    <View style={{ flex:1,backgroundColor:'white'}}>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <StatusBar
         backgroundColor={'transparent'}
         barStyle="dark-content"
@@ -28,20 +34,25 @@ const EditProfile = () => {
         loginbtn
         headerBg
         headerbgcolor={'white'}
-        loginmarginleft={"45%"}
+        loginmarginleft={'45%'}
         headerShadow
         backIcon
         loginTitle={'Edit Profile'}
-        logintextcolor={"#1C7584"}
+        logintextcolor={'#1C7584'}
       />
       <View style={style.mainview}>
-       <View >
-       <ImageBackground style={style.dp} source={Images.dp}>
-           <TouchableOpacity style={style.btn}>
-           <Icon type={IconType.MaterialIcons} name='edit' size={8} color='white'  />
-           </TouchableOpacity>
-        </ImageBackground>
-       </View>
+        <View>
+          <ImageBackground style={style.dp} source={Images.dp}>
+            <TouchableOpacity style={style.btn}>
+              <Icon
+                type={IconType.MaterialIcons}
+                name="edit"
+                size={8}
+                color="white"
+              />
+            </TouchableOpacity>
+          </ImageBackground>
+        </View>
         <Textfield
           value={name}
           onChangeText={setName}
@@ -128,12 +139,9 @@ const EditProfile = () => {
           btnColor="#1C7584"
           buttonStyle={{marginTop: 30}}
         />
-       
       </View>
     </View>
   );
 };
 
 export default EditProfile;
-
-

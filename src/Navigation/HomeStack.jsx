@@ -16,10 +16,7 @@ import Offers from 'src/Screens/Account/AccountScreens/Offers';
 import Notification from 'src/Screens/Account/AccountScreens/Notification';
 import FdsPay from 'src/Screens/Account/AccountScreens/FdsPay';
 import Help from 'src/Screens/Account/AccountScreens/Help';
-import RiderOrderDetails from 'src/Screens/RiderSide/RiderOrderDetails';
-import Home from 'src/Screens/RiderSide/Home';
-import MapScreen from 'src/Screens/RiderSide/MapScreen';
-import OrderDelivered from 'src/Screens/RiderSide/OrderDelivered';
+
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -43,10 +40,7 @@ const HomeStack = () => {
       <Stack.Screen name="Notification" component={Notification} />
       <Stack.Screen name="FdsPay" component={FdsPay} />
       <Stack.Screen name="Help" component={Help} />
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="MapScreen" component={MapScreen} />
-      <Stack.Screen name="RiderOrderDetails" component={RiderOrderDetails} />
-      <Stack.Screen name="OrderDelivered" component={OrderDelivered} />
+
     </Stack.Navigator>
   );
 };

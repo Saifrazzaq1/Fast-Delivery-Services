@@ -1,12 +1,12 @@
-import {Image, Text, View, FlatList, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
+import {FlatList, Image, ScrollView, Text, View} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import OrderEarning from 'src/Components/OrderEarning';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Images from '../../../Assets';
-import Button from 'src/Components/Button';
 import style from './style';
-import {useNavigation} from '@react-navigation/native';
 const Orders = [
   {
     od: '#234',
@@ -25,7 +25,7 @@ const Orders = [
   },
 ];
 const Home = ({navigation}) => {
-
+  const [index, setIndex] = useState(false);
   return (
     <View>
       <Header
@@ -56,7 +56,11 @@ const Home = ({navigation}) => {
               <Text style={style.text1}>{item.payment}</Text>
               <Text style={style.amountText}>Customer Name</Text>
               <Text style={style.text1}>{item.cm}</Text>
-              <View style={{flexDirection: 'row'}}>
+              <TouchableOpacity
+                style={{flexDirection: 'row'}}
+                onPress={() => {
+                  setIndex(!index);
+                }}>
                 <Text style={style.redText}>View order Items (2)</Text>
                 <FontAwesome5
                   style={{marginLeft: 10}}
@@ -64,7 +68,23 @@ const Home = ({navigation}) => {
                   size={18}
                   color="#E0281C"
                 />
-              </View>
+              </TouchableOpacity>
+              {index === true ? (
+                <FlatList
+                  data={'fa'}
+                  renderItem={({item}) => (
+                    <View style={style.orderDetail}>
+                      <View>
+                        <Text style={style.text3}>Saloona Marga (1)</Text>
+                        <Text style={style.redText1}>AED 28.50</Text>
+                      </View>
+                      <View>
+                        <Image style={style.mlistimg} source={Images.salan} />
+                      </View>
+                    </View>
+                  )}
+                />
+              ) : null}
               <Button
                 onPress={() => {
                   navigation.navigate('RiderOrderDetails', {itemNo: item.od});

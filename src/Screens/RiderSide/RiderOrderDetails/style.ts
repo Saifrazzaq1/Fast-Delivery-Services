@@ -23,11 +23,6 @@ const styles = StyleSheet.create({
     color: 'grey',
     fontSize: 12,
   },
-  text3: {
-    fontWeight: '500',
-    color: 'black',
-    fontSize: 16,
-  },
   text5: {
     fontWeight: '500',
     color: 'black',
@@ -150,6 +145,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10,
+  },
+  text3: {
+    fontWeight: '500',
+    color: 'black',
+    fontSize: 16,
   },
   mlistimg: {
     height: 68,

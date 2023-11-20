@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { StatusBar, StyleSheet, View, Text } from 'react-native';
+import React, {useState} from 'react';
+import {StatusBar, StyleSheet, View, Text} from 'react-native';
 import Header from 'src/Components/Header';
 import style from './style';
 import Textfield from 'src/Components/Textfield';
 import Button from 'src/Components/Button';
-import { useDispatch } from 'react-redux';
-import { addCard } from 'src/Redux/Reducers/CreditCard/action';
+import {useDispatch} from 'react-redux';
+import {addCard} from 'src/Redux/Reducers/CreditCard/action';
 
-const AddCard = ({ navigation }) => {
+const AddCard = ({navigation}) => {
   const [nameOnCard, setNameOnCard] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
   const dispatch = useDispatch();
-  const formatCardNumber = (input) => {
+  const formatCardNumber = input => {
     const numericInput = input.replace(/\D/g, '');
     const formattedInput = numericInput.replace(/(\d{4})/g, '$1 ');
     setCardNumber(formattedInput.trim());
@@ -33,7 +33,7 @@ const AddCard = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <StatusBar
         backgroundColor={'transparent'}
         barStyle="dark-content"
@@ -62,7 +62,7 @@ const AddCard = ({ navigation }) => {
         />
         <Textfield
           value={cardNumber}
-          onChangeText={(input) => formatCardNumber(input)}
+          onChangeText={input => formatCardNumber(input)}
           borderBottomWidth={1}
           borderColor={'grey'}
           placeholder={'Card Number'}
@@ -71,11 +71,11 @@ const AddCard = ({ navigation }) => {
           borderRightWidth={0}
           borderLeftWidth={0}
         />
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Textfield
             value={expiryDate}
             onChangeText={setExpiryDate}
-            style={{ width: '70%' }}
+            style={{width: '70%'}}
             borderBottomWidth={1}
             borderColor={'grey'}
             placeholder={'Expiry Date'}
@@ -96,7 +96,7 @@ const AddCard = ({ navigation }) => {
             marginRight={30}
           />
         </View>
-        <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+        <View style={{flex: 1, justifyContent: 'flex-end'}}>
           <Button
             onPress={handleAddCard}
             unseen={2}

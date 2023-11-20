@@ -13,7 +13,7 @@ import {
 import React, {useEffect, useState} from 'react';
 import Header from 'src/Components/Header';
 import Images from '../../../Assets/';
-import {ITEM} from 'src/Redux/Reducers/Auth/actions';
+import {MENU} from 'src/Redux/Reducers/Auth/actions';
 import style from './style';
 import Button from 'src/Components/Button';
 import {useNavigation} from '@react-navigation/native';
@@ -59,8 +59,12 @@ const Details = () => {
   const dispatch = useDispatch;
   const [items, setItems] = useState([]);
   useEffect(() => {
-    ITEM(res => {
-      setItems(res.Items);
+    MENU(res => {
+      if (res.success) {
+        console.log(JSON.stringify(res, null, 2));
+        setItems(res.users.item);
+      }
+      console.log(items);
     });
   }, []);
   const [showModal, setShowModal] = useState(false);
@@ -200,7 +204,7 @@ const Details = () => {
                     />
                   ) : null}
                   <View>
-                    <Text style={style.mlisttext}>{item.name}</Text>
+                    <Text style={style.mlisttext}>{item.item}</Text>
                     <Text style={style.mlistdes}>{item.description}</Text>
                     <Text style={style.mlistprice}>Price on selection</Text>
                   </View>

@@ -26,6 +26,13 @@ const styles = StyleSheet.create({
     right: 30,
     top: 120,
   },
+  settingimg: {
+    height: 25,
+    width: 25,
+    position: 'absolute',
+    right: -140,
+    top: -15,
+  },
   heytext: {
     color: '#000',
     fontSize: 20,
@@ -33,6 +40,12 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginTop: 20,
     marginLeft: 20,
+  },
+  eemage: {
+    alignSelf: 'flex-start',
+    marginBottom: 30,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   heyView: {
     marginTop: 20,

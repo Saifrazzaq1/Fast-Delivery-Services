@@ -4,21 +4,28 @@ import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import style from './style';
+import {LOGIN} from 'src/Redux/Reducers/RiderAuth/actions';
 
 const RiderSignin = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-
-
+  const handleSignin = () => {
+    const data = {
+      email: email,
+      password: password,
+    };
+    console.log('data', data);
+    LOGIN(data);
+  };
   return (
-    <View style={{backgroundColor:'white', flex:1}}>
+    <View style={{backgroundColor: 'white', flex: 1}}>
       <Header
         loginbtn
         headerBg
         headerbgcolor={'white'}
-        loginmarginleft={"55%"}
-        logintextcolor={"#1C7584"}
-        headerShadow 
+        loginmarginleft={'55%'}
+        logintextcolor={'#1C7584'}
+        headerShadow
         loginTitle={'Login'}
         backIcon
       />
@@ -47,20 +54,19 @@ const RiderSignin = ({navigation}) => {
           secureTextEntry={true}
         />
         <TouchableOpacity>
-          <Text style={{alignSelf:'flex-end'}}>Forgot Password</Text>
+          <Text style={{alignSelf: 'flex-end'}}>Forgot Password</Text>
         </TouchableOpacity>
         <Button
-        onPress={() => navigation.navigate('Home')}
+          onPress={handleSignin}
           btnheight={60}
           unseen={2}
           title={'Login'}
           textColor={'#fff'}
-           fontSize={16}
+          fontSize={16}
           justifyContent={'center'}
           btnColor="#1C7584"
-          buttonStyle={{marginTop: 60, }}
+          buttonStyle={{marginTop: 60}}
         />
-       
       </View>
     </View>
   );

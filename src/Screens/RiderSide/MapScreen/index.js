@@ -9,12 +9,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
+import MapViewDirections from 'react-native-maps-directions';
+import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Images from '../../../Assets';
 import style from './style';
-import Button from 'src/Components/Button';
-import MapViewDirections from 'react-native-maps-directions';
 
 const Orders = [
   {

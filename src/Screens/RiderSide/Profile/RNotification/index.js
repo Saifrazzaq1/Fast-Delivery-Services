@@ -105,4 +105,3 @@ const RNotification = () => {
 };
 
 export default RNotification;
-

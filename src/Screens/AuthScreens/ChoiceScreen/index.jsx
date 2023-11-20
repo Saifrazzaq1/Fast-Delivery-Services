@@ -13,41 +13,39 @@ const ChoiceScreen = ({navigation}) => {
         headerbgcolor={'white'}
         headerShadow
         guestbtn
-        logintextcolor={"#1C7584"}
+        logintextcolor={'#1C7584'}
         loginbtn
         loginTitle={'Choose Account'}
-        loginmarginleft={"40%"}
+        loginmarginleft={'40%'}
       />
-      <View style={{flex:1, justifyContent:'center', paddingHorizontal:20}}>
-      <Button 
-              onPress={() => {
-                navigation.navigate('Login');
-              }}
-              buttonStyle={{ width: '100%', marginBottom:10 }}
-              btnheight={55}
-              btnColor="#1C7584"
-              textColor="#fff"
-              unseen={2}
-              justifyContent="center"
-              textStyle={{fontSize: 16}}
-              title={'Continue as User'}
-            />
-             <Button
-              onPress={() => {
-                navigation.navigate('RiderLogin');
-              }}
-              buttonStyle={{ width: '100%', }}
-              btnheight={55}
-              btnColor="green"
-              textColor="#fff"
-              unseen={2}
-              justifyContent="center"
-              textStyle={{fontSize: 16}}
-              title={'Continue as Rider'}
-            />
+      <View style={{flex: 1, justifyContent: 'center', paddingHorizontal: 20}}>
+        <Button
+          onPress={() => {
+            navigation.navigate('Login');
+          }}
+          buttonStyle={{width: '100%', marginBottom: 10}}
+          btnheight={55}
+          btnColor="#1C7584"
+          textColor="#fff"
+          unseen={2}
+          justifyContent="center"
+          textStyle={{fontSize: 16}}
+          title={'Continue as User'}
+        />
+        <Button
+          onPress={() => {
+            navigation.navigate('RiderLogin');
+          }}
+          buttonStyle={{width: '100%'}}
+          btnheight={55}
+          btnColor="green"
+          textColor="#fff"
+          unseen={2}
+          justifyContent="center"
+          textStyle={{fontSize: 16}}
+          title={'Continue as Rider'}
+        />
       </View>
-     
-     
     </View>
   );
 };

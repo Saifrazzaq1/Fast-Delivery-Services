@@ -48,6 +48,7 @@ export default StyleSheet.create({
     left: fullWidth * 0.8,
     borderRadius: 20,
     height: 35,
+
     width: 35,
     justifyContent: 'center',
     alignItems: 'center',
