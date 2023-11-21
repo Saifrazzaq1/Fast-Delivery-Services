@@ -19,8 +19,6 @@ import Button from 'src/Components/Button';
 import {useNavigation} from '@react-navigation/native';
 import ItemDetail from 'src/Components/ItemDetail';
 
-import {useDispatch} from 'react-redux';
-
 const ads = [
   {
     text: '25% Off ADCB TouchPoints Platinum Lorem ipsum...',
@@ -55,18 +53,19 @@ const menu = [
   },
 ];
 const stars = [Images.star, Images.star, Images.star, Images.star];
-const Details = () => {
-  const dispatch = useDispatch;
+const Details = ({route}) => {
+  const data = route.params?.item;
   const [items, setItems] = useState([]);
   useEffect(() => {
-    MENU(res => {
+    const id = data?._id;
+    MENU(id, res => {
       if (res.success) {
-        console.log(JSON.stringify(res, null, 2));
-        setItems(res.users.item);
+        setItems(res.menu);
       }
-      console.log(items);
     });
+    console.log('DATA', JSON.stringify(items, null, 2));
   }, []);
+
   const [showModal, setShowModal] = useState(false);
   const [active, setActive] = useState(1);
   const [onSelect, setOnSelect] = useState([]);
@@ -205,10 +204,15 @@ const Details = () => {
                   ) : null}
                   <View>
                     <Text style={style.mlisttext}>{item.item}</Text>
-                    <Text style={style.mlistdes}>{item.description}</Text>
-                    <Text style={style.mlistprice}>Price on selection</Text>
+                    <Text style={style.mlistdes}>{item.discription}</Text>
+                    <Text style={style.mlistprice}>{item.price}</Text>
                   </View>
-                  <Image style={style.mlistimg} source={Images.salan} />
+                  <Image
+                    style={style.mlistimg}
+                    source={{
+                      uri: 'https://localhost:5000/api/v1/' + item.photo,
+                    }}
+                  />
                 </TouchableOpacity>
               )}
             />

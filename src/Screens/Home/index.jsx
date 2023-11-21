@@ -24,6 +24,7 @@ const Home = ({navigation}) => {
   useEffect(() => {
     CATEGORIES(res => {
       if (res.success) {
+        console.log(JSON.stringify(res, null, 2));
         setCategories(res.catagory);
       }
     });
@@ -69,7 +70,11 @@ const Home = ({navigation}) => {
             renderItem={({item}) => (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('FastFood');
+                  navigation.navigate('FastFood', {
+                    name: item.catagory,
+                    long: 3.0222,
+                    lat: -1.2437,
+                  });
                 }}
                 activeOpacity={0.1}
                 style={style.catView}>
@@ -92,7 +97,7 @@ const Home = ({navigation}) => {
         <AssitBar marginTop={70} />
         <Text style={style.poputext}>Popular restaurants nearby</Text>
         <ResturantBar />
-        <View style={{marginHorizontal: 20}}>
+        <View style={{marginHorizontal: 20, paddingBottom: 120}}>
           <FlatList
             horizontal={true}
             style={{flexDirection: 'row'}}

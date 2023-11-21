@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
   locimg: {
     height: 15,
-    width: 9,
+    width: 10,
   },
   startext: {
     color: 'grey',

@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {
   FlatList,
@@ -19,6 +19,7 @@ import {BUSSINESS} from 'src/Redux/Reducers/Auth/actions';
 
 const FastFood = () => {
   const navigation = useNavigation();
+  const route = useRoute();
   const resturants = [
     {
       name: 'Osha Emirati Gourmet',
@@ -50,17 +51,21 @@ const FastFood = () => {
     },
   ];
   const [bussiness, setBussiness] = useState([]);
+  const {name, lat, long} = route.params;
   useEffect(() => {
-    BUSSINESS(res => {
+    const data = {name, lat, long};
+    BUSSINESS(data, res => {
       if (res.success) {
-        console.log(JSON.stringify(res, null, 2));
-        setBussiness(res);
-        console.log(res);
+        setBussiness(res.bussiness);
       }
     });
   }, []);
   return (
-    <View style={{backgroundColor: '#fff', paddingBottom: '29%', flex: 1}}>
+    <View
+      style={{
+        backgroundColor: '#fff',
+        flex: 1,
+      }}>
       <Header
         headerBg
         backIcon
@@ -104,37 +109,42 @@ const FastFood = () => {
           <FlatList
             horizontal={true}
             style={{flexDirection: 'row'}}
-            data={resturants}
+            data={bussiness}
             renderItem={({item}) => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Details')}
-                activeOpacity={0.1}
-                style={styles.restrtView}>
-                <Image style={styles.restrtimg} source={item.img} />
-                <View style={styles.main1}>
-                  <Text style={styles.restrttext}>{item.name}</Text>
-                  <View style={styles.main2}>
-                    <Image style={styles.restrtclock} source={Images.clock} />
-                    <Text style={styles.restrttime}>
-                      within {item.time} mins
-                    </Text>
+              console.log('item', JSON.stringify(item, null, 2)),
+              (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Details', {item})}
+                  activeOpacity={0.1}
+                  style={styles.restrtView}>
+                  <Image style={styles.restrtimg} source={item.img} />
+                  <View style={styles.main1}>
+                    <Text style={styles.restrttext}>{item.bussiness_name}</Text>
+                    <View style={styles.main2}>
+                      <Image style={styles.restrtclock} source={Images.clock} />
+                      <Text style={styles.restrttime}>
+                        within {item.time} mins
+                      </Text>
+                    </View>
                   </View>
-                </View>
-                <Text style={styles.nameDes}>{item.des}</Text>
-                <View style={{flexDirection: 'row'}}>
-                  <Image style={styles.starimg} source={Images.star} />
-                  <Text style={styles.startext}>{item.startext}</Text>
-                  <Image style={styles.locimg} source={Images.loc} />
-                  <Text style={styles.loctext}>{item.loctex}</Text>
-                </View>
-              </TouchableOpacity>
+                  <Text style={styles.nameDes}>{item.des}</Text>
+                  <View style={{flexDirection: 'row'}}>
+                    <Image style={styles.starimg} source={Images.star} />
+                    <Text style={styles.startext}>{item.startext}</Text>
+                    <Image style={styles.locimg} source={Images.loc} />
+                    <Text style={styles.loctext}>{item.address}</Text>
+                  </View>
+                </TouchableOpacity>
+              )
             )}
           />
         </View>
         <Text style={styles.pickText}>All Resturant</Text>
         <AllResturant />
         <ChefList />
-        <AllResturant2 />
+        <View style={{paddingBottom: 120}}>
+          <AllResturant2 />
+        </View>
       </ScrollView>
     </View>
   );

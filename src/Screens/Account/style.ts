@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  istview: {backgroundColor: '#fff', flex: 1},
   storesView: {
     backgroundColor: '#1C7584',
     width: '100%',
@@ -159,6 +160,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     width: 15,
   },
+  palview: {flexDirection: 'row', alignItems: 'center'},
   btnsimg: {
     height: 28,
     marginLeft: 10,
@@ -170,6 +172,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ff1',
     borderRadius: 45,
   },
+  imgdp: {flexDirection: 'row', alignItems: 'center'},
   username: {
     color: '#000',
     fontSize: 18,

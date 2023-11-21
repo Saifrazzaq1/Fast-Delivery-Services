@@ -37,28 +37,29 @@ export const CATEGORIES = cb => {
       });
     });
 };
-export const MENU = cb => {
+export const MENU = (id, cb) => {
   const {method, url} = API.MENU;
-  Api.request({method, url})
+  console.log('first, URL, REWQA');
+  Api.request({method, url: url + `${id}`})
     .then(res => {
       cb(res);
     })
     .catch(error => {
       showSnackbar({
         type: 'error',
-        header: 'Login ERROR',
+        header: 'Menu ERROR',
         body: getError(error),
       });
     });
 };
-export const BUSSINESS = cb => {
+export const BUSSINESS = (data, cb) => {
   const {method, url} = API.BUSSINESS;
-  console.log(Api.BUSSINESS);
-
-  Api.request({method, url})
+  Api.request({
+    method,
+    url: url + `?type=${data.name}&location=${data.long},${data.lat}`,
+  })
     .then(res => {
       cb(res);
-      console.log(res);
     })
     .catch(error => {
       showSnackbar({
