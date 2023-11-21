@@ -6,7 +6,7 @@ import Images from '../../../../Assets';
 import styles from './style';
 const FdsPay = () => {
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'Payment'}

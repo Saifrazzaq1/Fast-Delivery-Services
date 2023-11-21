@@ -17,21 +17,8 @@ const PayWith = ({
   item,
   radio,
 }) => {
-  // console.log('🚀 ~ file: index.js:16 ~ PayWith ~ route:', route);
-  const [select, setSelect] = useState(null);
-  const [ischecked, setIschecked] = useState([]);
-  const [radioActive, setradioActive] = useState(radio);
-  // const {item} = route.params;
-  const navigation = useNavigation();
-  const [counter, setCounter] = useState(1);
-  const [region, setRegion] = useState({
-    latitude: 31.5204,
-    longitude: 74.3587,
-    latitudeDelta: 0.015,
-    longitudeDelta: 0.0121,
-  });
-  // const {total, riderTip, serviceFee, item, count} = route.params;
-  let finalBill = 0;
+ 
+
   return (
     <ScrollView style={{backgroundColor: '#fff'}}>
       <View style={style.view11}>

@@ -3,13 +3,15 @@ import {StyleSheet} from 'react-native';
 
 
 export default  StyleSheet.create({
-
+ body:{flex: 1, backgroundColor: '#fff'},
   Mainview: {
       flex: 1,
       padding: 20,
       justifyContent: 'flex-end',
       alignItems: 'center',
   },
+  hist:{flexDirection: 'row', justifyContent: 'space-between'},
+  bottom:{flex: 1, justifyContent: 'flex-end'},
   text: {
       fontSize: 20,
       fontWeight: '600',

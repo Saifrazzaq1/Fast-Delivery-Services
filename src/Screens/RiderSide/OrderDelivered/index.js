@@ -1,30 +1,13 @@
 import React, {useState} from 'react';
 import {FlatList, Image, ScrollView, Text, View} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps';
-import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Images from '../../../Assets';
 import style from './style';
-import {useNavigation} from '@react-navigation/native';
 
-const Orders = [
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-];
-const RiderOrderDetials = ({route}) => {
-  // const {itemNo} = route.params;
-  const [region, setRegion] = useState({
-    latitude: 31.5204,
-    longitude: 74.3587,
-    latitudeDelta: 0.015,
-    longitudeDelta: 0.0121,
-  });
-  const navigation = useNavigation();
+const RiderOrderDetials = () => {
+
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <View style={style.body}>
       <Header
         headerBg
         headerbgcolor={'#fff'}
@@ -35,9 +18,7 @@ const RiderOrderDetials = ({route}) => {
         headerShadow
       />
       <ScrollView
-        style={{
-          marginHorizontal: 20,
-        }}>
+        style={style.scroll}>
         <View style={style.pinkView}>
           <Text style={style.redText}>Order Delivered </Text>
         </View>
@@ -46,7 +27,7 @@ const RiderOrderDetials = ({route}) => {
             <Text style={style.amountText}>Order Details</Text>
             <Text style={style.text1}>Order Number #4354</Text>
             <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              style={style.pay}>
               <View>
                 <Text style={style.amountText}>Payment</Text>
                 <Text style={style.text1}>Online</Text>
@@ -61,7 +42,7 @@ const RiderOrderDetials = ({route}) => {
 
           <FlatList
             data={'fa'}
-            renderItem={({item}) => (
+            renderItem={() => (
               <View style={style.orderDetail}>
                 <View>
                   <Text style={style.text3}>Saloona Marga (1)</Text>

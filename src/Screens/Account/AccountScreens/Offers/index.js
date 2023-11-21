@@ -6,7 +6,7 @@ import styles from './style';
 
 const Offers = () => {
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'Offers'}
@@ -19,10 +19,7 @@ const Offers = () => {
       />
       <ScrollView style={styles.btnsview}>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+          style={styles.btn}>
           <Image style={styles.all} source={Images.offer1} />
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Get 25% Off On ALl Orders</Text>
@@ -32,10 +29,7 @@ const Offers = () => {
           </View>
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+         style={styles.btn}>
           <Image style={styles.all} source={Images.offer2} />
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Get 25% Off On ALl Orders</Text>
@@ -45,10 +39,7 @@ const Offers = () => {
           </View>
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+         style={styles.btn}>
           <Image style={styles.all} source={Images.offer3} />
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Get 25% Off On ALl Orders</Text>
@@ -58,10 +49,7 @@ const Offers = () => {
           </View>
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+         style={styles.btn}>
           <Image style={styles.all} source={Images.offer1} />
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Get 25% Off On ALl Orders</Text>
@@ -71,10 +59,7 @@ const Offers = () => {
           </View>
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+         style={styles.btn}>
           <Image style={styles.all} source={Images.offer2} />
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Get 25% Off On ALl Orders</Text>
@@ -84,10 +69,7 @@ const Offers = () => {
           </View>
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+         style={styles.btn}>
           <Image style={styles.all} source={Images.offer3} />
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Get 25% Off On ALl Orders</Text>
@@ -97,10 +79,7 @@ const Offers = () => {
           </View>
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+         style={styles.btn}>
           <Image style={styles.all} source={Images.offer1} />
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Get 25% Off On ALl Orders</Text>
@@ -110,10 +89,7 @@ const Offers = () => {
           </View>
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+         style={styles.btn}>
           <Image style={styles.all} source={Images.offer2} />
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Get 25% Off On ALl Orders</Text>
@@ -123,10 +99,7 @@ const Offers = () => {
           </View>
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
+         style={styles.btn}>
           <Image style={styles.all} source={Images.offer3} />
           <View style={styles.view1}>
             <Text style={styles.oshatext}>Get 25% Off On ALl Orders</Text>

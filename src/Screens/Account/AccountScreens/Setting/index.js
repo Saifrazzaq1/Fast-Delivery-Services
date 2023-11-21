@@ -1,13 +1,12 @@
-import {StyleSheet, TouchableOpacity, Text, View, Switch} from 'react-native';
-import React, {useState} from 'react';
+import {TouchableOpacity, Text, View} from 'react-native';
+import React from 'react';
 import Header from 'src/Components/Header';
 import ToggleSwitch from 'toggle-switch-react-native';
-import {heightRef} from 'src/config/screenSize';
 import styles from './style';
 
 const Setting = () => {
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'Settings'}
@@ -31,19 +30,13 @@ const Setting = () => {
         </TouchableOpacity>
         <View style={styles.line} />
         <TouchableOpacity
-          style={{
-            alignSelf: 'flex-start',
-            marginBottom: 30,
-          }}>
+          style={styles.btn}>
           <Text style={styles.btnsname}>Language</Text>
           <Text style={styles.btnsnames}>English</Text>
         </TouchableOpacity>
         <View style={styles.line} />
         <TouchableOpacity
-          style={{
-            alignSelf: 'flex-start',
-            marginBottom: 30,
-          }}>
+          style={styles.btn}>
           <Text style={styles.btnsname}>Country</Text>
           <Text style={styles.btnsnames}>United Arab Emirates</Text>
         </TouchableOpacity>

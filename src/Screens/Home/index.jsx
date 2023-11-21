@@ -13,14 +13,6 @@ import style from './style';
 
 const Home = ({navigation}) => {
   const [categories, setCategories] = useState([]);
-  const options = [
-    {name: 'Place Order', img: Images.five},
-    {name: 'Super Saver', img: Images.one},
-    {name: 'Game Day Deals', img: Images.three},
-    {name: 'Give Back', img: Images.four},
-    {name: 'Past Order', img: Images.two},
-  ];
-  const offers = [{img: Images.pop1}, {img: Images.pop2}, {img: Images.pop3}];
   useEffect(() => {
     CATEGORIES(res => {
       if (res.success) {
@@ -29,18 +21,17 @@ const Home = ({navigation}) => {
       }
     });
   }, []);
-  console.log(categories, 'sa');
+
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
+    <View style={style.body}>
       <ScrollView stickyHeaderIndices={[0]}>
         <Header
           searchIcon
           searchmarginRight={20}
           locationText
-          backIcon
           headerbgcolor={'#fff'}
           headerBg
-          locationtextPosition={'center'}
+          locationtextPosition={'left'}
         />
         <View style={style.storesView}>
           <Text style={style.storesViewText1}>Stores</Text>

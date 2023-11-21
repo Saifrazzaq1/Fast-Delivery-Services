@@ -15,7 +15,6 @@ const Signin = ({navigation}) => {
       email: email,
       password: password,
     };
-    console.log('data', data);
     LOGIN(data);
   };
 

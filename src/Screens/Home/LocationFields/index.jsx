@@ -8,10 +8,8 @@ import Textfield from 'src/Components/Textfield';
 import style from './style';
 
 const LocationFields = ({route}) => {
-  console.log('🚀 ~ file: index.jsx:13 ~ LocationFields ~ route:', route);
-  const [isChecked, setisChecked] = useState(false);
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
 
@@ -22,10 +20,10 @@ const LocationFields = ({route}) => {
     latitudeDelta: 0.015,
     longitudeDelta: 0.0121,
   });
-  const {total, item, itemPrice, count} = route.params;
+  const {total, itemPrice, count} = route.params;
   return (
-    <View style={{backgroundColor: '#fff'}}>
-      {console.log(total)}
+    <View style={style.body}>
+      
       <Header
         loginbtn
         headerBg
@@ -182,11 +180,7 @@ const LocationFields = ({route}) => {
             placeholder={'Additional Directions (optional)'}
           />
           <View
-            style={{
-              flexDirection: 'row',
-              position: 'absolute',
-              marginTop: 385,
-            }}></View>
+            style={style.btn}></View>
           <Button
             onPress={() => {
               navigation.navigate('CheckOutDetails', {
@@ -210,4 +204,4 @@ const LocationFields = ({route}) => {
   );
 };
 export default LocationFields;
-const styles = StyleSheet.create({});
+

@@ -1,7 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  istview: {backgroundColor: '#fff', flex: 1},
+  body: {backgroundColor: '#fff', flex: 1},
+  mainbody: {flexDirection: 'row', alignItems: 'center'},
+  profile: {flexDirection: 'row', alignItems: 'center'},
   storesView: {
     backgroundColor: '#1C7584',
     width: '100%',

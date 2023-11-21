@@ -5,6 +5,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Textfield from 'src/Components/Textfield';
 import AllResturant from 'src/Components/AllResturant';
 import AllResturant2 from 'src/Components/AllResturant2';
+import styles from './style';
 const menu = [
   {
     text: 'Food',
@@ -29,9 +30,9 @@ const menu = [
 ];
 const Search = () => {
   const [active, setActive] = useState(1);
-  const [select, setSelect] = useState(null);
+
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={styles.body}>
       <Header />
 
       <View style={styles.downView1}>
@@ -53,7 +54,7 @@ const Search = () => {
       <View style={styles.menulist}>
         <FlatList
           horizontal={true}
-          style={{flexDirection: 'row'}}
+          style={styles.row}
           data={menu}
           renderItem={({item}) => (
             <>
@@ -75,12 +76,7 @@ const Search = () => {
                 </TouchableOpacity>
                 {active === item.index ? (
                   <View
-                    style={{
-                      backgroundColor: '#1C7584',
-                      height: 4,
-                      marginLeft: -2,
-                      width: '105%',
-                    }}
+                    style={styles.active}
                   />
                 ) : null}
               </View>
@@ -89,17 +85,12 @@ const Search = () => {
         />
       </View>
       <Text
-        style={{
-          color: 'black',
-          fontWeight: 'bold',
-          fontSize: 17,
-          paddingTop: 20,
-        }}>
+        style={styles.ser}>
         {' '}
         {'  '}Recent Search
       </Text>
       <View
-        style={{flexWrap: 'wrap', flexDirection: 'row', marginHorizontal: 10}}>
+        style={styles.meenu}>
         <Text style={styles.RecSearch}>Chicken</Text>
         <Text style={styles.RecSearch}>Cake</Text>
         <Text style={styles.RecSearch}>Burger</Text>
@@ -109,12 +100,7 @@ const Search = () => {
         <Text style={styles.RecSearch}>Pasta</Text>
       </View>
       <Text
-        style={{
-          color: 'black',
-          fontWeight: 'bold',
-          fontSize: 17,
-          paddingTop: 20,
-        }}>
+        style={styles.t1}>
         {' '}
         {'  '}Featured restaurants
       </Text>
@@ -125,49 +111,3 @@ const Search = () => {
 };
 
 export default Search;
-
-const styles = StyleSheet.create({
-  downView1: {
-    marginHorizontal: 10,
-    marginTop: -20,
-    borderRadius: 50,
-  },
-  eyeBtn1: {
-    position: 'absolute',
-    height: 50,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    width: '10%',
-    right: 10,
-    top: '10%',
-  },
-  RecSearch: {
-    color: 'grey',
-    margin: 5,
-    borderWidth: 0.5,
-    width: '22%',
-    fontSize: 12,
-    padding: 10,
-    textAlign: 'center',
-    borderRadius: 20,
-    borderColor: '#0000000D',
-    backgroundColor: '#0000000D',
-  },
-  menulist: {
-    width: '95%',
-    marginLeft: 20,
-    marginTop: 10,
-  },
-  menulist2: {
-    marginTop: 2,
-    marginHorizontal: 10,
-  },
-  menutext: {
-    color: '#1C7584',
-    fontWeight: '500',
-    fontSize: 15,
-    marginRight: 5,
-    textAlign: 'center',
-    paddingBottom: 5,
-  },
-});

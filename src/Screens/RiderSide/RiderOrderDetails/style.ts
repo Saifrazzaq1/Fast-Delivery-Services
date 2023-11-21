@@ -2,6 +2,17 @@ import {StyleSheet} from 'react-native';
 import {heightRef} from 'src/config/screenSize';
 
 const styles = StyleSheet.create({
+  head:{paddingBottom: 45},
+  body:{
+    marginHorizontal: 20,
+    marginBottom: '10%',
+  },
+  map:{flex: 1},
+  row:{flexDirection: 'row'},
+  pay:{flexDirection: 'row', justifyContent: 'space-between'},
+  bottom:{flexDirection: 'row', alignItems: 'center'},
+  img:{width: 35, height: 35, marginTop: 10},
+  btn:{marginTop: 40, marginBottom: 40},
   text1: {
     fontWeight: '500',
     color: 'black',

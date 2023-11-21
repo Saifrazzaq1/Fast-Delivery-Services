@@ -24,7 +24,7 @@ const Payments = [
   },
 ];
 
-const AccountRider = ({navigation, route}) => {
+const AccountRider = ({navigation, }) => {
   const card = useSelector(state => state.card.cards);
   const lastCard = card.length > 0 ? card[card.length - 1] : null;
   const hasAccountDetails = lastCard;
@@ -33,7 +33,7 @@ const AccountRider = ({navigation, route}) => {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
+    <View style={style.body}>
       <Header
         backIcon
         loginTitle={'Account'}
@@ -59,7 +59,7 @@ const AccountRider = ({navigation, route}) => {
               <Text style={style.CardT2}>Change</Text>
             </TouchableOpacity>
           </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={style.hist}>
             <Text style={style.CardText}>Transaction History</Text>
             <TouchableOpacity
               onPress={() => navigation.navigate('Transaction')}>
@@ -92,7 +92,7 @@ const AccountRider = ({navigation, route}) => {
               managing your finances effortlessly.
             </Text>
           </View>
-          <View style={{flex: 1, justifyContent: 'flex-end'}}>
+          <View style={style.bottom}>
             <Button
               onPress={() => navigation.navigate('ChooseAccount')}
               unseen={2}

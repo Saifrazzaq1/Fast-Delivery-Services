@@ -1,11 +1,14 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+  body:{ fontSize: 19, fontWeight: '500', color: 'white' },
+  progView:{flexDirection: 'row', margin: 30},
   mainview: {
     margin: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  t1:{fontSize: 19, fontWeight: '500', color: 'white'},
   text: {
     color: 'black',
     fontSize: 20,

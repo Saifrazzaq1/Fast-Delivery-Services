@@ -7,7 +7,6 @@ import Textfield from 'src/Components/Textfield';
 import style from './style';
 
 const Location = ({navigation}) => {
-  const [index, setIndex] = useState(2);
   const [value, setValue] = useState(false);
   const [region, setRegion] = useState({
     latitude: 31.5204,

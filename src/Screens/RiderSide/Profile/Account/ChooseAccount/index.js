@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StatusBar,
-  StyleSheet,
   Text,
   View,
   Image,
@@ -14,7 +13,7 @@ import Icon, {IconType} from 'react-native-dynamic-vector-icons';
 
 const ChooseAccount = ({navigation}) => {
   return (
-    <View style={{flex: 1}}>
+    <View style={style.body}>
       <StatusBar
         backgroundColor={'transparent'}
         barStyle="dark-content"

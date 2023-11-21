@@ -1,4 +1,4 @@
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {
   FlatList,
@@ -61,11 +61,7 @@ const FastFood = () => {
     });
   }, []);
   return (
-    <View
-      style={{
-        backgroundColor: '#fff',
-        flex: 1,
-      }}>
+    <View style={styles.body}>
       <Header
         headerBg
         backIcon
@@ -73,31 +69,16 @@ const FastFood = () => {
         locationtextPosition={'center'}
         heartIcon
       />
-      <View
-        style={{
-          backgroundColor: '#FFF',
-          height: 50,
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-          paddingHorizontal: 25,
-          shadowColor: 'grey',
-          shadowOffset: {
-            width: 0,
-            height: 3,
-          },
-          shadowOpacity: 0.27,
-          shadowRadius: 4.65,
-          elevation: 6,
-        }}>
-        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={styles.main}>
+        <TouchableOpacity style={styles.btn}>
           <Image style={styles.img} source={Images.filter} />
           <Text style={styles.text}>Filter</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+        <TouchableOpacity style={styles.btn}>
           <Image style={styles.img} source={Images.cos} />
           <Text style={styles.text}>Coisines</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}}>
+        <TouchableOpacity style={styles.btn}>
           <Image style={styles.img} source={Images.search} />
           <Text style={styles.text}>Search</Text>
         </TouchableOpacity>

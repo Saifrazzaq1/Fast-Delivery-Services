@@ -38,7 +38,7 @@ const HistoryFDetail = ({navigation}) => {
   });
 
   return (
-    <View style={{flex: 1}}>
+    <View style={style.body}>
       <StatusBar
         backgroundColor={'transparent'}
         barStyle="dark-content"
@@ -90,7 +90,7 @@ const HistoryFDetail = ({navigation}) => {
               </MapView>
             </View>
             <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              style={style.drop}>
               <View>
                 <Text style={style.maptext}>Drop off Location</Text>
                 <Text style={style.maptext1}>zam zam height (Masdar City)</Text>
@@ -100,12 +100,12 @@ const HistoryFDetail = ({navigation}) => {
               </View>
               <Image
                 source={Images.bike1}
-                style={{height: 37, width: 37, alignSelf: 'center'}}
+                style={style.img}
               />
             </View>
           </View>
 
-          <TouchableOpacity style={style.pay} onPress={() => {}}>
+          <TouchableOpacity style={style.pay} >
             <Icon
               type={IconType.Ionicons}
               name="card-outline"

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
   StatusBar,
-  StyleSheet,
   Text,
   View,
   ImageBackground,
@@ -24,7 +23,7 @@ const EditProfile = () => {
   const handleSubmit = () => {};
 
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <View style={style.body}>
       <StatusBar
         backgroundColor={'transparent'}
         barStyle="dark-content"

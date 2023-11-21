@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  body:{backgroundColor: '#fff'},
   arrowIcon: {
     textAlign: 'center',
   },

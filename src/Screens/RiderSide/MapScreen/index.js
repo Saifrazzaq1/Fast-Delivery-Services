@@ -16,23 +16,6 @@ import Header from 'src/Components/Header';
 import Images from '../../../Assets';
 import style from './style';
 
-const Orders = [
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-];
 const MapScreen = () => {
   const [state, setState] = useState({
     pickUpCord: {
@@ -56,11 +39,9 @@ const MapScreen = () => {
   const MapRef = useRef();
   return (
     <View
-      style={{
-        flex: 1,
-      }}>
+      style={style.body}>
       <View style={style.container1}>
-        <MapView style={{flex: 1}} initialRegion={pickUpCord} ref={MapRef}>
+        <MapView style={style.body} initialRegion={pickUpCord} ref={MapRef}>
           <Marker coordinate={pickUpCord} image={Images.bike2} />
           <Marker coordinate={DropOffCord} image={Images.loc} />
           <MapViewDirections
@@ -198,7 +179,7 @@ const MapScreen = () => {
               <Text style={style.text3}>Order details</Text>
               <FlatList
                 data={'fa'}
-                renderItem={({item}) => (
+                renderItem={() => (
                   <TouchableOpacity
                     onPress={() => {
                       setFullSheet(!true);

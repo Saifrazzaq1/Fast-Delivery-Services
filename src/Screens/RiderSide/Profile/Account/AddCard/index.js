@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StatusBar, StyleSheet, View, Text} from 'react-native';
+import {StatusBar, View} from 'react-native';
 import Header from 'src/Components/Header';
 import style from './style';
 import Textfield from 'src/Components/Textfield';
@@ -33,7 +33,7 @@ const AddCard = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={style.body}>
       <StatusBar
         backgroundColor={'transparent'}
         barStyle="dark-content"

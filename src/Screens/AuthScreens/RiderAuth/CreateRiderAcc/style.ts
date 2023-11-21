@@ -4,12 +4,14 @@ export default StyleSheet.create({
   mainview: {
     margin: 20,
   },
+  
   text: {
     color: 'black',
     fontSize: 22,
     fontWeight: 'bold',
   },
-
+  t1:{ fontSize: 19, fontWeight: '500', color: 'white' },
+  progressView:{ flexDirection: 'row', margin: 30 },
   Progbtn: {
     height: 34,
     width: 34,

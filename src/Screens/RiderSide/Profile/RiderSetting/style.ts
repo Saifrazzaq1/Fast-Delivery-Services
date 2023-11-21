@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
+  body:{backgroundColor: '#fff', flex: 1},
     btnsview: {
       marginTop: 20,
       marginHorizontal: 10,
@@ -10,7 +11,18 @@ export default StyleSheet.create({
       marginLeft: 10,
       width: 28,
     },
-  
+btn:{
+  alignSelf: 'flex-start',
+  marginBottom: 30,
+  flexDirection: 'row',
+  width: '100%',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+},
+btn1:{
+  alignSelf: 'flex-start',
+  marginBottom: 30,
+},
     btnsname: {
       color: '#000',
       fontSize: 16,

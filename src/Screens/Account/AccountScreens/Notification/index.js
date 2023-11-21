@@ -6,7 +6,7 @@ import styles from './style';
 
 const Notification = () => {
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'Notification'}

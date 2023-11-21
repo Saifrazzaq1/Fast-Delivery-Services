@@ -6,7 +6,7 @@ import Textfield from 'src/Components/Textfield';
 import style from './style';
 import {LOGIN} from 'src/Redux/Reducers/RiderAuth/actions';
 
-const RiderSignin = ({navigation}) => {
+const RiderSignin = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const handleSignin = () => {
@@ -14,7 +14,7 @@ const RiderSignin = ({navigation}) => {
       email: email,
       password: password,
     };
-    console.log('data', data);
+   
     LOGIN(data);
   };
   return (

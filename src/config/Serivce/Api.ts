@@ -68,10 +68,7 @@ class Api {
         }
       }
       generateFormData(data);
-      console.log({
-        ':rocket: ~ file: Api.ts:75 ~ Api ~ requestWithFormData ~ formData:':
-          JSON.stringify(formData, null, 2),
-      });
+     
       const res = await axios({
         method,
         url: ENV.base_url + url,

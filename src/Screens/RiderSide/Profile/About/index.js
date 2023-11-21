@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Header from 'src/Components/Header';
 import styles from './styles';
 const AboutR = () => {
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'About'}
@@ -18,7 +18,7 @@ const AboutR = () => {
       />
       <View style={styles.btnsview}>
         <View style={styles.btn}>
-          <View style={{alignSelf: 'center'}}>
+          <View style={styles.main}>
             <Text style={styles.username}>FAQ</Text>
           </View>
           <View>
@@ -31,7 +31,7 @@ const AboutR = () => {
           </View>
         </View>
         <View style={styles.btn}>
-          <View style={{alignSelf: 'center'}}>
+          <View style={styles.center}>
             <Text style={styles.username}>App Feedback</Text>
           </View>
           <View>
@@ -44,7 +44,7 @@ const AboutR = () => {
           </View>
         </View>
         <View style={styles.btn}>
-          <View style={{alignSelf: 'center'}}>
+          <View style={styles.center}>
             <Text style={styles.username}>Privacy Policy</Text>
           </View>
           <View>
@@ -57,7 +57,7 @@ const AboutR = () => {
           </View>
         </View>
         <View style={styles.btn}>
-          <View style={{alignSelf: 'center'}}>
+          <View style={styles.center}>
             <Text style={styles.username}>Terms of use</Text>
           </View>
           <View>
@@ -96,7 +96,7 @@ const AboutR = () => {
           </View>
         </View>
         <View style={styles.btn}>
-          <View style={{alignSelf: 'center'}}>
+          <View style={styles.center}>
             <Text style={styles.username}>Instagram</Text>
           </View>
           <View>

@@ -38,11 +38,9 @@ const Home = ({navigation}) => {
         menu
       />
       <ScrollView
-        style={{
-          marginHorizontal: 20,
-        }}>
+        style={style.body}>
         <OrderEarning />
-        <Text style={{fontSize: 20, color: '#000', fontWeight: '500'}}>
+        <Text style={style.maintext}>
           Order Request
         </Text>
         <FlatList
@@ -57,7 +55,7 @@ const Home = ({navigation}) => {
               <Text style={style.amountText}>Customer Name</Text>
               <Text style={style.text1}>{item.cm}</Text>
               <TouchableOpacity
-                style={{flexDirection: 'row'}}
+                style={style.row}
                 onPress={() => {
                   setIndex(!index);
                 }}>

@@ -1,5 +1,4 @@
 import {
-  StyleSheet,
   ScrollView,
   ImageBackground,
   Text,
@@ -83,7 +82,7 @@ const Details = ({route}) => {
           logoutSize={15}
         />
       </ImageBackground>
-      <View style={{margin: 20}}>
+      <View style={style.body}>
         <View style={style.view1}>
           <Text style={style.oshatext}>Osha Emirati Gourmet</Text>
           <Text style={style.infotext}>Info</Text>
@@ -163,16 +162,7 @@ const Details = ({route}) => {
                       {item.text}
                     </Text>
                   </TouchableOpacity>
-                  {active === item.index ? (
-                    <View
-                      style={{
-                        backgroundColor: '#1C7584',
-                        height: 4,
-                        marginLeft: -2,
-                        width: '105%',
-                      }}
-                    />
-                  ) : null}
+                  {active === item.index ? <View style={style.act} /> : null}
                 </View>
               </>
             )}
@@ -184,7 +174,7 @@ const Details = ({route}) => {
             <FlatList
               style={{flex: 1}}
               data={items}
-              renderItem={({item, index}) => (
+              renderItem={({item}) => (
                 <TouchableOpacity
                   style={style.mainlistview}
                   onPress={() => {
@@ -193,14 +183,7 @@ const Details = ({route}) => {
                     setDetail(item);
                   }}>
                   {onSelect.includes(item) ? (
-                    <View
-                      style={{
-                        height: 90,
-                        width: 5,
-                        backgroundColor: '#1C7584',
-                        marginRight: 5,
-                      }}
-                    />
+                    <View style={style.select} />
                   ) : null}
                   <View>
                     <Text style={style.mlisttext}>{item.item}</Text>
@@ -220,9 +203,7 @@ const Details = ({route}) => {
         </View>
         {showModal ? (
           <Modal animationType="slide" transparent={true} statusBarTranslucent>
-            <Pressable
-              style={{flex: 1, backgroundColor: 'rgba(52, 52, 52, 0.8)'}}
-              onPress={() => {}}>
+            <Pressable style={style.btn} onPress={() => {}}>
               <Pressable
                 onPress={() => {
                   setShowModal(false);

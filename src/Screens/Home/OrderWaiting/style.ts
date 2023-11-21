@@ -2,6 +2,12 @@ import {StyleSheet} from 'react-native';
 import {heightRef} from 'src/config/screenSize';
 
 const styles = StyleSheet.create({
+  body:{margin: 20, paddingBottom: 50},
+  main:{
+    alignItems: 'center',
+    flex: 1,
+  },
+  mainimg:{width: 250, height: 250},
   bgimg: {
     width: '100%',
     height: 220 * heightRef,
@@ -177,6 +183,9 @@ const styles = StyleSheet.create({
     width: 118,
     borderRadius: 10,
   },
+  img:{width: 25, height: 25, marginTop: 5},
+  row:{flexDirection: 'row'},
+  img1:{width: 35, height: 35, marginTop: 20},
 });
 
 export default styles;
