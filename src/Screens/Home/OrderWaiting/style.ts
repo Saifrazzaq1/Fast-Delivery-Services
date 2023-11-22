@@ -2,6 +2,12 @@ import {StyleSheet} from 'react-native';
 import {heightRef} from 'src/config/screenSize';
 
 const styles = StyleSheet.create({
+  body:{margin: 20, paddingBottom: 50},
+  main:{
+    alignItems: 'center',
+    flex: 1,
+  },
+  mainimg:{width: 250, height: 250},
   bgimg: {
     width: '100%',
     height: 220 * heightRef,
@@ -23,6 +29,36 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     marginVertical: 5,
+  },
+  totalV: {
+    flexDirection: 'row',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    borderRadius: 10,
+  },
+  listimg: {
+    height: 70,
+    width: 100,
+    borderRadius: 20,
+  },
+  mapv: {
+    marginBottom: 10,
+    marginTop: 30,
+    height: 160,
+    width: '100%',
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+  itemlist: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+  },
+  totalView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#fdf4f4',
+    borderRadius: 10,
   },
   oshatextc: {color: 'black', fontSize: 16, fontWeight: '500', marginLeft: 5},
   infotext: {color: 'green', fontSize: 14},
@@ -147,6 +183,9 @@ const styles = StyleSheet.create({
     width: 118,
     borderRadius: 10,
   },
+  img:{width: 25, height: 25, marginTop: 5},
+  row:{flexDirection: 'row'},
+  img1:{width: 35, height: 35, marginTop: 20},
 });
 
 export default styles;

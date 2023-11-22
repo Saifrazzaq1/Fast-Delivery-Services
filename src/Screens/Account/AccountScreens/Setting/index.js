@@ -1,12 +1,12 @@
-import {StyleSheet, TouchableOpacity, Text, View, Switch} from 'react-native';
-import React, {useState} from 'react';
+import {TouchableOpacity, Text, View} from 'react-native';
+import React from 'react';
 import Header from 'src/Components/Header';
 import ToggleSwitch from 'toggle-switch-react-native';
-import {heightRef} from 'src/config/screenSize';
+import styles from './style';
 
 const Setting = () => {
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'Settings'}
@@ -18,15 +18,7 @@ const Setting = () => {
         headerShadow
       />
       <View style={styles.btnsview}>
-        <TouchableOpacity
-          style={{
-            alignSelf: 'flex-start',
-            marginBottom: 30,
-            flexDirection: 'row',
-            width: '100%',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
+        <TouchableOpacity style={styles.all}>
           <Text style={styles.btnsname}>Notification</Text>
           <ToggleSwitch
             isOn={true}
@@ -38,19 +30,13 @@ const Setting = () => {
         </TouchableOpacity>
         <View style={styles.line} />
         <TouchableOpacity
-          style={{
-            alignSelf: 'flex-start',
-            marginBottom: 30,
-          }}>
+          style={styles.btn}>
           <Text style={styles.btnsname}>Language</Text>
           <Text style={styles.btnsnames}>English</Text>
         </TouchableOpacity>
         <View style={styles.line} />
         <TouchableOpacity
-          style={{
-            alignSelf: 'flex-start',
-            marginBottom: 30,
-          }}>
+          style={styles.btn}>
           <Text style={styles.btnsname}>Country</Text>
           <Text style={styles.btnsnames}>United Arab Emirates</Text>
         </TouchableOpacity>
@@ -61,36 +47,3 @@ const Setting = () => {
 };
 
 export default Setting;
-
-const styles = StyleSheet.create({
-  btnsview: {
-    marginTop: 20,
-    marginHorizontal: 10,
-  },
-  btnsimg: {
-    height: 28,
-    marginLeft: 10,
-    width: 28,
-  },
-
-  btnsname: {
-    color: '#000',
-    fontSize: 16,
-    fontWeight: '400',
-    marginLeft: 10,
-  },
-  btnsnames: {
-    color: '#1C7584',
-    fontSize: 14,
-    marginLeft: 10,
-    marginTop: 5,
-  },
-  line: {
-    marginHorizontal: 10,
-    marginTop: -10,
-    marginBottom: 15,
-    height: 0.4,
-    backgroundColor: 'grey',
-    zIndex: 1000,
-  },
-});

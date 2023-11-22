@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StatusBar, Text, View} from 'react-native';
 import CheckBox from 'react-native-check-box';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
@@ -11,13 +11,13 @@ import style from './style';
 const CreateAccount = ({navigation}) => {
   const [isChecked, setisChecked] = useState(false);
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [first_name, setfirst_name] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
 
   const handleSubmit = () => {
     const data = {
-      name: name,
+      first_name: first_name,
       email: email,
       password: password,
       phone: phone,
@@ -40,7 +40,6 @@ const CreateAccount = ({navigation}) => {
       }
     });
   };
-
   return (
     <View>
       <StatusBar
@@ -52,17 +51,17 @@ const CreateAccount = ({navigation}) => {
         loginbtn
         headerBg
         headerbgcolor={'white'}
-        loginmarginleft={"55%"}
+        loginmarginleft={'55%'}
         headerShadow
         backIcon
         loginTitle={'Login'}
-        logintextcolor={"#1C7584"}
+        logintextcolor={'#1C7584'}
       />
       <View style={style.mainview}>
         <Text style={style.text}>Continue with email</Text>
         <Textfield
-          value={name}
-          onChangeText={setName}
+          value={first_name}
+          onChangeText={setfirst_name}
           borderBottomWidth={1}
           borderColor={'grey'}
           placeholder={'First Name'}
@@ -106,11 +105,7 @@ const CreateAccount = ({navigation}) => {
           Your Password must be at least 6 characters
         </Text>
         <View
-          style={{
-            flexDirection: 'row',
-            position: 'absolute',
-            marginTop: 375,
-          }}>
+          style={style.check}>
           <CheckBox
             checkBoxColor={'#000'}
             checkedCheckBoxColor={'#E0281C'}
@@ -144,5 +139,3 @@ const CreateAccount = ({navigation}) => {
 };
 
 export default CreateAccount;
-
-const styles = StyleSheet.create({});

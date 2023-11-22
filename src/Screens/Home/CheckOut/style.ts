@@ -137,6 +137,44 @@ const styles = StyleSheet.create({
     width: 118,
     borderRadius: 10,
   },
+  checkView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  noview: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+  },
+  noteview: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+  },
+  img:{margin: 20},
+  img1:{width: 35, height: 35, marginTop: 5},
+  img2:{
+    width: 29,
+    height: 29,
+    marginRight: 10,
+    alignSelf: 'center',
+  },
+  pay:{flexDirection: 'row', justifyContent: 'space-between'},
+  btnView:{
+    flexDirection: 'row',
+    marginTop: 130,
+  },
+  button:{
+    marginTop: 20,
+    width: '49%',
+    marginRight: 5,
+    borderRadius: 30,
+    borderColor: '#1C7584',
+    borderWidth: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button1:{marginTop: 20, width: '49%', alignItems: 'center'}
 });
 
 export default styles;

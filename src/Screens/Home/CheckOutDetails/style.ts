@@ -169,6 +169,65 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  twoview: {
+    backgroundColor: 'black',
+    height: 20,
+    width: 20,
+    borderRadius: 15,
+    marginTop: 2.5,
+    borderColor: 'black',
+    borderWidth: 1,
+  },
+  mapview: {
+    marginBottom: 10,
+    height: 180,
+    width: '100%',
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+  check: {
+    flexDirection: 'row',
+    backgroundColor: '#fdf4f4',
+    borderRadius: 10,
+  },
+  check2: {
+    flexDirection: 'row',
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+    borderRadius: 10,
+  },
+  uncheck: {
+    backgroundColor: '#1C75840D',
+    padding: 20,
+    borderRadius: 10,
+    marginTop: 40,
+  },
+  btn: {
+    flexDirection: 'row',
+    marginTop: 130,
+  },
+  new:{ margin: 20 },
+  img:{ width: 35, height: 35 },
+  row:{ flexDirection: 'row' },
+  img1:{ width: 35, height: 35, marginTop: 5 },
+  img2:{ width: 25, height: 25, marginLeft: 10 },
+  icon:{ marginTop: 20, marginLeft: 30, color: 'black' },
+  btn1:{ flexDirection: 'row', marginTop: 30 },
+  btn2: {
+    height: 25,
+    width: 25,
+    borderRadius: 15,
+    borderWidth: 1,
+  },
+  btn3:{
+    height: 25,
+    width: 22.5,
+    marginLeft: -22.5,
+  },
+  btnview:{ flexDirection: 'row', marginTop: 50 },
+  pay:{ flexDirection: 'row', justifyContent: 'space-between' },
+  orderbtn:{ marginTop: 20, width: '100%', alignItems: 'center' },
+  
 });
 
 export default styles;

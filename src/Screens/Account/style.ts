@@ -1,6 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  body: {backgroundColor: '#fff', flex: 1},
+  mainbody: {flexDirection: 'row', alignItems: 'center'},
+  profile: {flexDirection: 'row', alignItems: 'center'},
   storesView: {
     backgroundColor: '#1C7584',
     width: '100%',
@@ -26,6 +29,13 @@ const styles = StyleSheet.create({
     right: 30,
     top: 120,
   },
+  settingimg: {
+    height: 25,
+    width: 25,
+    position: 'absolute',
+    right: -140,
+    top: -15,
+  },
   heytext: {
     color: '#000',
     fontSize: 20,
@@ -33,6 +43,12 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginTop: 20,
     marginLeft: 20,
+  },
+  eemage: {
+    alignSelf: 'flex-start',
+    marginBottom: 30,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   heyView: {
     marginTop: 20,
@@ -134,6 +150,47 @@ const styles = StyleSheet.create({
     height: 200,
     width: 300,
     justifyContent: 'center',
+  },
+  mainview: {
+    marginHorizontal: 20,
+  },
+  btnsview: {
+    marginTop: 40,
+  },
+  countryImg: {
+    height: 15,
+    marginLeft: 10,
+    width: 15,
+  },
+  palview: {flexDirection: 'row', alignItems: 'center'},
+  btnsimg: {
+    height: 28,
+    marginLeft: 10,
+    width: 28,
+  },
+  dpview: {
+    height: 90,
+    width: 90,
+    backgroundColor: '#ff1',
+    borderRadius: 45,
+  },
+  imgdp: {flexDirection: 'row', alignItems: 'center'},
+  username: {
+    color: '#000',
+    fontSize: 18,
+    fontWeight: '500',
+    marginLeft: 10,
+  },
+  btnsname: {
+    color: '#000',
+    fontSize: 18,
+    fontWeight: '400',
+    marginLeft: 10,
+  },
+  useraddress: {
+    color: 'grey',
+    fontSize: 14,
+    marginLeft: 3,
   },
 });
 

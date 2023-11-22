@@ -10,7 +10,6 @@ import style from './style';
 const Onboarding = ({navigation}) => {
   const inset = useSafeAreaInsets();
   const pressHandler = () => {
-    console.log('working');
     navigation.navigate('Location');
   };
   const [index, setIndex] = useState(0);
@@ -73,7 +72,6 @@ const Onboarding = ({navigation}) => {
                 setIndex(index + 1);
                 if (index >= 2) {
                   pressHandler();
-                  console.log(index);
                 }
               }}
             />

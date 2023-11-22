@@ -5,6 +5,11 @@ export default StyleSheet.create({
     marginTop: 40,
     margin: 20,
   },
+  check:{
+    flexDirection: 'row',
+    position: 'absolute',
+    marginTop: 375,
+  },
   text: {
     color: 'black',
     fontSize: 22,

@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+  body:{backgroundColor: '#fff'},
   mainview: {
     marginTop: 40,
     margin: 20,
@@ -38,4 +39,10 @@ export default StyleSheet.create({
     fontSize: 14,
     textAlign: 'left',
   },
+  btn:{
+    flexDirection: 'row',
+    position: 'absolute',
+    marginTop: 385,
+  },
+  
 });

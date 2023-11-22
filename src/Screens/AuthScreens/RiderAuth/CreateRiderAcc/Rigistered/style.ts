@@ -1,22 +1,25 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+  body:{ fontSize: 19, fontWeight: '500', color: 'white' },
+  progView:{flexDirection: 'row', margin: 30},
   mainview: {
     margin: 20,
-    justifyContent:'center',
-    alignItems:'center'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+  t1:{fontSize: 19, fontWeight: '500', color: 'white'},
   text: {
     color: 'black',
     fontSize: 20,
     fontWeight: '600',
-    textAlign:'center'
+    textAlign: 'center',
   },
   text1: {
     color: '#A0A0A0',
     fontSize: 16,
     textAlign: 'center',
-    fontWeight:'400'
+    fontWeight: '400',
   },
   text3: {
     color: '#000',
@@ -46,7 +49,7 @@ export default StyleSheet.create({
     borderRadius: 40,
     backgroundColor: 'red',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   Progbtn1: {
     height: 34,
@@ -54,11 +57,21 @@ export default StyleSheet.create({
     borderRadius: 40,
     backgroundColor: '#F6F6F6',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
-  ProgView:{height:5   , width:118 ,backgroundColor:'red', alignSelf:'center'},
-  ProgView1:{height:5   , width:118 ,backgroundColor:'#F6F6F6', alignSelf:'center'},
+  ProgView: {
+    height: 5,
+    width: 118,
+    backgroundColor: 'red',
+    alignSelf: 'center',
+  },
+  ProgView1: {
+    height: 5,
+    width: 118,
+    backgroundColor: '#F6F6F6',
+    alignSelf: 'center',
+  },
 
-  ProbText:{fontSize:19, fontWeight:'500', color:'white',},
-  ProbText1:{fontSize:19, fontWeight:'500', color:'#A0A0A0',}
+  ProbText: {fontSize: 19, fontWeight: '500', color: 'white'},
+  ProbText1: {fontSize: 19, fontWeight: '500', color: '#A0A0A0'},
 });

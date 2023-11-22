@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import {heightRef} from 'src/config/screenSize';
 
 const styles = StyleSheet.create({
+  body:{margin: 20},
   bgimg: {
     width: '100%',
     height: 220 * heightRef,
@@ -117,6 +118,20 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  act:{
+    backgroundColor: '#1C7584',
+    height: 4,
+    marginLeft: -2,
+    width: '105%',
+  },
+  select:{
+    height: 90,
+    width: 5,
+    backgroundColor: '#1C7584',
+    marginRight: 5,
+  },
+  btn:{flex: 1, backgroundColor: 'rgba(52, 52, 52, 0.8)'},
+  
 });
 
 export default styles;

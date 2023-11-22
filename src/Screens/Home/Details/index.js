@@ -1,5 +1,4 @@
 import {
-  StyleSheet,
   ScrollView,
   ImageBackground,
   Text,
@@ -13,12 +12,11 @@ import {
 import React, {useEffect, useState} from 'react';
 import Header from 'src/Components/Header';
 import Images from '../../../Assets/';
-import {ITEM} from 'src/Redux/Reducers/Auth/actions';
+import {MENU} from 'src/Redux/Reducers/Auth/actions';
 import style from './style';
 import Button from 'src/Components/Button';
 import {useNavigation} from '@react-navigation/native';
 import ItemDetail from 'src/Components/ItemDetail';
-import {useDispatch} from 'react-redux';
 
 const ads = [
   {
@@ -54,14 +52,19 @@ const menu = [
   },
 ];
 const stars = [Images.star, Images.star, Images.star, Images.star];
-const Details = () => {
-  const dispatch = useDispatch;
+const Details = ({route}) => {
+  const data = route.params?.item;
   const [items, setItems] = useState([]);
   useEffect(() => {
-    ITEM(res => {
-      setItems(res.Items);
+    const id = data?._id;
+    MENU(id, res => {
+      if (res.success) {
+        setItems(res.menu);
+      }
     });
+    console.log('DATA', JSON.stringify(items, null, 2));
   }, []);
+
   const [showModal, setShowModal] = useState(false);
   const [active, setActive] = useState(1);
   const [onSelect, setOnSelect] = useState([]);
@@ -79,7 +82,7 @@ const Details = () => {
           logoutSize={15}
         />
       </ImageBackground>
-      <View style={{margin: 20}}>
+      <View style={style.body}>
         <View style={style.view1}>
           <Text style={style.oshatext}>Osha Emirati Gourmet</Text>
           <Text style={style.infotext}>Info</Text>
@@ -159,16 +162,7 @@ const Details = () => {
                       {item.text}
                     </Text>
                   </TouchableOpacity>
-                  {active === item.index ? (
-                    <View
-                      style={{
-                        backgroundColor: '#1C7584',
-                        height: 4,
-                        marginLeft: -2,
-                        width: '105%',
-                      }}
-                    />
-                  ) : null}
+                  {active === item.index ? <View style={style.act} /> : null}
                 </View>
               </>
             )}
@@ -180,7 +174,7 @@ const Details = () => {
             <FlatList
               style={{flex: 1}}
               data={items}
-              renderItem={({item, index}) => (
+              renderItem={({item}) => (
                 <TouchableOpacity
                   style={style.mainlistview}
                   onPress={() => {
@@ -189,21 +183,19 @@ const Details = () => {
                     setDetail(item);
                   }}>
                   {onSelect.includes(item) ? (
-                    <View
-                      style={{
-                        height: 90,
-                        width: 5,
-                        backgroundColor: '#1C7584',
-                        marginRight: 5,
-                      }}
-                    />
+                    <View style={style.select} />
                   ) : null}
                   <View>
-                    <Text style={style.mlisttext}>{item.name}</Text>
-                    <Text style={style.mlistdes}>{item.description}</Text>
-                    <Text style={style.mlistprice}>Price on selection</Text>
+                    <Text style={style.mlisttext}>{item.item}</Text>
+                    <Text style={style.mlistdes}>{item.discription}</Text>
+                    <Text style={style.mlistprice}>{item.price}</Text>
                   </View>
-                  <Image style={style.mlistimg} source={Images.salan} />
+                  <Image
+                    style={style.mlistimg}
+                    source={{
+                      uri: 'https://localhost:5000/api/v1/' + item.photo,
+                    }}
+                  />
                 </TouchableOpacity>
               )}
             />
@@ -211,9 +203,7 @@ const Details = () => {
         </View>
         {showModal ? (
           <Modal animationType="slide" transparent={true} statusBarTranslucent>
-            <Pressable
-              style={{flex: 1, backgroundColor: 'rgba(52, 52, 52, 0.8)'}}
-              onPress={() => {}}>
+            <Pressable style={style.btn} onPress={() => {}}>
               <Pressable
                 onPress={() => {
                   setShowModal(false);

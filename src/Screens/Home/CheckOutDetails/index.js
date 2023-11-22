@@ -1,5 +1,5 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
 import {
   Image,
   Modal,
@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import MapView, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
@@ -16,9 +16,8 @@ import PayWith from 'src/Components/PayWith';
 import Images from '../../../Assets';
 import style from './style';
 
-const CheckOutDetails = ({route}) => {
-  console.log('🚀 ~ file: index.js:12 ~ CheckOutDetails ~ route:', route);
-  const [select, setSelect] = useState(null);
+const CheckOutDetails = ({ route }) => {
+
   const [ischecked, setIschecked] = useState([]);
   const [radioActive, setradioActive] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -31,11 +30,11 @@ const CheckOutDetails = ({route}) => {
     latitudeDelta: 0.015,
     longitudeDelta: 0.0121,
   });
-  const {total, item, itemPrice, count} = route.params;
+  const { total, item, itemPrice } = route.params;
   let riderTip = 7;
   let serviceFee = 8;
   return (
-    <ScrollView style={{backgroundColor: '#fff'}} stickyHeaderIndices={[0]}>
+    <ScrollView style={{ backgroundColor: '#fff' }} stickyHeaderIndices={[0]}>
       <Header
         loginbtn
         headerBg
@@ -46,17 +45,10 @@ const CheckOutDetails = ({route}) => {
         locationText
         marginright={90}
       />
-      <View style={{margin: 20}}>
-        <View
-          style={{
-            marginBottom: 10,
-            height: 180,
-            width: '100%',
-            borderRadius: 20,
-            overflow: 'hidden',
-          }}>
+      <View style={style.new}>
+        <View style={style.mapview}>
           <MapView
-            style={{flex: 1}}
+            style={{ flex: 1 }}
             provider={PROVIDER_GOOGLE}
             region={region}
             onRegionChangeComplete={region => setRegion(region)}>
@@ -67,9 +59,9 @@ const CheckOutDetails = ({route}) => {
             </Marker>
           </MapView>
         </View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={style.row}>
           <View style={style.view1}>
-            <Image style={{width: 35, height: 35}} source={Images.knife} />
+            <Image style={style.img} source={Images.knife} />
           </View>
           <View>
             <Text style={style.oshatext}>Younus Akram</Text>
@@ -81,8 +73,8 @@ const CheckOutDetails = ({route}) => {
           </View>
         </View>
         <View style={style.line} />
-        <View style={{flexDirection: 'row'}}>
-          <Image style={{width: 25, height: 25}} source={Images.clock} />
+        <View style={style.row}>
+          <Image style={style.img} source={Images.clock} />
           <Text style={style.oshatextc}>Within 50 mins</Text>
         </View>
         <View style={style.line} />
@@ -92,25 +84,15 @@ const CheckOutDetails = ({route}) => {
             setIschecked(!ischecked);
             setEnabled(!Enabled);
           }}
-          style={{
-            flexDirection: 'row',
-            backgroundColor: '#fdf4f4',
-            borderRadius: 10,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              paddingVertical: 20,
-              paddingHorizontal: 15,
-              borderRadius: 10,
-            }}>
-            <View style={{flexDirection: 'row'}}>
+          style={style.check}>
+          <View style={style.check2}>
+            <View style={style.row}>
               <Image
-                style={{width: 35, height: 35, marginTop: 5}}
+                style={style.img1}
                 source={Images.bike}
               />
             </View>
-            <View style={{marginLeft: 10}}>
+            <View style={{ marginLeft: 10 }}>
               <Text style={style.oshatext1}>Contactless Delivery</Text>
               <Text style={style.oshatextm}>
                 Leave order at doorstep and inform me
@@ -123,7 +105,7 @@ const CheckOutDetails = ({route}) => {
           <FontAwesome5
             style={[
               style.eyeBtn1,
-              {marginTop: 20, marginLeft: 30, color: 'black'},
+              style.icon
             ]}
             size={25}
             name={Enabled ? 'check-square' : 'square'}
@@ -137,21 +119,16 @@ const CheckOutDetails = ({route}) => {
             width: '100%',
           }}>
           <Text style={style.textplay}>Pay with</Text>
-          <View style={{marginHorizontal: 10}}>
+          <View style={{ marginHorizontal: 10 }}>
             <TouchableOpacity
               onPress={() => {
                 setradioActive(1);
                 setShowModal(true);
               }}
-              style={{flexDirection: 'row', marginTop: 30}}>
+              style={style.btn1}>
               <View
                 style={[
-                  {
-                    height: 25,
-                    width: 25,
-                    borderRadius: 15,
-                    borderWidth: 1,
-                  },
+                 style.btn2,
                   {
                     borderColor: radioActive === 1 ? 'black' : 'grey',
                   },
@@ -159,56 +136,34 @@ const CheckOutDetails = ({route}) => {
               />
               {radioActive === 1 ? (
                 <View
-                  style={{
-                    height: 25,
-                    width: 22.5,
-                    marginLeft: -22.5,
-                  }}>
-                  <View
-                    style={{
-                      backgroundColor: 'black',
-                      height: 20,
-                      width: 20,
-                      borderRadius: 15,
-                      marginTop: 2.5,
-                      borderColor: 'black',
-                      borderWidth: 1,
-                    }}
-                  />
+                  style={style.btn3}>
+                  <View style={style.twoview} />
                 </View>
               ) : null}
               <Image
                 style={[
-                  {width: 25, height: 25, marginLeft: 10},
-                  {tintColor: radioActive === 1 ? 'black' : 'grey'},
+                  style.img2,
+                  { tintColor: radioActive === 1 ? 'black' : 'grey' },
                 ]}
                 source={Images.ccard}
               />
               <Text
                 style={[
                   style.radioText,
-                  {color: radioActive === 1 ? 'black' : 'grey'},
+                  { color: radioActive === 1 ? 'black' : 'grey' },
                 ]}>
                 Credit Card
               </Text>
-              {/* <Image
-                style={{width: 35, height: 35, marginTop: 5}}
-                source={Images.check}
-              /> */}
+           
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
                 setradioActive(2);
               }}
-              style={{flexDirection: 'row', marginTop: 50}}>
+              style={style.btnview}>
               <View
                 style={[
-                  {
-                    height: 25,
-                    width: 25,
-                    borderRadius: 15,
-                    borderWidth: 1,
-                  },
+                style.btn2,
                   {
                     borderColor: radioActive === 2 ? 'black' : 'grey',
                   },
@@ -216,28 +171,14 @@ const CheckOutDetails = ({route}) => {
               />
               {radioActive === 2 ? (
                 <View
-                  style={{
-                    height: 25,
-                    width: 22.5,
-                    marginLeft: -22.5,
-                  }}>
-                  <View
-                    style={{
-                      backgroundColor: 'black',
-                      height: 20,
-                      width: 20,
-                      borderRadius: 15,
-                      marginTop: 2.5,
-                      borderColor: 'black',
-                      borderWidth: 1,
-                    }}
-                  />
+                  style={style.btn3}>
+                  <View style={style.twoview} />
                 </View>
               ) : null}
               <Image
                 style={[
-                  {width: 25, height: 25, marginLeft: 10},
-                  {tintColor: radioActive === 2 ? 'black' : 'grey'},
+                  style.img2,
+                  { tintColor: radioActive === 2 ? 'black' : 'grey' },
                 ]}
                 source={Images.walet}
               />
@@ -245,76 +186,55 @@ const CheckOutDetails = ({route}) => {
               <Text
                 style={[
                   style.radioText,
-                  {color: radioActive === 2 ? 'black' : 'grey'},
+                  { color: radioActive === 2 ? 'black' : 'grey' },
                 ]}>
                 Cash
               </Text>
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              backgroundColor: '#1C75840D',
-              padding: 20,
-              borderRadius: 10,
-              marginTop: 40,
-            }}>
+          <View style={style.uncheck}>
             <Text style={style.oshatextv}>
               Uncheck contactless delivery to use cash payment
             </Text>
           </View>
-          {/* <View style={{}}>
-            <Image
-              style={{
-                width: 29,
-                height: 29,
-                marginRight: 10,
-                alignSelf: 'center',
-              }}
-              source={Images.emark}
-            />
-          </View> */}
         </View>
         <View style={style.line} />
         <View style={style.view1}>
           <Text style={style.oshatext}>Payment Summary</Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.pay}>
           <Text style={style.textany}>Subtotal</Text>
           <Text style={style.deltextnext}>AED {total}</Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.pay}>
           <Text style={style.textany}>Service Fee</Text>
           <Text style={style.deltextnext}> AED 20</Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.pay}>
           <Text style={style.textany}>Delivery fee</Text>
           <Text style={style.deltextnext}>AED 75</Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.pay}>
           <Text style={style.textany}>Rider Tip</Text>
           <Text style={style.deltextnext}>AED 50</Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.pay}>
           <Text style={style.textanyT}>Total amount</Text>
           <Text style={style.deltextnextT}>
             AED {total + serviceFee + riderTip}
           </Text>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 130,
-          }}>
+        <View style={style.btn}>
           <Button
             btnheight={55}
             unseen={2}
             showtitle2={false}
             title={'Place Order'}
             justifyContent={'center'}
-            buttonStyle={{marginTop: 20, width: '100%', alignItems: 'center'}}
+            buttonStyle={style.orderbtn}
             btnColor="#1C7584"
             textColor={'#fff'}
-            textStyle={{marginHorizontal: 20}}
+            textStyle={{ marginHorizontal: 20 }}
             onPress={() => {
               navigation.navigate('OrderWaiting', {
                 total,
@@ -345,4 +265,5 @@ const CheckOutDetails = ({route}) => {
     </ScrollView>
   );
 };
+
 export default CheckOutDetails;

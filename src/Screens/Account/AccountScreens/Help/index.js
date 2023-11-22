@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import Header from 'src/Components/Header';
+import styles from './style';
 
 const Help = () => {
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <View style={styles.body}>
       <Header
         backIcon
         loginTitle={'Help'}
@@ -23,13 +24,9 @@ const Help = () => {
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s Lorem Ipsum is simply dummy text of the printing and
-          {'\n'}
-          {'\n'}
           typesetting industry. Lorem Ipsum has been the industry's standard
           dummy text ever since the 1500sLorem Ipsum standard dummy text ever
           since the 1500s Lorem Ipsum is simply dummy text of the printing and
-          {'\n'}
-          {'\n'}
           typesetting industry. Lorem Ipsum has been the industry's standard
           dummy text ever since the 1500sLorem Ipsum standard dummy text ever
           since the 1500s
@@ -40,40 +37,3 @@ const Help = () => {
 };
 
 export default Help;
-
-const styles = StyleSheet.create({
-  btnsview: {
-    marginTop: 20,
-    marginHorizontal: 10,
-  },
-  btnsimg: {
-    height: 28,
-    marginLeft: 10,
-    width: 28,
-  },
-  btnsdec: {
-    color: 'grey',
-    fontSize: 14,
-    marginLeft: 10,
-  },
-  btnsname: {
-    color: '#000',
-    fontSize: 25,
-    fontWeight: '500',
-    marginLeft: 10,
-  },
-  btnsnames: {
-    color: '#1C7584',
-    fontSize: 14,
-    marginLeft: 10,
-    marginTop: 5,
-  },
-  line: {
-    marginHorizontal: 10,
-    marginTop: -10,
-    marginBottom: 15,
-    height: 0.4,
-    backgroundColor: 'grey',
-    zIndex: 1000,
-  },
-});

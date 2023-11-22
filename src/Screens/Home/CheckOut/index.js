@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   FlatList,
   Image,
@@ -7,7 +7,6 @@ import {
   Text,
   TouchableOpacity,
   View,
-  totalDiscountedPrice,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Button from 'src/Components/Button';
@@ -18,22 +17,13 @@ import Textfield from 'src/Components/Textfield';
 import AddItems from 'src/Components/AddItems';
 
 const CheckOut = ({route}) => {
-  // useEffect(() => {
-  //   ORDER(sub => {
-  //     Order(sub.item).count;
-  //   });
-  // }, []);
+
   const {item, itemPrice} = route.params;
   const navigation = useNavigation();
   const [Enabled, setEnabled] = useState(true);
   const [note, setNote] = useState(false);
 
-  console.log(
-    JSON.stringify(itemPrice, null, 2),
-    '********************************',
-  );
   const totalPrice = item.reduce((total, item) => total + item.price, 0);
-  console.log(item.price, 'TYYTYTYTYTYTYTTYTYTTTY');
   return (
     <ScrollView style={{backgroundColor: '#fff'}} stickyHeaderIndices={[0]}>
       <Header
@@ -43,30 +33,22 @@ const CheckOut = ({route}) => {
         locationText
         backIcon
       />
-      <View style={{margin: 20}}>
+      <View style={style.img}>
         <FlatList
           data={item}
           renderItem={({item}) => <AddItems item={item} />}
         />
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}></View>
+        <View style={style.checkView}></View>
         <View style={style.line} />
         <TouchableOpacity
           onPress={() => {
             setEnabled(prevNote => !prevNote);
           }}
-          style={{
-            flexDirection: 'row',
-            width: '100%',
-            justifyContent: 'space-between',
-          }}>
+          style={style.noview}>
           <View style={{}}>
             <View style={{flexDirection: 'row'}}>
               <Image
-                style={{width: 35, height: 35, marginTop: 5}}
+                style={style.img1}
                 source={Images.knife}
               />
               <Text style={style.text50}>No Cutlery</Text>
@@ -88,29 +70,20 @@ const CheckOut = ({route}) => {
           onPress={() => {
             setNote(prevNote => !prevNote);
           }}
-          style={{
-            flexDirection: 'row',
-            width: '100%',
-            justifyContent: 'space-between',
-          }}>
+          style={style.noteview}>
           <View style={{}}>
             <View style={{flexDirection: 'row'}}>
               <Image
-                style={{width: 35, height: 35, marginTop: 5}}
+                style={style.img1}
                 source={Images.check}
               />
               <Text style={style.text50}>Add a note</Text>
             </View>
             <Text style={style.deltext}>Anything else we need to know ?</Text>
           </View>
-          <View style={{}}>
+          <View>
             <Image
-              style={{
-                width: 29,
-                height: 29,
-                marginRight: 10,
-                alignSelf: 'center',
-              }}
+              style={style.img2}
               source={Images.emark}
             />
           </View>
@@ -122,42 +95,30 @@ const CheckOut = ({route}) => {
         <View style={style.view1}>
           <Text style={style.oshatext}>Payment Summary</Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.pay}>
           <Text style={style.textany}>Subtotal</Text>
           <Text style={style.deltextnext}>AED {totalPrice}</Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.pay}>
           <Text style={style.textany}>Discount</Text>
           <Text style={style.deltext2}>- AED 10% off</Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.pay}>
           <Text style={style.textany}>Delivery fee</Text>
           <Text style={style.deltextnext}>AED 75 </Text>
         </View>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.pay}>
           <Text style={style.textany}>Total amount</Text>
           <Text style={style.deltextnext}>AED {totalPrice - 25 + 75}</Text>
         </View>
         <View
-          style={{
-            flexDirection: 'row',
-            marginTop: 130,
-          }}>
+          style={style.btnView}>
           <Button
             btnheight={55}
             unseen={2}
             title={'Add Items'}
             showtitle2={false}
-            buttonStyle={{
-              marginTop: 20,
-              width: '49%',
-              marginRight: 5,
-              borderRadius: 30,
-              borderColor: '#1C7584',
-              borderWidth: 2,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
+            buttonStyle={style.button}
             btnColor="#fff"
             textColor={'#fff'}
             textStyle={{marginHorizontal: 20, color: '#1C7584'}}
@@ -171,7 +132,7 @@ const CheckOut = ({route}) => {
             showtitle2={false}
             title={'Check Out'}
             justifyContent={'center'}
-            buttonStyle={{marginTop: 20, width: '49%', alignItems: 'center'}}
+            buttonStyle={style.button1}
             btnColor="#1C7584"
             textColor={'#fff'}
             textStyle={{marginHorizontal: 20}}
@@ -183,9 +144,7 @@ const CheckOut = ({route}) => {
                   total: totalPrice - 25 + 75,
                   itemPrice,
                 },
-                // {deliveryFee},
-                // {discount},
-                // {item: route?.params?.item},
+                
               );
             }}
           />

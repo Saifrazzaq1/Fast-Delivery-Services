@@ -6,16 +6,11 @@ import {getError} from 'src/config/function';
 
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const USER_LOGIN = 'USER_LOGIN';
-export const USER_ORDER = 'USER_ORDER';
-export const USER_ITEM = 'USER_ITEM';
-export const INCREMENT = 'increment';
-export const DECREMENT = 'decrement';
 
 export const SIGNUP = (data, cb) => {
   const {method, url} = API.SIGNUP;
   Api.request({method, url, data})
     .then(response => {
-      console.log('response', response);
       cb(response);
     })
     .catch(error => {
@@ -26,6 +21,7 @@ export const SIGNUP = (data, cb) => {
       });
     });
 };
+
 export const CATEGORIES = cb => {
   const {method, url} = API.CATEGORY;
   Api.request({method, url})
@@ -40,31 +36,34 @@ export const CATEGORIES = cb => {
       });
     });
 };
-export const ITEM = cb => {
-  const {method, url} = API.ITEM;
-  console.log(ITEM);
-  Api.request({method, url})
+export const MENU = (id, cb) => {
+  const {method, url} = API.MENU;
+  console.log('first, URL, REWQA');
+  Api.request({method, url: url + `${id}`})
     .then(res => {
       cb(res);
     })
     .catch(error => {
       showSnackbar({
         type: 'error',
-        header: 'Item ERROR',
+        header: 'Menu ERROR',
         body: getError(error),
       });
     });
 };
-export const SUBCATEGORIES = cb => {
-  const {method, url} = API.SUBCATEGORY;
-  Api.request({method, url})
-    .then(sub => {
-      cb(sub);
+export const BUSSINESS = (data, cb) => {
+  const {method, url} = API.BUSSINESS;
+  Api.request({
+    method,
+    url: url + `?type=${data.name}&location=${data.long},${data.lat}`,
+  })
+    .then(res => {
+      cb(res);
     })
     .catch(error => {
       showSnackbar({
         type: 'error',
-        header: 'Login ERROR',
+        header: 'Bussiness ERROR',
         body: getError(error),
       });
     });
@@ -72,6 +71,7 @@ export const SUBCATEGORIES = cb => {
 export const LOGIN = data => {
   const {dispatch} = getRedux();
   const {method, url} = API.LOGIN;
+
   Api.request({method, url, data})
     .then(res => {
       dispatch({
@@ -97,14 +97,4 @@ export const LOGOUT = () => {
     body: 'Logout Successful',
     header: 'Logout',
   });
-};
-export const increment = () => {
-  return {
-    type: INCREMENT,
-  };
-};
-export const decrement = () => {
-  return {
-    type: DECREMENT,
-  };
 };

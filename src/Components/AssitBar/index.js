@@ -1,12 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList, View, Image, Text, TouchableOpacity} from 'react-native';
+import React from 'react';
+import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import Images from '../../Assets';
-import {SUBCATEGORIES} from 'src/Redux/Reducers/Auth/actions';
 import style from './style';
-import {useAppSelector} from 'src/Helper/Hooks/reduxHooks';
 
 const AssitBar = ({marginTop, marginHorizontal}) => {
-  const [Subcategories, setSubcategories] = useState([]);
   const options = [
     {name: 'Place Order', img: Images.five},
     {name: 'Super Saver', img: Images.one},
@@ -14,12 +11,7 @@ const AssitBar = ({marginTop, marginHorizontal}) => {
     {name: 'Give Back', img: Images.four},
     {name: 'Past Order', img: Images.two},
   ];
-  const Subcategory = useAppSelector(s => s.auth.user);
-  useEffect(() => {
-    SUBCATEGORIES(sub => {
-      sub.Subcategories;
-    });
-  }, []);
+
   return (
     <View style={{marginHorizontal: marginHorizontal}}>
       <FlatList

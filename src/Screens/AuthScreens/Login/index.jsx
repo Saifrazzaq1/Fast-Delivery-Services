@@ -14,11 +14,11 @@ const Login = ({navigation}) => {
         headerShadow
         backIcon
         guestbtn
-        logintextcolor={"#1C7584"}
+        logintextcolor={'#1C7584'}
         guestTitle={'Guest'}
         loginbtn
         loginTitle={'Login'}
-        loginmarginleft={"55%"}
+        loginmarginleft={'55%'}
       />
       <View style={style.mainView}>
         <Image style={style.imagebike} source={Images.bikelogo} />

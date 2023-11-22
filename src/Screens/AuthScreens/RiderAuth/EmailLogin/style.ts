@@ -10,17 +10,4 @@ export default StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
   },
-  text1: {
-    color: '#A0A0A0',
-    fontSize: 16,
-    fontWeight: '600',
-    textAlign: 'right',
-  },
-  text2: {
-    color: '#E0281C',
-    marginTop: 20,
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
 });

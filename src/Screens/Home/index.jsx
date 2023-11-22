@@ -6,38 +6,32 @@ import Header from 'src/Components/Header';
 import ResturantBar from 'src/Components/ResturantBar';
 import Text from 'src/Components/Text';
 import View from 'src/Components/View';
-import {useAppSelector} from 'src/Helper/Hooks/reduxHooks';
-import Images from '../../Assets/';
-import style from './style';
 import {CATEGORIES} from 'src/Redux/Reducers/Auth/actions';
+import Images from '../../Assets/';
+import Order from '../Account/AccountScreens/Order';
+import style from './style';
 
 const Home = ({navigation}) => {
   const [categories, setCategories] = useState([]);
-  const options = [
-    {name: 'Place Order', img: Images.five},
-    {name: 'Super Saver', img: Images.one},
-    {name: 'Game Day Deals', img: Images.three},
-    {name: 'Give Back', img: Images.four},
-    {name: 'Past Order', img: Images.two},
-  ];
-  const offers = [{img: Images.pop1}, {img: Images.pop2}, {img: Images.pop3}];
-  const user = useAppSelector(s => s.auth.user);
   useEffect(() => {
     CATEGORIES(res => {
-      setCategories(res.Categories);
+      if (res.success) {
+        console.log(JSON.stringify(res, null, 2));
+        setCategories(res.catagory);
+      }
     });
   }, []);
+
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <ScrollView  stickyHeaderIndices={[0]}>
+    <View style={style.body}>
+      <ScrollView stickyHeaderIndices={[0]}>
         <Header
           searchIcon
           searchmarginRight={20}
           locationText
-          backIcon
-          headerbgcolor={"#fff"}
+          headerbgcolor={'#fff'}
           headerBg
-          locationtextPosition={'center'}
+          locationtextPosition={'left'}
         />
         <View style={style.storesView}>
           <Text style={style.storesViewText1}>Stores</Text>
@@ -67,13 +61,17 @@ const Home = ({navigation}) => {
             renderItem={({item}) => (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('FastFood');
+                  navigation.navigate('FastFood', {
+                    name: item.catagory,
+                    long: 3.0222,
+                    lat: -1.2437,
+                  });
                 }}
                 activeOpacity={0.1}
                 style={style.catView}>
                 <Image style={style.catimg} source={Images.gggg} />
                 <Text style={style.cattext} numberOfLines={1}>
-                  {item.name}
+                  {item.catagory}
                 </Text>
               </TouchableOpacity>
             )}
@@ -90,11 +88,11 @@ const Home = ({navigation}) => {
         <AssitBar marginTop={70} />
         <Text style={style.poputext}>Popular restaurants nearby</Text>
         <ResturantBar />
-        <View style={{marginHorizontal: 20}}>
+        <View style={{marginHorizontal: 20, paddingBottom: 120}}>
           <FlatList
             horizontal={true}
             style={{flexDirection: 'row'}}
-            data={offers}
+            data={Order}
             renderItem={({item}) => (
               <TouchableOpacity activeOpacity={0.1} style={style.offerView}>
                 <Image style={style.offerimg} source={item.img} />

@@ -7,7 +7,6 @@ import Textfield from 'src/Components/Textfield';
 import style from './style';
 
 const Location = ({navigation}) => {
-  const [index, setIndex] = useState(2);
   const [value, setValue] = useState(false);
   const [region, setRegion] = useState({
     latitude: 31.5204,
@@ -18,11 +17,13 @@ const Location = ({navigation}) => {
   return (
     <View style={[style.main]}>
       <View style={style.container}>
-      <MapView style={{ flex: 1 }} 
+        <MapView
+          style={{flex: 1}}
           provider={PROVIDER_GOOGLE}
-          region={region} onRegionChangeComplete={region => setRegion(region)}>
-  <Marker  coordinate={region} />
-</MapView>
+          region={region}
+          onRegionChangeComplete={region => setRegion(region)}>
+          <Marker coordinate={region} />
+        </MapView>
       </View>
       {value === true ? (
         <>
