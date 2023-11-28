@@ -3,11 +3,10 @@ import Header from 'src/Components/Header';
 import React from 'react';
 import Images from '../../Assets';
 import style from './style';
-import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
-const Account = () => {
-  const navigation = useNavigation();
-
+const Account = ({navigation}) => {
+  const user = useSelector(s => s.auth.user);
   return (
     <View style={style.body}>
       <Header
@@ -20,12 +19,12 @@ const Account = () => {
       <View style={style.mainview}>
         <View style={style.mainbody}>
           <Image style={style.dpview} source={Images.dp} />
-          <View style={{alignSelf: 'center'}}>
-            <Text style={style.username}>Hussam</Text>
-            {/* {user.name} */}
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={style.center}>
+            <Text style={style.username}>{user.first_name}</Text>
+
+            <View style={style.profile}>
               <Image style={style.countryImg} source={Images.palestine} />
-              <Text style={style.useraddress}>demo@gmail</Text>
+              <Text style={style.useraddress}>{user.email}</Text>
             </View>
           </View>
           <TouchableOpacity

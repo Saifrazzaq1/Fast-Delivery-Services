@@ -62,7 +62,6 @@ const Details = ({route}) => {
         setItems(res.menu);
       }
     });
-    console.log('DATA', JSON.stringify(items, null, 2));
   }, []);
 
   const [showModal, setShowModal] = useState(false);

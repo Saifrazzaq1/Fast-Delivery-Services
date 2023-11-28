@@ -9,5 +9,7 @@ export default StyleSheet.create({
   },
   btn:{
     height:60
-  }
+  },
+  tf:{flexDirection: 'row', justifyContent: 'space-between'},
+  btnview:{flex: 1, justifyContent: 'flex-end'},
 });

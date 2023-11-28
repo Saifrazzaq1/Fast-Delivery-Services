@@ -87,44 +87,41 @@ const FastFood = () => {
       <ScrollView>
         <AssitBar marginTop={20} />
         <Text style={styles.pickText}>Pick</Text>
-        <View style={{marginHorizontal: 20}}>
+        <View style={styles.mh}>
           <FlatList
             horizontal={true}
-            style={{flexDirection: 'row'}}
+            style={styles.row}
             data={bussiness}
             renderItem={({item}) => (
-              console.log('item', JSON.stringify(item, null, 2)),
-              (
-                <TouchableOpacity
-                  onPress={() => navigation.navigate('Details', {item})}
-                  activeOpacity={0.1}
-                  style={styles.restrtView}>
-                  <Image style={styles.restrtimg} source={item.img} />
-                  <View style={styles.main1}>
-                    <Text style={styles.restrttext}>{item.bussiness_name}</Text>
-                    <View style={styles.main2}>
-                      <Image style={styles.restrtclock} source={Images.clock} />
-                      <Text style={styles.restrttime}>
-                        within {item.time} mins
-                      </Text>
-                    </View>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Details', {item})}
+                activeOpacity={0.1}
+                style={styles.restrtView}>
+                <Image style={styles.restrtimg} source={item.img} />
+                <View style={styles.main1}>
+                  <Text style={styles.restrttext}>{item.bussiness_name}</Text>
+                  <View style={styles.main2}>
+                    <Image style={styles.restrtclock} source={Images.clock} />
+                    <Text style={styles.restrttime}>
+                      within {item.time} mins
+                    </Text>
                   </View>
-                  <Text style={styles.nameDes}>{item.des}</Text>
-                  <View style={{flexDirection: 'row'}}>
-                    <Image style={styles.starimg} source={Images.star} />
-                    <Text style={styles.startext}>{item.startext}</Text>
-                    <Image style={styles.locimg} source={Images.loc} />
-                    <Text style={styles.loctext}>{item.address}</Text>
-                  </View>
-                </TouchableOpacity>
-              )
+                </View>
+                <Text style={styles.nameDes}>{item.des}</Text>
+                <View style={styles.row}>
+                  <Image style={styles.starimg} source={Images.star} />
+                  <Text style={styles.startext}>{item.startext}</Text>
+                  <Image style={styles.locimg} source={Images.loc} />
+                  <Text style={styles.loctext}>{item.address}</Text>
+                </View>
+              </TouchableOpacity>
             )}
           />
         </View>
         <Text style={styles.pickText}>All Resturant</Text>
         <AllResturant />
         <ChefList />
-        <View style={{paddingBottom: 120}}>
+        <View style={styles.pb}>
           <AllResturant2 />
         </View>
       </ScrollView>

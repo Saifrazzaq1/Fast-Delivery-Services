@@ -4,7 +4,6 @@ import Header from 'src/Components/Header';
 import style from './style';
 import Textfield from 'src/Components/Textfield';
 import Button from 'src/Components/Button';
-import {useDispatch} from 'react-redux';
 import {addCard} from 'src/Redux/Reducers/CreditCard/action';
 
 const AddCard = ({navigation}) => {
@@ -13,7 +12,6 @@ const AddCard = ({navigation}) => {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
 
-  const dispatch = useDispatch();
   const formatCardNumber = input => {
     const numericInput = input.replace(/\D/g, '');
     const formattedInput = numericInput.replace(/(\d{4})/g, '$1 ');
@@ -28,7 +26,7 @@ const AddCard = ({navigation}) => {
       cvv,
     };
 
-    dispatch(addCard(cardInfo));
+    addCard(cardInfo);
     navigation.navigate('AccountR', cardInfo);
   };
 
@@ -71,7 +69,7 @@ const AddCard = ({navigation}) => {
           borderRightWidth={0}
           borderLeftWidth={0}
         />
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={style.tf}>
           <Textfield
             value={expiryDate}
             onChangeText={setExpiryDate}
@@ -96,7 +94,7 @@ const AddCard = ({navigation}) => {
             marginRight={30}
           />
         </View>
-        <View style={{flex: 1, justifyContent: 'flex-end'}}>
+        <View style={style.btnview}>
           <Button
             onPress={handleAddCard}
             unseen={2}

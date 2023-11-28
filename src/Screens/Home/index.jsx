@@ -16,7 +16,6 @@ const Home = ({navigation}) => {
   useEffect(() => {
     CATEGORIES(res => {
       if (res.success) {
-        console.log(JSON.stringify(res, null, 2));
         setCategories(res.catagory);
       }
     });
