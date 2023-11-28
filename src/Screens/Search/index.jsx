@@ -1,10 +1,10 @@
-import {FlatList, TouchableOpacity, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import Header from 'src/Components/Header';
+import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Textfield from 'src/Components/Textfield';
 import AllResturant from 'src/Components/AllResturant';
 import AllResturant2 from 'src/Components/AllResturant2';
+import Header from 'src/Components/Header';
+import Textfield from 'src/Components/Textfield';
 import styles from './style';
 const menu = [
   {
@@ -30,21 +30,17 @@ const menu = [
 ];
 const Search = () => {
   const [active, setActive] = useState(1);
-
   return (
     <View style={styles.body}>
       <Header />
-
       <View style={styles.downView1}>
         <Textfield
           placeholder="Search food, groceries and more"
           borderRadius={30}
           borderColor={'grey'}
           paddingLeft={20}
-          backgroundColor={'#fff'}
         />
         <FontAwesome5
-          onPress={() => setEnabled(!Enabled)}
           style={styles.eyeBtn1}
           size={18}
           name="search"
@@ -74,23 +70,14 @@ const Search = () => {
                     {item.text}
                   </Text>
                 </TouchableOpacity>
-                {active === item.index ? (
-                  <View
-                    style={styles.active}
-                  />
-                ) : null}
+                {active === item.index ? <View style={styles.active} /> : null}
               </View>
             </>
           )}
         />
       </View>
-      <Text
-        style={styles.ser}>
-        {' '}
-        {'  '}Recent Search
-      </Text>
-      <View
-        style={styles.meenu}>
+      <Text style={styles.ser}> {'  '}Recent Search</Text>
+      <View style={styles.meenu}>
         <Text style={styles.RecSearch}>Chicken</Text>
         <Text style={styles.RecSearch}>Cake</Text>
         <Text style={styles.RecSearch}>Burger</Text>
@@ -99,11 +86,7 @@ const Search = () => {
         <Text style={styles.RecSearch}>Shawarma</Text>
         <Text style={styles.RecSearch}>Pasta</Text>
       </View>
-      <Text
-        style={styles.t1}>
-        {' '}
-        {'  '}Featured restaurants
-      </Text>
+      <Text style={styles.t1}> {'  '}Featured restaurants</Text>
       <AllResturant2 horizontal={true} />
       <AllResturant horizontal={true} mt={'125%'} position={'absolute'} />
     </View>

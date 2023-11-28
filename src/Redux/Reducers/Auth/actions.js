@@ -38,7 +38,6 @@ export const CATEGORIES = cb => {
 };
 export const MENU = (id, cb) => {
   const {method, url} = API.MENU;
-  console.log('first, URL, REWQA');
   Api.request({method, url: url + `${id}`})
     .then(res => {
       cb(res);
@@ -47,6 +46,34 @@ export const MENU = (id, cb) => {
       showSnackbar({
         type: 'error',
         header: 'Menu ERROR',
+        body: getError(error),
+      });
+    });
+};
+export const DISCOUNT = (id, cb) => {
+  const {method, url} = API.DISCOUNT;
+  Api.request({method, url: url + `${id}`})
+    .then(res => {
+      cb(res);
+    })
+    .catch(error => {
+      showSnackbar({
+        type: 'error',
+        header: 'Discount ERROR',
+        body: getError(error),
+      });
+    });
+};
+export const ADDONS = (id, cb) => {
+  const {method, url} = API.ADDONS;
+  Api.request({method, url: url + `${id}`})
+    .then(res => {
+      cb(res);
+    })
+    .catch(error => {
+      showSnackbar({
+        type: 'error',
+        header: 'Add ons ERROR',
         body: getError(error),
       });
     });

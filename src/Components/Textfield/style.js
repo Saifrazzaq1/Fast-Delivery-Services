@@ -1,24 +1,24 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  inputF: {
+  mainTextView: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center',
     borderRadius: 2,
     borderWidth: 1,
-    color: 'black',
-    paddingRight: 25,
     borderColor: 'rgba(236, 240, 245, 1)',
+  },
+  inputF: {
+    color: 'black',
     height: 56,
-    marginTop: 20,
     fontSize: 16,
-    backgroundColor: '#FFFFFF',
   },
   eyeBtn1: {
-    position: 'absolute',
     height: 50,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    width: '10%',
-    right: 0,
-    top: '10%',
+    width: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

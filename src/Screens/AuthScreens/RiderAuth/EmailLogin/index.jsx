@@ -10,12 +10,7 @@ const RiderSignin = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const handleSignin = () => {
-    const data = {
-      email: email,
-      password: password,
-    };
-   
-    LOGIN(data);
+    LOGIN({email, password});
   };
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>

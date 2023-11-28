@@ -2,10 +2,6 @@ import {StyleSheet} from 'react-native';
 import {heightRef} from 'src/config/screenSize';
 
 const styles = StyleSheet.create({
-  bgimg: {
-    width: '100%',
-    height: 220 * heightRef,
-  },
   text: {
     color: 'grey',
     fontSize: 16,
@@ -18,9 +14,9 @@ const styles = StyleSheet.create({
     width: '100%',
     marginVertical: 20,
   },
-  view1: {flexDirection: 'row', marginTop: 20},
-  view11: {flexDirection: 'row', margin: 20},
-  oshatext: {color: 'black', fontSize: 18, fontWeight: '500'},
+  view1: {flexDirection: 'row'},
+  view11: {flexDirection: 'row', marginHorizontal: 20, paddingTop: 20},
+  oshatext: {color: 'black', fontSize: 18, fontWeight: '500', marginBottom: 20},
   radioText: {color: 'black', fontSize: 18, fontWeight: '500', marginLeft: 10},
   oshatext1: {color: 'black', fontSize: 16, fontWeight: '500'},
   oshatextv: {color: 'black', fontSize: 14, fontWeight: '500'},

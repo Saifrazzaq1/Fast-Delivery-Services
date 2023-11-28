@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  body:{flex: 1, backgroundColor: '#fff'},
+  body: {flex: 1, backgroundColor: '#fff'},
   storesView: {
     backgroundColor: '#1C7584',
     width: '100%',
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     width: 144,
     height: 146,
     right: 30,
-    top: 120,
+    top: 20,
   },
   heytext: {
     color: '#000',

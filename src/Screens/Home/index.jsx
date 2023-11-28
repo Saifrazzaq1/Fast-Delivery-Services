@@ -16,7 +16,6 @@ const Home = ({navigation}) => {
   useEffect(() => {
     CATEGORIES(res => {
       if (res.success) {
-        console.log(JSON.stringify(res, null, 2));
         setCategories(res.catagory);
       }
     });
@@ -24,15 +23,15 @@ const Home = ({navigation}) => {
 
   return (
     <View style={style.body}>
-      <ScrollView stickyHeaderIndices={[0]}>
-        <Header
-          searchIcon
-          searchmarginRight={20}
-          locationText
-          headerbgcolor={'#fff'}
-          headerBg
-          locationtextPosition={'left'}
-        />
+      <Header
+        searchIcon
+        searchmarginRight={20}
+        locationText
+        headerbgcolor={'#fff'}
+        headerBg
+        locationtextPosition={'left'}
+      />
+      <ScrollView>
         <View style={style.storesView}>
           <Text style={style.storesViewText1}>Stores</Text>
           <Text style={style.storesViewText2}>
@@ -65,6 +64,7 @@ const Home = ({navigation}) => {
                     name: item.catagory,
                     long: 3.0222,
                     lat: -1.2437,
+                    id: item._id,
                   });
                 }}
                 activeOpacity={0.1}

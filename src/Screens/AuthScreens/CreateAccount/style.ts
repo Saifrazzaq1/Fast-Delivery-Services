@@ -5,7 +5,7 @@ export default StyleSheet.create({
     marginTop: 40,
     margin: 20,
   },
-  check:{
+  check: {
     flexDirection: 'row',
     position: 'absolute',
     marginTop: 375,
@@ -33,7 +33,8 @@ export default StyleSheet.create({
   text4: {
     color: '#A0A0A0',
     fontWeight: '600',
-    marginTop: 30,
+    marginTop: 33,
+    marginLeft: 8,
     fontSize: 14,
     textAlign: 'left',
   },

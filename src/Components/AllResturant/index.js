@@ -1,5 +1,12 @@
-import React from 'react';
-import {FlatList, View, Image, Text, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {
+  FlatList,
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
 import Images from '../../Assets';
 import style from './style';
 
@@ -9,6 +16,7 @@ const AllResturant = ({horizontal, position, mt}) => {
       name: 'Osha Emirati Gourmet',
       time: '22',
       img: Images.pop2,
+      heart: Images.emptyheart,
       heart: Images.redheart,
       des: 'Emirati, Arabic, Grills',
       starimg: Images.star,
@@ -24,6 +32,7 @@ const AllResturant = ({horizontal, position, mt}) => {
       name: 'Osha Emirati Gourmet',
       time: '22',
       img: Images.pop1,
+      heart: Images.redheart,
       heart: Images.emptyheart,
       des: 'Emirati, Arabic, Grills',
       starimg: Images.star,
@@ -39,6 +48,7 @@ const AllResturant = ({horizontal, position, mt}) => {
       name: 'Osha Emirati Gourmet',
       time: '22',
       img: Images.pop2,
+      heart: Images.redheart,
       heart: Images.emptyheart,
       des: 'Emirati, Arabic, Grills',
       starimg: Images.star,
@@ -51,6 +61,7 @@ const AllResturant = ({horizontal, position, mt}) => {
       tctext: '',
     },
   ];
+  const [heart, setHeart] = useState(true);
   return (
     <View style={{position: position, marginTop: mt}}>
       <FlatList
@@ -60,14 +71,23 @@ const AllResturant = ({horizontal, position, mt}) => {
         renderItem={({item}) => (
           <TouchableOpacity activeOpacity={0.1} style={style.restrtView}>
             <Image style={style.restrtimg} source={item.img} />
-            <Image style={style.heartimg} source={item.heart} />
             <View style={{marginLeft: 10}}>
-              <Text style={style.restrttext}>{item.name}</Text>
+              <View style={{flexDirection: 'row'}}>
+                <View>
+                  <Text style={style.restrttext}>{item.name}</Text>
+                </View>
+                <TouchableOpacity onPress={heart => !heart}>
+                  {heart === true ? (
+                    <Image style={style.heartimg} source={item.heart} />
+                  ) : (
+                    <Image style={style.heartimg} source={item.emptyheart} />
+                  )}
+                </TouchableOpacity>
+              </View>
               <Text style={style.nameDes}>{item.des}</Text>
               <View style={{flexDirection: 'row'}}>
                 <Image style={style.starimg} source={Images.star} />
                 <Text style={style.startext}>{item.startext}</Text>
-
                 <Image style={style.tcimg} source={item.tcimg} />
                 <Text style={style.tctext}>{item.tctext}</Text>
               </View>

@@ -24,7 +24,7 @@ const Signin = ({navigation}) => {
         loginbtn
         headerBg
         headerbgcolor={'white'}
-        loginmarginleft={'55%'}
+        loginmarginleft={'53.5%'}
         logintextcolor={'#1C7584'}
         headerShadow
         loginTitle={'Login'}

@@ -1,13 +1,12 @@
 import {TAuth} from '../types';
 import {USER_LOGIN, USER_LOGOUT} from './actions';
 
-const initialState: TAuth = {
+const initialState = {
   isLoggedIn: false,
   user: null,
   token: null,
-  counter: 0,
 };
-const authReducers = (state: TAuth = initialState, action: any): TAuth => {
+const authReducers = (state = initialState, action) => {
   switch (action.type) {
     case USER_LOGIN:
       return {

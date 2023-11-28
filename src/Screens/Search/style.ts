@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  body:{backgroundColor: '#fff', flex: 1},
+  body: {backgroundColor: '#fff', flex: 1},
   storesView: {
     backgroundColor: '#1C7584',
     width: '100%',
@@ -136,32 +136,32 @@ const styles = StyleSheet.create({
     width: 300,
     justifyContent: 'center',
   },
-  row:{flexDirection: 'row'},
-  active:{
+  row: {flexDirection: 'row'},
+  active: {
     backgroundColor: '#1C7584',
     height: 4,
     marginLeft: -2,
     width: '105%',
   },
-  t1:{
+  t1: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 17,
     paddingTop: 20,
   },
   downView1: {
-    marginHorizontal: 10,
-    marginTop: -20,
+    alignItems: 'center',
+    height: 55,
+    flexDirection: 'row',
+    marginHorizontal: 20,
     borderRadius: 50,
+    justifyContent: 'space-between',
+    backgroundColor: '#FFf',
   },
   eyeBtn1: {
-    position: 'absolute',
-    height: 50,
     textAlign: 'center',
     textAlignVertical: 'center',
-    width: '10%',
-    right: 10,
-    top: '10%',
+    marginRight: 0,
   },
   RecSearch: {
     color: 'grey',
@@ -192,9 +192,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingBottom: 5,
   },
-  meenu:{flexWrap: 'wrap', flexDirection: 'row', marginHorizontal: 10},
-  
-
+  meenu: {flexWrap: 'wrap', flexDirection: 'row', marginHorizontal: 10},
 });
 
 export default styles;

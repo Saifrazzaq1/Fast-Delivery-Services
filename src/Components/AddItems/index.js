@@ -1,34 +1,17 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import Images from '../../Assets';
 import style from './style';
-import {useAppSelector} from 'src/Helper/Hooks/reduxHooks';
-import {increment, decrement} from 'src/Redux/Reducers/Auth/actions';
-import {useSelector, useDispatch} from 'react-redux';
 
-const AddItems = ({item}) => {
-  const navigation = useNavigation();
-  const dispatch = useDispatch();
-  const {cart} = useAppSelector(s => s.cart);
-
-  const data = useSelector(state => state.ItemCount.count);
-  const handleIncrement = () => {
-    dispatch(increment());
-  };
-
-  const handleDecrement = () => {
-    dispatch(decrement());
-  };
-  let itemPrice = item.price;
+const AddItems = ({item, count, handleDecrement, handleIncrement}) => {
   return (
     <View style={{backgroundColor: '#fff'}}>
       <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
         <View style={{}}>
           <View style={style.view1}>
-            <Text style={style.oshatext}>{item.name}</Text>
+            <Text style={style.oshatext}>{item.item}</Text>
           </View>
-          <Text style={style.emitext}>Emirati, Arabic, Grills</Text>
+          <Text style={style.emitext}>{item.catagory}</Text>
           <View
             style={{
               flexDirection: 'row',
@@ -46,9 +29,11 @@ const AddItems = ({item}) => {
               <TouchableOpacity onPress={handleDecrement}>
                 <Text style={style.revtextpmm}>-</Text>
               </TouchableOpacity>
-              <Text style={style.revtextpmc}>{data}</Text>
-              <TouchableOpacity onPress={handleIncrement}>
-                <Text style={style.revtextpm}>+</Text>
+              <Text style={style.revtextpmc}>{count}</Text>
+              <TouchableOpacity onPress={() => {}}>
+                <Text style={style.revtextpm} onPress={handleIncrement}>
+                  +
+                </Text>
               </TouchableOpacity>
             </View>
           </View>

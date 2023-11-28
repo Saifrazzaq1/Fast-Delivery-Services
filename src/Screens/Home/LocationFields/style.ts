@@ -1,11 +1,11 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  body:{backgroundColor: '#fff'},
+  body: {flex: 1, backgroundColor: '#fff'},
   mainview: {
-    marginTop: 40,
-    margin: 20,
-    marginBottom: 220,
+    marginHorizontal: 20,
+    marginTop: 10,
+    paddingBottom: 140,
   },
   text: {
     color: 'black',
@@ -39,10 +39,9 @@ export default StyleSheet.create({
     fontSize: 14,
     textAlign: 'left',
   },
-  btn:{
+  btn: {
     flexDirection: 'row',
     position: 'absolute',
     marginTop: 385,
   },
-  
 });

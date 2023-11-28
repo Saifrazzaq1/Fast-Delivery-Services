@@ -1,4 +1,4 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import CheckOut from 'src/Screens/Home/CheckOut';
 import CheckOutDetails from 'src/Screens/Home/CheckOutDetails';

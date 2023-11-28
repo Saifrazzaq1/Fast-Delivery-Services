@@ -1,22 +1,23 @@
+import {useNavigation} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
 import {
-  ScrollView,
-  ImageBackground,
-  Text,
-  Image,
   FlatList,
-  View,
-  TouchableOpacity,
+  Image,
+  ImageBackground,
   Modal,
   Pressable,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import Header from 'src/Components/Header';
-import Images from '../../../Assets/';
-import {MENU} from 'src/Redux/Reducers/Auth/actions';
-import style from './style';
 import Button from 'src/Components/Button';
-import {useNavigation} from '@react-navigation/native';
+import Header from 'src/Components/Header';
 import ItemDetail from 'src/Components/ItemDetail';
+import {useAppSelector} from 'src/Helper/Hooks/reduxHooks';
+import {MENU} from 'src/Redux/Reducers/Auth/actions';
+import Images from '../../../Assets/';
+import style from './style';
 
 const ads = [
   {
@@ -54,7 +55,9 @@ const menu = [
 const stars = [Images.star, Images.star, Images.star, Images.star];
 const Details = ({route}) => {
   const data = route.params?.item;
+  const {cart} = useAppSelector(s => s.cart);
   const [items, setItems] = useState([]);
+  const navigation = useNavigation();
   useEffect(() => {
     const id = data?._id;
     MENU(id, res => {
@@ -62,14 +65,9 @@ const Details = ({route}) => {
         setItems(res.menu);
       }
     });
-    console.log('DATA', JSON.stringify(items, null, 2));
   }, []);
-
-  const [showModal, setShowModal] = useState(false);
+  const [selected, setSelected] = useState(null);
   const [active, setActive] = useState(1);
-  const [onSelect, setOnSelect] = useState([]);
-  const [detail, setDetail] = useState();
-  const navigation = useNavigation();
   return (
     <ScrollView stickyHeaderIndices={[0]}>
       <ImageBackground style={style.bgimg} source={Images.burger}>
@@ -145,26 +143,21 @@ const Details = ({route}) => {
             style={{flexDirection: 'row'}}
             data={menu}
             renderItem={({item}) => (
-              <>
-                <View style={style.menulist2}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      setActive(item.index);
-                    }}>
-                    <Text
-                      style={[
-                        style.menutext,
-                        {
-                          color: active === item.index ? '#1C7584' : '#B9BCBE',
-                          fontWeight: active === item.index ? 'bold' : '500',
-                        },
-                      ]}>
-                      {item.text}
-                    </Text>
-                  </TouchableOpacity>
-                  {active === item.index ? <View style={style.act} /> : null}
-                </View>
-              </>
+              <View style={style.menulist2}>
+                <TouchableOpacity onPress={() => setActive(item.index)}>
+                  <Text
+                    style={[
+                      style.menutext,
+                      {
+                        color: active === item.index ? '#1C7584' : '#B9BCBE',
+                        fontWeight: active === item.index ? 'bold' : '500',
+                      },
+                    ]}>
+                    {item.text}
+                  </Text>
+                </TouchableOpacity>
+                {active === item.index ? <View style={style.act} /> : null}
+              </View>
             )}
           />
         </View>
@@ -177,12 +170,8 @@ const Details = ({route}) => {
               renderItem={({item}) => (
                 <TouchableOpacity
                   style={style.mainlistview}
-                  onPress={() => {
-                    setShowModal(true);
-                    setOnSelect(prevItems => [...prevItems, item]);
-                    setDetail(item);
-                  }}>
-                  {onSelect.includes(item) ? (
+                  onPress={() => setSelected(item)}>
+                  {cart.find(i => i.item._id === item._id) ? (
                     <View style={style.select} />
                   ) : null}
                   <View>
@@ -190,33 +179,27 @@ const Details = ({route}) => {
                     <Text style={style.mlistdes}>{item.discription}</Text>
                     <Text style={style.mlistprice}>{item.price}</Text>
                   </View>
-                  <Image
-                    style={style.mlistimg}
-                    source={{
-                      uri: 'https://localhost:5000/api/v1/' + item.photo,
-                    }}
-                  />
+                  <Image style={style.mlistimg} source={Images.burger} />
                 </TouchableOpacity>
               )}
             />
           </View>
         </View>
-        {showModal ? (
-          <Modal animationType="slide" transparent={true} statusBarTranslucent>
-            <Pressable style={style.btn} onPress={() => {}}>
-              <Pressable
-                onPress={() => {
-                  setShowModal(false);
-                }}>
-                <ItemDetail
-                  item={detail}
-                  setShowModal={setShowModal}
-                  showModal={showModal}
-                />
-              </Pressable>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          statusBarTranslucent
+          visible={selected !== null}>
+          <Pressable style={style.btn} onPress={() => setSelected(null)}>
+            <Pressable style={{marginTop: 70}} onPress={() => {}}>
+              <ItemDetail
+                item={selected}
+                data={data}
+                onCompleteRequest={() => setSelected(null)}
+              />
             </Pressable>
-          </Modal>
-        ) : null}
+          </Pressable>
+        </Modal>
         <Button
           btnheight={55}
           unseen={2}
@@ -226,10 +209,9 @@ const Details = ({route}) => {
           textColor={'#fff'}
           textStyle={{marginLeft: 20}}
           onPress={() => {
-            navigation.navigate('CheckOut', {
-              item: onSelect,
-              itemPrice: detail.price,
-            });
+            if (selected === null) {
+              navigation.navigate('CheckOut', {data});
+            }
           }}
         />
       </View>

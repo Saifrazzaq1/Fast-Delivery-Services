@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  body:{backgroundColor: '#fff', paddingBottom: '29%', flex: 1},
+  body: {backgroundColor: '#fff', paddingBottom: '29%', flex: 1},
   text: {
     color: 'black',
     marginLeft: 5,
   },
-  main:{
+  main: {
     backgroundColor: '#FFF',
     height: 50,
     justifyContent: 'space-between',
@@ -90,8 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginHorizontal: 5,
   },
-  btn:{flexDirection: 'row', alignItems: 'center'},
-  
+  btn: {flexDirection: 'row', alignItems: 'center'},
 });
 
 export default styles;
