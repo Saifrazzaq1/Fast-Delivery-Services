@@ -6,12 +6,14 @@ import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import style from './style';
+import {useSelector} from 'react-redux';
 
 const LocationFields = ({route}) => {
   const {price, latitude, longitude} = route.params;
+  const user = useSelector(s => s.auth.user);
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [firstName, setFirstName] = useState('');
+  const [firstName, setFirstName] = useState(user.first_name ?? '');
   const [lastName, setLastName] = useState('');
   const [lineNumber, setLineNumber] = useState('');
   const [area, setArea] = useState('');
@@ -45,6 +47,7 @@ const LocationFields = ({route}) => {
           <Textfield
             value={firstName}
             onChangeText={setFirstName}
+            pla
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             placeholder={'First Name'}

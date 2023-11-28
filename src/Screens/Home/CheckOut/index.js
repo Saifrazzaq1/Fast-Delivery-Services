@@ -25,6 +25,7 @@ import {
 const CheckOut = ({route}) => {
   const navigation = useNavigation();
   const [Enabled, setEnabled] = useState(true);
+  const [noteItem, setNoteItem] = useState('');
   const [note, setNote] = useState(false);
   const [discount, setDiscount] = useState(null);
   const {cart} = useAppSelector(s => s.cart);
@@ -140,7 +141,15 @@ const CheckOut = ({route}) => {
             </View>
           </TouchableOpacity>
           {note === true ? (
-            <Textfield borderRadius={20} borderColor={'grey'} marginTop={20} />
+            <Textfield
+              borderRadius={20}
+              placeholder={'Add Note here...'}
+              value={noteItem}
+              onChangeText={setNoteItem}
+              paddingLeft={10}
+              borderColor={'grey'}
+              marginTop={20}
+            />
           ) : null}
           <View style={style.line} />
           <View style={style.view1}>

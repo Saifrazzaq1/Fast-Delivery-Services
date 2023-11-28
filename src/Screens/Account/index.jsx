@@ -4,9 +4,10 @@ import React from 'react';
 import Images from '../../Assets';
 import style from './style';
 import {useNavigation} from '@react-navigation/native';
-
+import {useSelector} from 'react-redux';
 const Account = () => {
   const navigation = useNavigation();
+  const user = useSelector(s => s.auth.user);
 
   return (
     <View style={style.body}>
@@ -14,7 +15,7 @@ const Account = () => {
         headerBg
         headerbgcolor={'#fff'}
         loginTitle="Account"
-        logoutIcon
+        logoutIcon //share icon
         logoutSize={20}
       />
       <View style={style.mainview}>
@@ -22,10 +23,9 @@ const Account = () => {
           <Image style={style.dpview} source={Images.dp} />
           <View style={{alignSelf: 'center'}}>
             <Text style={style.username}>Hussam</Text>
-            {/* {user.name} */}
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image style={style.countryImg} source={Images.palestine} />
-              <Text style={style.useraddress}>demo@gmail</Text>
+              <Text style={style.useraddress}>{user.email}</Text>
             </View>
           </View>
           <TouchableOpacity

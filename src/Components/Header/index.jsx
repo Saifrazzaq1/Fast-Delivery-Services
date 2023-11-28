@@ -10,7 +10,6 @@ import style from './style';
 const Header = ({
   guestbtn,
   menu,
-  onMenuPress,
   loginbtn,
   backIcon,
   heartIcon,
@@ -24,7 +23,7 @@ const Header = ({
   loginmarginleft,
   searchIcon,
   locationIcon,
-  logoutIcon,
+  logoutIcon, //share Icon
   locationText,
   alignItems,
   locationtextPosition,
@@ -95,9 +94,8 @@ const Header = ({
       ) : null}
       {logoutIcon ? (
         <TouchableOpacity
-          style={[style.signoutView, , {backgroundColor: iconBg}]}
-          onPress={LOGOUT}>
-          <FontAwesome5 name="sign-out-alt" size={logoutSize} color="black" />
+          style={[style.signoutView, , {backgroundColor: iconBg}]}>
+          <FontAwesome5 name="share-alt" size={logoutSize} color="black" />
         </TouchableOpacity>
       ) : null}
       {heartIcon ? (

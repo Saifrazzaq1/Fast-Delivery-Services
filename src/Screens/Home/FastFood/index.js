@@ -30,6 +30,7 @@ const FastFood = () => {
       }
     });
   }, []);
+  console.log(JSON.stringify(bussiness, null, 2));
   return (
     <View style={styles.body}>
       <Header

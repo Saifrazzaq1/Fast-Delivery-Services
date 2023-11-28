@@ -14,10 +14,13 @@ import Images from '../../Assets';
 import AddItems from '../AddItems';
 import style from './style';
 import {ADDONS} from 'src/Redux/Reducers/Auth/actions';
+import Textfield from '../Textfield';
 
 const ItemDetail = ({item, onCompleteRequest = () => {}, data}) => {
   const [addOns, setAddOns] = useState([]); // to be added to order
   const [addOn, setAddOn] = useState([]); // api response for addons
+  const [note, setNote] = useState(false);
+  const [noteItem, setNoteItem] = useState('');
   const [count, setCount] = useState(1);
   const price = useMemo(() => {
     const basePrice = item.price * count;
@@ -56,9 +59,23 @@ const ItemDetail = ({item, onCompleteRequest = () => {}, data}) => {
         />
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text style={style.textany}>Any special Requests</Text>
-          <Text style={style.deltext2}>Add note</Text>
+          <TouchableOpacity
+            onPress={() => setNote(prevNote => !prevNote)}
+            style={style.noteview}>
+            <Text style={style.deltext2}>Add note</Text>
+          </TouchableOpacity>
         </View>
-
+        {note === true ? (
+          <Textfield
+            borderRadius={10}
+            placeholder={'Add note here...'}
+            paddingLeft={10}
+            value={noteItem}
+            onChangeText={setNoteItem}
+            borderColor={'grey'}
+            marginTop={10}
+          />
+        ) : null}
         <View style={{flexDirection: 'row', marginVertical: 5}}>
           <Text style={style.text50}>Adds On</Text>
           <Text style={style.deltext1}> (Optional)</Text>

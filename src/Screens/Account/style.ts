@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     height: 25,
     width: 25,
     position: 'absolute',
-    right: -140,
+    right: -170,
     top: -15,
   },
   heytext: {
@@ -190,7 +190,8 @@ const styles = StyleSheet.create({
   useraddress: {
     color: 'grey',
     fontSize: 14,
-    marginLeft: 3,
+    marginLeft: 30,
+    position: 'absolute',
   },
 });
 
