@@ -5,11 +5,14 @@ import Images from '../../../Assets';
 import {useNavigation} from '@react-navigation/native';
 import Icon, {IconType} from 'react-native-dynamic-vector-icons';
 import styles from './style';
-import {LOGOUT} from 'src/Redux/Reducers/RiderAuth/actions';
+
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {LOGOUT} from 'src/Redux/Reducers/Auth/actions';
+import {useSelector} from 'react-redux';
 
 const Profile = () => {
   const navigation = useNavigation();
+  const user = useSelector(s => s.auth.user);
 
   return (
     <View style={styles.body}>
@@ -26,7 +29,9 @@ const Profile = () => {
         <View style={styles.mainb}>
           <Image style={styles.dpview} source={Images.dp} />
           <View style={styles.mainc}>
-            <Text style={styles.username}>Saif</Text>
+            <Text style={styles.username}>
+              {user.first_name} {user.last_name}
+            </Text>
             <View style={styles.mainb}>
               <Image style={styles.countryImg} source={Images.palestine} />
               <Text style={styles.useraddress}>United Arab Emirates</Text>
@@ -36,10 +41,7 @@ const Profile = () => {
             onPress={() => {
               navigation.navigate('RiderSetting');
             }}>
-            <Image
-              style={styles.img}
-              source={Images.setting}
-            />
+            <Image style={styles.img} source={Images.setting} />
           </TouchableOpacity>
         </View>
         <View style={styles.btnsview}>
@@ -53,7 +55,7 @@ const Profile = () => {
               name="edit"
               size={28}
               color="black"
-              style={{marginLeft: 10}}
+              style={styles.ml}
             />
             <Text style={styles.btnsname}> Edit Profile</Text>
           </TouchableOpacity>

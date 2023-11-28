@@ -61,4 +61,5 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginLeft: 35,
   },
+  ml:{marginLeft: 10},
 });

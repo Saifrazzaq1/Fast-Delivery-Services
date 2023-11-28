@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList, Image, ScrollView, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -7,25 +7,19 @@ import Header from 'src/Components/Header';
 import OrderEarning from 'src/Components/OrderEarning';
 import Images from '../../../Assets';
 import style from './style';
-const Orders = [
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-  {
-    od: '#234',
-    payment: 'Paid Online',
-    cm: 'Haris iramani',
-  },
-];
+import {AllOrders} from 'src/Redux/Reducers/Auth/actions';
+
 const Home = ({navigation}) => {
   const [index, setIndex] = useState(false);
+  const [allorders, setAllorders] = useState([]);
+  useEffect(() => {
+    AllOrders(res => {
+      if (res.success) {
+        setAllorders(res.orders);
+      }
+    });
+  }, []);
+
   return (
     <View>
       <Header
@@ -37,55 +31,36 @@ const Home = ({navigation}) => {
         locationIcon
         menu
       />
-      <ScrollView
-        style={style.body}>
+      <ScrollView style={style.body} showsVerticalScrollIndicator={false}>
         <OrderEarning />
-        <Text style={style.maintext}>
-          Order Request
-        </Text>
+        <Text style={style.maintext}>Order Request</Text>
         <FlatList
-          data={Orders}
+          data={allorders}
           renderItem={({item}) => (
             <View style={style.orderView}>
               <Image style={style.mapImg} source={Images.Map} />
               <Text style={style.amountText}>Order Details</Text>
-              <Text style={style.text1}>Order Number {item.od}</Text>
+              <Text style={style.text1}>Order Number #{item.orderNumber}</Text>
               <Text style={style.amountText}>Payment</Text>
-              <Text style={style.text1}>{item.payment}</Text>
+              <Text style={style.text1}>{item.payment_type}</Text>
               <Text style={style.amountText}>Customer Name</Text>
-              <Text style={style.text1}>{item.cm}</Text>
+              <Text style={style.text1}>
+                {item.first_name} {item.last_name}
+              </Text>
               <TouchableOpacity
                 style={style.row}
                 onPress={() => {
                   setIndex(!index);
                 }}>
-                <Text style={style.redText}>View order Items (2)</Text>
-                <FontAwesome5
-                  style={{marginLeft: 10}}
-                  name="caret-down"
-                  size={18}
-                  color="#E0281C"
-                />
+                <Text style={style.redText}>
+                  order Items ({item.productId.length})
+                </Text>
               </TouchableOpacity>
-              {index === true ? (
-                <FlatList
-                  data={'fa'}
-                  renderItem={({item}) => (
-                    <View style={style.orderDetail}>
-                      <View>
-                        <Text style={style.text3}>Saloona Marga (1)</Text>
-                        <Text style={style.redText1}>AED 28.50</Text>
-                      </View>
-                      <View>
-                        <Image style={style.mlistimg} source={Images.salan} />
-                      </View>
-                    </View>
-                  )}
-                />
-              ) : null}
               <Button
                 onPress={() => {
-                  navigation.navigate('RiderOrderDetails', {itemNo: item.od});
+                  navigation.navigate('RiderOrderDetails', {
+                    Id: item._id,
+                  });
                 }}
                 btnheight={45}
                 btnColor="#1C7584"

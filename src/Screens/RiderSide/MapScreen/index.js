@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
 import React, {useRef, useState} from 'react';
 import {
   FlatList,
@@ -16,39 +15,47 @@ import Header from 'src/Components/Header';
 import Images from '../../../Assets';
 import style from './style';
 
-const MapScreen = () => {
+const MapScreen = ({route, navigation}) => {
+  const {orderDetails} = route.params;
   const [state, setState] = useState({
     pickUpCord: {
-      latitude: 31.4914,
-      longitude: 74.2385,
+      latitude: 31.6211,
+      longitude: 74.2824,
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121,
     },
     DropOffCord: {
-      latitude: 31.4691,
-      longitude: 74.23851,
+      latitude:
+        orderDetails?.bussinessId?.[0]?.location?.coordinates[0] || 24.8607,
+      longitude: 74.2385,
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121,
     },
   });
   const {pickUpCord, DropOffCord} = state;
-  const navigation = useNavigation();
   const [fullSheet, setFullSheet] = useState(false);
   const [button, setButton] = useState(false);
   const [deliver, setDeliver] = useState(false);
   const MapRef = useRef();
   return (
-    <View
-      style={style.body}>
+    <View style={style.body}>
       <View style={style.container1}>
         <MapView style={style.body} initialRegion={pickUpCord} ref={MapRef}>
-          <Marker coordinate={pickUpCord} image={Images.bike2} />
-          <Marker coordinate={DropOffCord} image={Images.loc} />
+          <Marker
+            coordinate={pickUpCord}
+            image={Images.bike2}
+            title="Rider Location"
+          />
+          <Marker
+            coordinate={DropOffCord}
+            image={Images.loc}
+            title="Pick-up Location"
+          />
           <MapViewDirections
             origin={pickUpCord}
             destination={DropOffCord}
             apikey="AIzaSyDDoKCiWeOUZIPT5lVNaUU33YlaZYy3VMw"
-            strokeWidth={3}
+            strokeWidth={4}
             strokeColor="red"
             optimizeWaypoints={true}
             onReady={result => {
@@ -56,8 +63,8 @@ const MapScreen = () => {
                 edgePadding: {
                   right: 30,
                   left: 30,
-                  bottom: 300,
-                  top: 100,
+                  bottom: 200,
+                  top: 200,
                 },
               });
             }}
@@ -88,18 +95,32 @@ const MapScreen = () => {
               btnheight={55}
               unseen={2}
               showtitle2={false}
-              title={'Place Order'}
+              title={'Order Picked'}
               justifyContent={'center'}
-              buttonStyle={{
-                margin: 20,
-                alignItems: 'center',
-              }}
+              buttonStyle={style.orderbtn}
               btnColor="#1C7584"
               textColor={'#fff'}
-              textStyle={{marginHorizontal: 20}}
+              textStyle={style.mh}
               onPress={() => {
                 setDeliver(true);
                 setButton(false);
+                setState({
+                  pickUpCord: {
+                    latitude:
+                      orderDetails?.bussinessId?.[0]?.location
+                        ?.coordinates[0] || 24.8607,
+                    longitude: 74.2385,
+                    latitudeDelta: 0.015,
+                    longitudeDelta: 0.0121,
+                  },
+                  DropOffCord: {
+                    latitude: orderDetails?.location?.coordinates[0] || 24.8607,
+                    longitude:
+                      orderDetails?.location?.coordinates[1] || 67.0011,
+                    latitudeDelta: 0.015,
+                    longitudeDelta: 0.0121,
+                  },
+                });
               }}
             />
           ) : null}
@@ -110,32 +131,33 @@ const MapScreen = () => {
               showtitle2={false}
               title={'Order Delivered'}
               justifyContent={'center'}
-              buttonStyle={{
-                margin: 20,
-                alignItems: 'center',
-              }}
+              buttonStyle={style.orderbtn}
               btnColor="#1C7584"
               textColor={'#fff'}
-              textStyle={{marginHorizontal: 20}}
+              textStyle={style.mh}
               onPress={() => {
-                navigation.navigate('OrderDelivered');
+                navigation.navigate('OrderDelivered', {orderDetails});
               }}
             />
           ) : null}
           <View style={style.orderView}>
             <View style={style.container}>
-              <MapView style={{flex: 1}} initialRegion={pickUpCord} />
+              <MapView style={style.flex} initialRegion={pickUpCord} />
             </View>
             <View style={style.dragline} />
-            <View style={{flexDirection: 'row'}}>
+            <View style={style.row}>
               <Image style={style.dp} source={Images.dp} />
-              <Text style={style.text1}>Foodie Hoodie</Text>
+              <Text style={style.text1}>
+                {orderDetails?.bussinessId?.[0]?.bussiness_name}
+              </Text>
             </View>
-            <View style={{flexDirection: 'row', marginTop: 10}}>
+            <View style={style.addview}>
               <Image style={style.mapImg} source={Images.loc} />
-              <Text style={style.text2}>Sweihan Road, 4th Floor 17th ABD</Text>
+              <Text style={style.text2}>
+                {orderDetails?.bussinessId?.[0]?.address}
+              </Text>
             </View>
-            <View style={{flexDirection: 'row'}}>
+            <View style={style.row}>
               <View style={style.smallView}>
                 <Image style={style.smallViewImg} source={Images.call} />
               </View>
@@ -154,21 +176,25 @@ const MapScreen = () => {
             }}>
             <View style={style.orderView1}>
               <View style={style.container}>
-                <MapView style={{flex: 1}} initialRegion={pickUpCord}></MapView>
+                <MapView
+                  style={style.flex}
+                  initialRegion={pickUpCord}></MapView>
               </View>
               <View style={style.dragline} />
               <View style={style.Ldragline} />
-              <View style={{flexDirection: 'row'}}>
+              <View style={style.row}>
                 <Image style={style.dp} source={Images.dp} />
-                <Text style={style.text1}>Foodie Hoodie</Text>
-              </View>
-              <View style={{flexDirection: 'row', marginTop: 10}}>
-                <Image style={style.mapImg} source={Images.loc} />
-                <Text style={style.text2}>
-                  Sweihan Road, 4th Floor 17th ABD
+                <Text style={style.text1}>
+                  {orderDetails?.bussinessId?.[0]?.bussiness_name}
                 </Text>
               </View>
-              <View style={{flexDirection: 'row'}}>
+              <View style={style.addview}>
+                <Image style={style.mapImg} source={Images.loc} />
+                <Text style={style.text2}>
+                  {orderDetails?.bussinessId?.[0]?.address}
+                </Text>
+              </View>
+              <View style={style.row}>
                 <View style={style.smallView}>
                   <Image style={style.smallViewImg} source={Images.call} />
                 </View>
@@ -178,8 +204,8 @@ const MapScreen = () => {
               </View>
               <Text style={style.text3}>Order details</Text>
               <FlatList
-                data={'fa'}
-                renderItem={() => (
+                data={orderDetails.productId}
+                renderItem={({item}) => (
                   <TouchableOpacity
                     onPress={() => {
                       setFullSheet(!true);
@@ -187,8 +213,8 @@ const MapScreen = () => {
                     }}
                     style={style.orderDetail}>
                     <View>
-                      <Text style={style.text3}>Saloona Marga (1)</Text>
-                      <Text style={style.redText}>AED 28.50</Text>
+                      <Text style={style.text3}>{item.item}</Text>
+                      <Text style={style.redText}>AED {item.price}</Text>
                     </View>
                     <View>
                       <Image style={style.mlistimg} source={Images.salan} />
@@ -196,19 +222,21 @@ const MapScreen = () => {
                   </TouchableOpacity>
                 )}
               />
-            </View>
-            <View style={style.orderView3}>
-              <View style={style.details}>
-                <View>
-                  <View style={{flexDirection: 'row'}}>
-                    <Image style={style.dp} source={Images.dp} />
-                    <Text style={style.text13}>Foodie Hoodie</Text>
+              <View style={style.orderView3}>
+                <View style={style.details}>
+                  <View>
+                    <View style={style.row}>
+                      <Image style={style.dp} source={Images.dp} />
+                      <Text style={style.text13}>Customer Name</Text>
+                    </View>
+                    <Text style={style.text14}>
+                      {orderDetails.first_name} {orderDetails.last_name}
+                    </Text>
                   </View>
-                  <Text style={style.text14}>Hussam Noor</Text>
-                </View>
-                <View style={{flexDirection: 'row'}}>
-                  <Image style={style.bigViewImg} source={Images.sms} />
-                  <Image style={style.bigViewImg} source={Images.call} />
+                  <View style={style.row}>
+                    <Image style={style.bigViewImg} source={Images.sms} />
+                    <Image style={style.bigViewImg} source={Images.call} />
+                  </View>
                 </View>
               </View>
             </View>

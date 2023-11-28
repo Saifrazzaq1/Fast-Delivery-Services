@@ -6,4 +6,7 @@ export default {
   BUSSINESS: {method: 'GET', url: 'bussiness//getAll/'},
   RIDER_LOGIN: {method: 'POST', url: 'auth/riderLogin'},
   RIDERSIGNUP: {method: 'POST', url: 'rider/'},
+  ALLORDERS: {method: 'GET', url: 'rider/orders'},
+  COMPLETEORDERS:{method: 'GET', url: 'rider/riderOrder/id=${userId}'},
+  ORDERBYID: {method: 'GET', url: 'rider/orderbyId/'},
 };
