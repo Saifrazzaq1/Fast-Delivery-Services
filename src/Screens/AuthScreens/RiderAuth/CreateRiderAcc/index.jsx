@@ -4,8 +4,7 @@ import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import style from './style';
-import { RiderSIGNUP } from 'src/Redux/Reducers/Rider/actions';
-import { showSnackbar } from 'src/Components/Snackbar';
+import {RiderSIGNUP} from 'src/Redux/Reducers/Auth/actions';
 
 const RiderCreateAccount = ({navigation}) => {
   const [password, setPassword] = useState('');
@@ -17,38 +16,23 @@ const RiderCreateAccount = ({navigation}) => {
   const [vehicle, setVehicle] = useState('');
   const [last_name, setLast_name] = useState('');
 
-  const handlepress = ()=>{
-    setIsButtonPressed(true);
-  }
   const handleSubmit = () => {
     const data = {
       first_name: first_name,
       email: email,
       password: password,
       phone: phone,
-      last_name:last_name,
-      country:country,
+      last_name: last_name,
+      country: country,
       vehical: vehicle,
     };
-
-    RiderSIGNUP(data, ({ success }) => {
-      if (success) {
-        showSnackbar({
-          body: 'Signup Successfully',
-          type: 'success',
-          header: 'SUCCESS',
-        });
-        navigation.navigate('RiderRigistered')
-      } else {
-        showSnackbar({
-          body: 'Signup error',
-          type: 'error',
-          header: 'ERROR',
-        });
+    RiderSIGNUP(data, res => {
+      if (res.success) {
+        navigation.navigate('RiderRegistered');
       }
     });
   };
-  
+
   return (
     <View>
       <StatusBar
@@ -75,9 +59,7 @@ const RiderCreateAccount = ({navigation}) => {
           />
           <View style={style.progressView}>
             <TouchableHighlight style={style.Progbtn}>
-              <Text style={style.t1}>
-                1
-              </Text>
+              <Text style={style.t1}>1</Text>
             </TouchableHighlight>
             <View style={style.ProgView} />
             <TouchableHighlight style={style.Progbtn}>
@@ -121,7 +103,7 @@ const RiderCreateAccount = ({navigation}) => {
               placeholder={'Last Name as per Emirates ID'}
             />
             <Button
-              onPress={() =>handleSubmit()}
+              onPress={() => handleSubmit()}
               btnheight={60}
               unseen={2}
               title={'Sign up'}
@@ -129,12 +111,12 @@ const RiderCreateAccount = ({navigation}) => {
               justifyContent={'center'}
               btnColor="#1C7584"
               fontSize={16}
-              buttonStyle={{ marginTop: 300 }}
+              buttonStyle={{marginTop: 300}}
             />
           </View>
         </View>
       ) : (
-        <View style={{ backgroundColor: 'white' }}>
+        <View style={{backgroundColor: 'white'}}>
           <Header
             loginbtn
             headerBg
@@ -147,9 +129,7 @@ const RiderCreateAccount = ({navigation}) => {
           />
           <View style={style.progressView}>
             <TouchableHighlight style={style.Progbtn}>
-              <Text style={style.t1}>
-                1
-              </Text>
+              <Text style={style.t1}>1</Text>
             </TouchableHighlight>
             <View style={style.ProgView1} />
             <TouchableHighlight style={style.Progbtn1}>
@@ -208,7 +188,6 @@ const RiderCreateAccount = ({navigation}) => {
               Your Password must be at least 6 characters
             </Text>
             <Textfield
-             
               borderBottomWidth={1}
               borderColor={'grey'}
               borderTopWidth={0}
@@ -222,7 +201,7 @@ const RiderCreateAccount = ({navigation}) => {
               Your Password must be at least 6 characters
             </Text>
             <Button
-              onPress={() => handlepress()}
+              onPress={() => setIsButtonPressed(true)}
               btnheight={60}
               unseen={2}
               title={'Continue'}
@@ -230,7 +209,7 @@ const RiderCreateAccount = ({navigation}) => {
               justifyContent={'center'}
               btnColor="#1C7584"
               fontSize={16}
-              buttonStyle={{ marginTop: 60 }}
+              buttonStyle={{marginTop: 60}}
             />
             <Text style={style.text4}>
               By creating an account you agree to the{' '}

@@ -4,16 +4,16 @@ import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import style from './style';
-import {LOGIN} from 'src/Redux/Reducers/RiderAuth/actions';
+import {RiderLOGIN} from 'src/Redux/Reducers/Auth/actions';
 
 const RiderSignin = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const handleSignin = () => {
-    LOGIN({email, password});
+    RiderLOGIN({email, password});
   };
   return (
-    <View style={{backgroundColor: 'white', flex: 1}}>
+    <View style={style.body}>
       <Header
         loginbtn
         headerBg
@@ -49,7 +49,7 @@ const RiderSignin = () => {
           secureTextEntry={true}
         />
         <TouchableOpacity>
-          <Text style={{alignSelf: 'flex-end'}}>Forgot Password</Text>
+          <Text style={style.flex}>Forgot Password</Text>
         </TouchableOpacity>
         <Button
           onPress={handleSignin}

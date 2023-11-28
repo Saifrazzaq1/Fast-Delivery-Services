@@ -1,11 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FlatList, Image, ScrollView, Text, View} from 'react-native';
 import Header from 'src/Components/Header';
 import Images from '../../../Assets';
 import style from './style';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
-const RiderOrderDetials = () => {
+const RiderOrderDetials = ({route}) => {
+  const {orderDetails} = route.params;
 
+  const region = {
+    latitude: 24.8607,
+    longitude: 67.0011,
+    latitudeDelta: 0.015,
+    longitudeDelta: 0.0121,
+  };
   return (
     <View style={style.body}>
       <Header
@@ -17,36 +25,38 @@ const RiderOrderDetials = () => {
         loginmarginleft={'40%'}
         headerShadow
       />
-      <ScrollView
-        style={style.scroll}>
+      <ScrollView style={style.scroll} showsVerticalScrollIndicator={false}>
         <View style={style.pinkView}>
           <Text style={style.redText}>Order Delivered </Text>
         </View>
         <View style={style.orderView}>
           <View style={style.container}>
             <Text style={style.amountText}>Order Details</Text>
-            <Text style={style.text1}>Order Number #4354</Text>
-            <View
-              style={style.pay}>
+            <Text style={style.text1}>
+              Order Number #{orderDetails.orderNumber}
+            </Text>
+            <View style={style.pay}>
               <View>
                 <Text style={style.amountText}>Payment</Text>
-                <Text style={style.text1}>Online</Text>
+                <Text style={style.text1}>{orderDetails.payment_type}</Text>
               </View>
               <View>
                 <Text style={style.amountText}>Customer Name</Text>
-                <Text style={style.text1}>Hussam</Text>
+                <Text style={style.text1}>
+                  {orderDetails.first_name} {orderDetails.last_name}
+                </Text>
               </View>
             </View>
           </View>
           <Text style={style.text3}>Order details</Text>
 
           <FlatList
-            data={'fa'}
-            renderItem={() => (
+            data={orderDetails.productId}
+            renderItem={({item}) => (
               <View style={style.orderDetail}>
                 <View>
-                  <Text style={style.text3}>Saloona Marga (1)</Text>
-                  <Text style={style.redText}>AED 28.50</Text>
+                  <Text style={style.text3}>{item.item}</Text>
+                  <Text style={style.redText}>AED {item.price}</Text>
                 </View>
                 <View>
                   <Image style={style.mlistimg} source={Images.salan} />
@@ -55,30 +65,52 @@ const RiderOrderDetials = () => {
             )}
           />
         </View>
+        <View style={style.p}>
+          <MapView style={style.mapv} provider="google" region={region} />
+
+          <View style={style.row}>
+            <Image style={style.dp} source={Images.dp} />
+            <Text style={style.text}>
+              {orderDetails?.bussinessId?.[0]?.bussiness_name}
+            </Text>
+          </View>
+          <View style={style.row}>
+            <Image style={style.mapImg} source={Images.loc} />
+            <Text style={style.text2}>
+              {orderDetails?.bussinessId?.[0]?.address}
+            </Text>
+          </View>
+        </View>
         <View style={style.orderView}>
           <Text style={style.text6}>Payment Summary</Text>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={style.payv}>
             <Text style={style.text7}>Subtotal</Text>
-            <Text style={style.text7}>AED 23</Text>
+            <Text style={style.text7}>
+              AED {orderDetails.paymentSummary.subTotal}
+            </Text>
           </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={style.payv}>
             <Text style={style.text7}>Delivery fee</Text>
-            <Text style={style.text7}>AED 99</Text>
+            <Text style={style.text7}>
+              AED {orderDetails.paymentSummary.DeliveryFee}
+            </Text>
           </View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={style.payv}>
             <Text style={style.text8}>Total Amount</Text>
-            <Text style={style.text8}>AED 89</Text>
+            <Text style={style.text8}>AED {orderDetails.total_bill}</Text>
           </View>
           <View style={style.orderView3}>
             <View style={style.details}>
               <View>
-                <View style={{flexDirection: 'row'}}>
+                <View style={style.row}>
                   <Image style={style.dp} source={Images.dp} />
-                  <Text style={style.text13}>Foodie Hoodie</Text>
+                  <Text style={style.text13}>Customer Name</Text>
                 </View>
-                <Text style={style.text14}>Hussam Noor</Text>
+                <Text style={style.text14}>
+                  {orderDetails.first_name} {orderDetails.last_name}
+                </Text>
               </View>
-              <View style={{flexDirection: 'row'}}>
+              <View style={style.row}>
                 <Image style={style.bigViewImg} source={Images.sms} />
                 <Image style={style.bigViewImg} source={Images.call} />
               </View>

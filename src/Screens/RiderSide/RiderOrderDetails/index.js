@@ -1,28 +1,56 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList, Image, ScrollView, Text, View} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Images from '../../../Assets';
 import style from './style';
-import {useNavigation} from '@react-navigation/native';
+import {GetOrderbyid} from 'src/Redux/Reducers/Auth/actions';
 
-const RiderOrderDetials = ({route}) => {
-  const {itemNo} = route.params;
+const RiderOrderDetials = ({route, navigation}) => {
+  const [orderDetails, setOrderDetails] = useState([]);
   const [region, setRegion] = useState({
-    latitude: 31.5204,
-    longitude: 74.3587,
+    latitude: 24.8607,
+    longitude: 67.0011,
     latitudeDelta: 0.015,
     longitudeDelta: 0.0121,
   });
-  const navigation = useNavigation();
+  const [regionV, setRegionV] = useState({
+    latitude: 24.8607,
+    longitude: 67.0011,
+    latitudeDelta: 0.015,
+    longitudeDelta: 0.0121,
+  });
+
+  useEffect(() => {
+    const orderId = route.params.Id;
+    GetOrderbyid(orderId, res => {
+      if (res.success) {
+        setOrderDetails(res.orders);
+        setRegion({
+          latitude: res.orders?.location?.coordinates[0] || 24.8607,
+          longitude: res.orders?.location?.coordinates[1] || 67.0011,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.0121,
+        });
+        setRegionV({
+          latitude:
+            res.orders?.bussinessId?.[0]?.location?.coordinates[0] || 24.8607,
+          longitude:
+            res.orders?.bussinessId?.[0]?.location?.coordinates[1] || 67.0011,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.0121,
+        });
+      }
+    });
+  }, [route.params.Id]);
   return (
     <View style={style.head}>
       <Header
         headerBg
         headerbgcolor={'#fff'}
         loginbtn
-        loginTitle={`Order ${itemNo}`}
+        loginTitle={`Order #${orderDetails.orderNumber}`}
         loginmarginleft={'47%'}
         logintextcolor={'#000'}
         marginright={'900'}
@@ -30,23 +58,26 @@ const RiderOrderDetials = ({route}) => {
         backIcon
       />
 
-      <ScrollView
-        style={style.body}>
+      <ScrollView style={style.body} showsVerticalScrollIndicator={false}>
         <View style={style.orderView}>
           <View style={style.container}>
             <MapView
               style={style.map}
               provider={PROVIDER_GOOGLE}
-              region={region}
-              onRegionChangeComplete={region => setRegion(region)}></MapView>
+              region={regionV}
+              annotations={regionV}></MapView>
           </View>
           <View style={style.row}>
             <Image style={style.dp} source={Images.dp} />
-            <Text style={style.text1}>Foodie Hoodie</Text>
+            <Text style={style.text1}>
+              {orderDetails?.bussinessId?.[0]?.bussiness_name}
+            </Text>
           </View>
           <View style={style.row}>
             <Image style={style.mapImg} source={Images.loc} />
-            <Text style={style.text2}>Sweihan Road, 4th Floor 17th ABD</Text>
+            <Text style={style.text2}>
+              {orderDetails?.bussinessId?.[0]?.address}
+            </Text>
           </View>
           <View style={style.row}>
             <View style={style.smallView}>
@@ -59,12 +90,12 @@ const RiderOrderDetials = ({route}) => {
           <Text style={style.text3}>Order details</Text>
 
           <FlatList
-            data={'fa'}
+            data={orderDetails.productId}
             renderItem={({item}) => (
               <View style={style.orderDetail}>
                 <View>
-                  <Text style={style.text3}>Saloona Marga (1)</Text>
-                  <Text style={style.redText}>AED 28.50</Text>
+                  <Text style={style.text3}>{item.item}</Text>
+                  <Text style={style.redText}>AED {item.price}</Text>
                 </View>
                 <View>
                   <Image style={style.mlistimg} source={Images.salan} />
@@ -76,8 +107,10 @@ const RiderOrderDetials = ({route}) => {
         <View style={style.orderView}>
           <View style={style.details}>
             <View>
-              <Text style={style.text4}>Foodie Hoodie</Text>
-              <Text style={style.text5}>Hussam Noor</Text>
+              <Text style={style.text4}>Customer Name</Text>
+              <Text style={style.text5}>
+                {orderDetails.first_name} {orderDetails.last_name}
+              </Text>
             </View>
             <View style={style.row}>
               <Image style={style.bigViewImg} source={Images.sms} />
@@ -87,59 +120,82 @@ const RiderOrderDetials = ({route}) => {
           <Text style={style.text6}>Payment Summary</Text>
           <View style={style.pay}>
             <Text style={style.text7}>Subtotal</Text>
-            <Text style={style.text7}>AED 23</Text>
+            <Text style={style.text7}>
+              AED {orderDetails?.paymentSummary?.subTotal}
+            </Text>
           </View>
           <View style={style.pay}>
             <Text style={style.text7}>Delivery fee</Text>
-            <Text style={style.text7}>AED 99</Text>
+            <Text style={style.text7}>
+              AED {orderDetails?.paymentSummary?.DeliveryFee}
+            </Text>
+          </View>
+          <View style={style.pay}>
+            <Text style={style.text7}>Rider Tip</Text>
+            <Text style={style.text7}>
+              AED {orderDetails?.paymentSummary?.riderTip}
+            </Text>
+          </View>
+          <View style={style.pay}>
+            <Text style={style.text7}>Service Fee</Text>
+            <Text style={style.text7}>
+              AED {orderDetails?.paymentSummary?.serviceFee}
+            </Text>
+          </View>
+          <View style={style.pay}>
+            <Text style={style.text7}>Discount </Text>
+            <Text style={style.text7}>
+              - AED {orderDetails?.paymentSummary?.Discount}
+            </Text>
           </View>
           <View style={style.pay}>
             <Text style={style.text8}>Total Amount</Text>
-            <Text style={style.text8}>AED 89</Text>
+            <Text style={style.text8}>
+              AED {orderDetails?.paymentSummary?.totalBill}
+            </Text>
           </View>
           <View style={style.pinkView}>
             <View style={style.bottom}>
               <Image style={style.bigViewImg2} source={Images.ccard} />
-              <Text style={style.text9}>Paid Online</Text>
+              <Text style={style.text9}>{orderDetails.payment_type}</Text>
             </View>
             <View>
-              <Text style={style.redText}>AED 10.00</Text>
+              <Text style={style.redText}>
+                AED {orderDetails?.paymentSummary?.totalBill}
+              </Text>
             </View>
           </View>
           <View style={style.MapView}>
             <MapView
-              style={{flex: 1}}
-              initialRegion={{
-                latitude: 31.5204,
-                longitude: 74.3587,
-                latitudeDelta: 0.015,
-                longitudeDelta: 0.0121,
-              }}></MapView>
+              style={style.MapView1}
+              provider={PROVIDER_GOOGLE}
+              region={region}>
+              <Marker
+                coordinate={{
+                  latitude: orderDetails?.location?.coordinates[0] || 24.8607,
+                  longitude: orderDetails?.location?.coordinates[1] || 67.0011,
+                }}>
+                <Image source={Images.MapIcon} style={style.mapimg} />
+              </Marker>
+            </MapView>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
+          <View style={style.locview}>
             <View>
               <Text style={style.text12}>Drop off Location</Text>
-              <Text style={style.text8}>zam zam height (Masdar City)</Text>
+              <Text style={style.text8}>{orderDetails.building}</Text>
               <Text style={style.text11}>
-                Sweihan Road, zam zam hieght, 4th, 17
+                {orderDetails.street}, {orderDetails.appartment},
+                {orderDetails.building}, {orderDetails.area}
               </Text>
             </View>
             <View style={style.view1}>
-              <Image
-                style={style.img}
-                source={Images.bike1}
-              />
+              <Image style={style.img} source={Images.bike1} />
             </View>
           </View>
         </View>
         <Button
           onPress={() => {
-            const {itemNo} = route.params;
-            navigation.navigate('MapScreen', {itemNo});
+            navigation.navigate('MapScreen', {orderDetails});
           }}
           btnheight={45}
           btnColor="#1C7584"

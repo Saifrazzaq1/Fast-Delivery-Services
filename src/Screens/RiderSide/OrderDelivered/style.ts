@@ -7,6 +7,29 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   pay:{flexDirection: 'row', justifyContent: 'space-between'},
+  row:{flexDirection:'row'},
+  text: {
+    fontWeight: '500',
+    color: 'black',
+    fontSize: 16,
+    marginTop: 7,
+    marginLeft: 5,
+  },
+  p:{padding: 20, borderColor:'#E1E1E1', borderWidth:1,flex:1,height:200,width:"100%",
+ borderRadius:20},
+ mapv:{
+  flex:1,height:200,width:"100%",
+  
+ },
+  payv:{flexDirection: 'row', justifyContent: 'space-between'},
+  smallMap:{   ...StyleSheet.absoluteFillObject,
+    height: 70,
+    width: '30%',
+    position: 'absolute',
+    borderRadius: 10,
+    marginLeft: 240,
+    marginTop: 20,
+    overflow: 'hidden',},
   text1: {
     fontWeight: '500',
     color: 'black',
@@ -93,6 +116,7 @@ const styles = StyleSheet.create({
     height: 16 * heightRef,
     width: 10.5,
     tintColor: '#1C7584',
+    paddingLeft:10
   },
   dp: {
     height: 37 * heightRef,

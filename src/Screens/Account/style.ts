@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   body: {backgroundColor: '#fff', flex: 1},
   mainbody: {flexDirection: 'row', alignItems: 'center'},
   profile: {flexDirection: 'row', alignItems: 'center'},
+  center: {alignSelf: 'center'},
   storesView: {
     backgroundColor: '#1C7584',
     width: '100%',

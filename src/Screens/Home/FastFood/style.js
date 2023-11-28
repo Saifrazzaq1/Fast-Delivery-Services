@@ -91,6 +91,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   btn: {flexDirection: 'row', alignItems: 'center'},
+  mh: {marginHorizontal: 20},
+  row: {flexDirection: 'row'},
+  pb: {paddingBottom: 120},
 });
 
 export default styles;

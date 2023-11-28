@@ -28,6 +28,7 @@ const AuthStack = () => {
       <Stack.Screen name="RiderSignin" component={RiderSignin} />
       <Stack.Screen name="RiderCreateAccount" component={RiderCreateAccount} />
       <Stack.Screen name="Rigistered" component={RiderRigistered} />
+      <Stack.Screen name="RiderRegistered" component={RiderRigistered} />
     </Stack.Navigator>
   );
 };

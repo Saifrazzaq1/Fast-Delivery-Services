@@ -1,14 +1,12 @@
-import {TouchableOpacity, Image, Text, View} from 'react-native';
-import Header from 'src/Components/Header';
 import React from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {useSelector} from 'react-redux';
+import Header from 'src/Components/Header';
 import Images from '../../Assets';
 import style from './style';
-import {useNavigation} from '@react-navigation/native';
-import {useSelector} from 'react-redux';
-const Account = () => {
-  const navigation = useNavigation();
-  const user = useSelector(s => s.auth.user);
 
+const Account = ({navigation}) => {
+  const user = useSelector(s => s.auth.user);
   return (
     <View style={style.body}>
       <Header

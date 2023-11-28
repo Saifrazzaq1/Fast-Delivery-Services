@@ -12,7 +12,11 @@ const styles = StyleSheet.create({
   pay:{flexDirection: 'row', justifyContent: 'space-between'},
   bottom:{flexDirection: 'row', alignItems: 'center'},
   img:{width: 35, height: 35, marginTop: 10},
-  btn:{marginTop: 40, marginBottom: 40},
+  btn:{marginTop: 40, marginBottom: 60},
+  locview:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   text1: {
     fontWeight: '500',
     color: 'black',
@@ -103,6 +107,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     overflow: 'hidden',
   },
+  MapView1:{flex:1},
+  mapimg:{width: 20, height: 40},
   smallView: {
     height: 25 * heightRef,
     width: 25,

@@ -30,7 +30,6 @@ const FastFood = () => {
       }
     });
   }, []);
-  console.log(JSON.stringify(bussiness, null, 2));
   return (
     <View style={styles.body}>
       <Header
@@ -57,10 +56,10 @@ const FastFood = () => {
       <ScrollView>
         <AssitBar marginTop={20} />
         <Text style={styles.pickText}>Pick</Text>
-        <View style={{marginHorizontal: 20}}>
+        <View style={styles.mh}>
           <FlatList
             horizontal={true}
-            style={{flexDirection: 'row'}}
+            style={styles.row}
             data={bussiness}
             renderItem={({item}) => (
               <TouchableOpacity
@@ -93,7 +92,7 @@ const FastFood = () => {
         <Text style={styles.pickText}>All Resturant</Text>
         <AllResturant />
         <ChefList />
-        <View style={{}}>
+        <View>
           <AllResturant2 />
         </View>
       </ScrollView>

@@ -125,3 +125,88 @@ export const LOGOUT = () => {
     header: 'Logout',
   });
 };
+
+export const RiderSIGNUP = (data, cb) => {
+  const {method, url} = API.RIDERSIGNUP;
+  Api.request({method, url, data})
+    .then(response => {
+      cb(response);
+      showSnackbar({
+        body: 'Signup Successfully',
+        type: 'success',
+        header: 'SUCCESS',
+      });
+    })
+    .catch(error => {
+      showSnackbar({
+        type: 'error',
+        header: 'Signup ERROR',
+        body: getError(error),
+      });
+    });
+};
+
+export const RiderLOGIN = data => {
+  const {dispatch} = getRedux();
+  const {method, url} = API.RIDER_LOGIN;
+
+  Api.request({method, url, data})
+    .then(res => {
+      dispatch({
+        type: USER_LOGIN,
+        payload: res,
+      });
+    })
+    .catch(error => {
+      showSnackbar({
+        type: 'error',
+        header: 'Login ERROR',
+        body: getError(error),
+      });
+    });
+};
+
+export const AllOrders = cb => {
+  const {method, url} = API.ALLORDERS;
+  Api.request({method, url})
+    .then(res => {
+      cb(res);
+    })
+    .catch(error => {
+      showSnackbar({
+        type: 'error',
+        header: 'Login ERROR',
+        body: getError(error),
+      });
+    });
+};
+export const CompletedOrders = cb => {
+  const {method, url} = API.COMPLETEORDERS;
+  Api.request({method, url})
+    .then(res => {
+      cb(res);
+    })
+    .catch(error => {
+      showSnackbar({
+        type: 'error',
+        header: 'Login ERROR',
+        body: getError(error),
+      });
+    });
+};
+export const GetOrderbyid = (_orderId, cb) => {
+  const {method, url} = API.ORDERBYID;
+  const requestUrl = `${url}${_orderId}`;
+
+  Api.request({method, url: requestUrl})
+    .then(res => {
+      cb(res);
+    })
+    .catch(error => {
+      showSnackbar({
+        type: 'error',
+        header: 'Order ERROR',
+        body: getError(error),
+      });
+    });
+};

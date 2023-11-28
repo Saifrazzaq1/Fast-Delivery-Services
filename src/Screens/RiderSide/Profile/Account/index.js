@@ -24,10 +24,9 @@ const Payments = [
   },
 ];
 
-const AccountRider = ({navigation, }) => {
+const AccountRider = ({navigation}) => {
   const card = useSelector(state => state.card.cards);
   const lastCard = card.length > 0 ? card[card.length - 1] : null;
-  const hasAccountDetails = lastCard;
   const maskCardNumber = cardNumber => {
     return cardNumber.replace(/[^ ](?=.{4,}$)/g, '*');
   };
@@ -44,7 +43,7 @@ const AccountRider = ({navigation, }) => {
         headerBg
         headerShadow
       />
-      {hasAccountDetails ? (
+      {lastCard ? (
         <View style={style.main}>
           <View style={style.card}>
             <Image source={Images.Master} style={style.img} />
