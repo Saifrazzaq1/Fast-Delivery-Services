@@ -50,6 +50,34 @@ export const MENU = (id, cb) => {
       });
     });
 };
+export const DISCOUNT = (id, cb) => {
+  const {method, url} = API.DISCOUNT;
+  Api.request({method, url: url + `${id}`})
+    .then(res => {
+      cb(res);
+    })
+    .catch(error => {
+      showSnackbar({
+        type: 'error',
+        header: 'Discount ERROR',
+        body: getError(error),
+      });
+    });
+};
+export const ADDONS = (id, cb) => {
+  const {method, url} = API.ADDONS;
+  Api.request({method, url: url + `${id}`})
+    .then(res => {
+      cb(res);
+    })
+    .catch(error => {
+      showSnackbar({
+        type: 'error',
+        header: 'Add ons ERROR',
+        body: getError(error),
+      });
+    });
+};
 export const BUSSINESS = (data, cb) => {
   const {method, url} = API.BUSSINESS;
   Api.request({

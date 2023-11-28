@@ -21,10 +21,9 @@ const AssitBar = ({marginTop, marginHorizontal}) => {
         renderItem={({item}) => (
           <TouchableOpacity
             activeOpacity={0.1}
-            style={[style.optnView, {marginTop: marginTop, paddingLeft: 25}]}>
+            style={[style.optnView, {marginTop: marginTop, paddingLeft: 15}]}>
             <View
               style={{
-                height: 60,
                 alignSelf: 'center',
               }}>
               <Image style={style.optnimg} source={item.img} />

@@ -1,43 +1,53 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import MapView, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import Button from 'src/Components/Button';
 import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import style from './style';
+import {useSelector} from 'react-redux';
 
 const LocationFields = ({route}) => {
-  const [password, setPassword] = useState('');
-
-  const [phone, setPhone] = useState('');
+  const {price, latitude, longitude} = route.params;
+  const user = useSelector(s => s.auth.user);
   const [email, setEmail] = useState('');
-
+  const [phone, setPhone] = useState('');
+  const [firstName, setFirstName] = useState(user.first_name ?? '');
+  const [lastName, setLastName] = useState('');
+  const [lineNumber, setLineNumber] = useState('');
+  const [area, setArea] = useState('');
+  const [address, setAddress] = useState('');
+  const [street, setStreet] = useState('');
+  const [building, setBuilding] = useState('');
+  const [apartNo, setApartNo] = useState('');
+  const [additional, setAdditional] = useState('');
   const navigation = useNavigation();
   const [region, setRegion] = useState({
-    latitude: 31.5204,
-    longitude: 74.3587,
+    latitude: latitude,
+    longitude: longitude,
     latitudeDelta: 0.015,
     longitudeDelta: 0.0121,
   });
-  const {total, itemPrice, count} = route.params;
   return (
     <View style={style.body}>
-      
       <Header
         loginbtn
         headerBg
         headerbgcolor={'white'}
         headerShadow
         logintextcolor={'black'}
-        loginmarginleft={110}
+        loginmarginleft={'49%'}
         backIcon
-        loginTitle={'Guest CheckOut'}
+        loginTitle={'Location'}
       />
       <View style={style.mainview}>
         <ScrollView>
           <Text style={style.text}>Contact details</Text>
           <Textfield
+            value={firstName}
+            onChangeText={setFirstName}
+            pla
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             placeholder={'First Name'}
@@ -46,6 +56,8 @@ const LocationFields = ({route}) => {
             borderLeftWidth={0}
           />
           <Textfield
+            value={lastName}
+            onChangeText={setLastName}
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             placeholder={'Last Name'}
@@ -54,6 +66,8 @@ const LocationFields = ({route}) => {
             borderLeftWidth={0}
           />
           <Textfield
+            value={lineNumber}
+            onChangeText={setLineNumber}
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             placeholder={'landline number (optional)'}
@@ -69,7 +83,7 @@ const LocationFields = ({route}) => {
             borderTopWidth={0}
             borderRightWidth={0}
             borderLeftWidth={0}
-            placeholder={'Phone Number'}
+            placeholder={'Phone Number +92'}
           />
           <View
             style={{
@@ -82,8 +96,7 @@ const LocationFields = ({route}) => {
             <MapView
               style={{flex: 1}}
               provider={PROVIDER_GOOGLE}
-              region={region}
-              onRegionChangeComplete={region => setRegion(region)}>
+              region={region}>
               <Marker coordinate={region}>
                 <Callout>
                   <Text>I'm here</Text>
@@ -105,7 +118,7 @@ const LocationFields = ({route}) => {
               showtitle2={true}
               textStyle={{texlAlign: 'center'}}
               onPress={() => {
-                navigation.navigate('SelectLocation');
+                navigation.navigate('SelectLocation', {price});
               }}
             />
           </View>
@@ -120,8 +133,8 @@ const LocationFields = ({route}) => {
             placeholder={'Email'}
           />
           <Textfield
-            value={password}
-            onChangeText={setPassword}
+            value={area}
+            onChangeText={setArea}
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             borderTopWidth={0}
@@ -130,18 +143,18 @@ const LocationFields = ({route}) => {
             placeholder={'Area'}
           />
           <Textfield
-            value={password}
-            onChangeText={setPassword}
+            value={address}
+            onChangeText={setAddress}
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             borderTopWidth={0}
             borderRightWidth={0}
             borderLeftWidth={0}
-            placeholder={'Address type'}
+            placeholder={'Address'}
           />
           <Textfield
-            value={password}
-            onChangeText={setPassword}
+            value={street}
+            onChangeText={setStreet}
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             borderTopWidth={0}
@@ -150,8 +163,8 @@ const LocationFields = ({route}) => {
             placeholder={'Street'}
           />
           <Textfield
-            value={password}
-            onChangeText={setPassword}
+            value={building}
+            onChangeText={setBuilding}
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             borderTopWidth={0}
@@ -160,8 +173,8 @@ const LocationFields = ({route}) => {
             placeholder={'Building'}
           />
           <Textfield
-            value={password}
-            onChangeText={setPassword}
+            value={apartNo}
+            onChangeText={setApartNo}
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             borderTopWidth={0}
@@ -170,8 +183,8 @@ const LocationFields = ({route}) => {
             placeholder={'Apartment No'}
           />
           <Textfield
-            value={password}
-            onChangeText={setPassword}
+            value={additional}
+            onChangeText={setAdditional}
             borderBottomWidth={1}
             borderColor={'#B7B7B7'}
             borderTopWidth={0}
@@ -179,15 +192,21 @@ const LocationFields = ({route}) => {
             borderLeftWidth={0}
             placeholder={'Additional Directions (optional)'}
           />
-          <View
-            style={style.btn}></View>
+          <View style={style.btn}></View>
           <Button
             onPress={() => {
               navigation.navigate('CheckOutDetails', {
-                total,
-                itemPrice,
-                item: route?.params?.item,
-                count,
+                price,
+                latitude,
+                longitude,
+                firstName,
+                lastName,
+                address,
+                phone,
+                building,
+                apartNo,
+                area,
+                street,
               });
             }}
             btnheight={60}
@@ -204,4 +223,3 @@ const LocationFields = ({route}) => {
   );
 };
 export default LocationFields;
-

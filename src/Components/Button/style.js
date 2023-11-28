@@ -20,15 +20,11 @@ export default StyleSheet.create({
     borderRadius: 30,
     justifyContent: 'space-between',
     paddingHorizontal: 20,
+    alignItems: 'center',
   },
   arrowIcon: {
-    position: 'absolute',
-    height: 50,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    width: '10%',
-    right: 20,
-    top: '10%',
+    height: 20,
+    width: 20,
   },
   btnimg: {
     width: 30,

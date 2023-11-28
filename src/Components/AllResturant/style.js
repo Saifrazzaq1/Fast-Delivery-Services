@@ -75,8 +75,5 @@ export default StyleSheet.create({
   heartimg: {
     height: 35,
     width: 35,
-    position: 'absolute',
-    right: 5,
-    top: 10,
   },
 });

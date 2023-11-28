@@ -15,46 +15,15 @@ import ChefList from 'src/Components/ChefList';
 import Header from 'src/Components/Header';
 import Images from '../../../Assets/';
 import styles from './style';
-
 import {BUSSINESS} from 'src/Redux/Reducers/Auth/actions';
 
 const FastFood = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const resturants = [
-    {
-      name: 'Osha Emirati Gourmet',
-      time: '22',
-      des: 'Emirati, Arabic, Grills',
-      loctex: 'AED 6.00',
-      startext: '4.2 (100+)',
-      img: Images.burger,
-      tcimg: Images.redstar,
-      tctext: 'Top Choice',
-    },
-    {
-      name: 'Osha Emirati Gourmet',
-      time: '22',
-      des: 'Emirati, Arabic, Grills',
-      loctex: 'AED 6.00',
-      startext: '4.2 (100+)',
-      img: Images.pop2,
-    },
-    {
-      name: 'Osha Emirati Gourmet',
-      time: '22',
-      des: 'Emirati, Arabic, Grills',
-      loctex: 'AED 6.00',
-      startext: '4.2 (100+)',
-      img: Images.pop3,
-      tcimg: '',
-      tctext: '',
-    },
-  ];
   const [bussiness, setBussiness] = useState([]);
-  const {name, lat, long} = route.params;
+  const {name, lat, long, id} = route.params;
   useEffect(() => {
-    const data = {name, lat, long};
+    const data = {name, lat, long, id};
     BUSSINESS(data, res => {
       if (res.success) {
         setBussiness(res.bussiness);
@@ -94,10 +63,12 @@ const FastFood = () => {
             data={bussiness}
             renderItem={({item}) => (
               <TouchableOpacity
-                onPress={() => navigation.navigate('Details', {item})}
+                onPress={() => {
+                  navigation.navigate('Details', {item});
+                }}
                 activeOpacity={0.1}
                 style={styles.restrtView}>
-                <Image style={styles.restrtimg} source={item.img} />
+                <Image style={styles.restrtimg} source={Images.pop3} />
                 <View style={styles.main1}>
                   <Text style={styles.restrttext}>{item.bussiness_name}</Text>
                   <View style={styles.main2}>
@@ -108,7 +79,7 @@ const FastFood = () => {
                   </View>
                 </View>
                 <Text style={styles.nameDes}>{item.des}</Text>
-                <View style={styles.row}>
+                <View style={{flexDirection: 'row'}}>
                   <Image style={styles.starimg} source={Images.star} />
                   <Text style={styles.startext}>{item.startext}</Text>
                   <Image style={styles.locimg} source={Images.loc} />
@@ -121,7 +92,7 @@ const FastFood = () => {
         <Text style={styles.pickText}>All Resturant</Text>
         <AllResturant />
         <ChefList />
-        <View style={styles.pb}>
+        <View>
           <AllResturant2 />
         </View>
       </ScrollView>

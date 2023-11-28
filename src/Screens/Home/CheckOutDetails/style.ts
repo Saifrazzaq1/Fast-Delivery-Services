@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     backgroundColor: 'white',
-    marginTop: 220,
+    marginTop: 260,
     borderRadius: 20,
     alignItems: 'center',
     shadowColor: '#000',
@@ -206,28 +206,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 130,
   },
-  new:{ margin: 20 },
-  img:{ width: 35, height: 35 },
-  row:{ flexDirection: 'row' },
-  img1:{ width: 35, height: 35, marginTop: 5 },
-  img2:{ width: 25, height: 25, marginLeft: 10 },
-  icon:{ marginTop: 20, marginLeft: 30, color: 'black' },
-  btn1:{ flexDirection: 'row', marginTop: 30 },
+  new: {margin: 20},
+  img: {width: 35, height: 35},
+  row: {flexDirection: 'row'},
+  img1: {width: 35, height: 35, marginTop: 5},
+  img2: {width: 25, height: 25, marginLeft: 10},
+  icon: {marginTop: 20, marginLeft: 30, color: 'black'},
+  btn1: {flexDirection: 'row', marginTop: 30},
   btn2: {
     height: 25,
     width: 25,
     borderRadius: 15,
     borderWidth: 1,
   },
-  btn3:{
+  btn3: {
     height: 25,
     width: 22.5,
     marginLeft: -22.5,
   },
-  btnview:{ flexDirection: 'row', marginTop: 50 },
-  pay:{ flexDirection: 'row', justifyContent: 'space-between' },
-  orderbtn:{ marginTop: 20, width: '100%', alignItems: 'center' },
-  
+  btnview: {flexDirection: 'row', marginTop: 50},
+  pay: {flexDirection: 'row', justifyContent: 'space-between'},
+  orderbtn: {marginTop: 20, width: '100%', alignItems: 'center'},
 });
 
 export default styles;

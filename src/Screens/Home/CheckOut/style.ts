@@ -151,20 +151,21 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-between',
   },
-  img:{margin: 20},
-  img1:{width: 35, height: 35, marginTop: 5},
-  img2:{
+  img: {margin: 20},
+  img1: {width: 35, height: 35, marginTop: 5},
+  img2: {
     width: 29,
     height: 29,
     marginRight: 10,
     alignSelf: 'center',
   },
-  pay:{flexDirection: 'row', justifyContent: 'space-between'},
-  btnView:{
+  pay: {flexDirection: 'row', justifyContent: 'space-between'},
+  btnView: {
     flexDirection: 'row',
-    marginTop: 130,
+    marginTop: 50,
+    marginBottom: 50,
   },
-  button:{
+  button: {
     marginTop: 20,
     width: '49%',
     marginRight: 5,
@@ -174,7 +175,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  button1:{marginTop: 20, width: '49%', alignItems: 'center'}
+  button1: {marginTop: 20, width: '49%', alignItems: 'center'},
 });
 
 export default styles;

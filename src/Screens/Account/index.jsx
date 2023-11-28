@@ -1,9 +1,9 @@
-import {TouchableOpacity, Image, Text, View} from 'react-native';
-import Header from 'src/Components/Header';
 import React from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {useSelector} from 'react-redux';
+import Header from 'src/Components/Header';
 import Images from '../../Assets';
 import style from './style';
-import {useSelector} from 'react-redux';
 
 const Account = ({navigation}) => {
   const user = useSelector(s => s.auth.user);
@@ -13,16 +13,15 @@ const Account = ({navigation}) => {
         headerBg
         headerbgcolor={'#fff'}
         loginTitle="Account"
-        logoutIcon
+        logoutIcon //share icon
         logoutSize={20}
       />
       <View style={style.mainview}>
         <View style={style.mainbody}>
           <Image style={style.dpview} source={Images.dp} />
-          <View style={style.center}>
-            <Text style={style.username}>{user.first_name}</Text>
-
-            <View style={style.profile}>
+          <View style={{alignSelf: 'center'}}>
+            <Text style={style.username}>Hussam</Text>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image style={style.countryImg} source={Images.palestine} />
               <Text style={style.useraddress}>{user.email}</Text>
             </View>

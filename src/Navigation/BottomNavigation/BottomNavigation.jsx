@@ -7,7 +7,6 @@ import Search from '../../Screens/Search';
 import BottomHomeStack from './Stack/Home';
 
 const Tab = createBottomTabNavigator();
-
 const BottomNavigation = () => {
   return (
     <Tab.Navigator

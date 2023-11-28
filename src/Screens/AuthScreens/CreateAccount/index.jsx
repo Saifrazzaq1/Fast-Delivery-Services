@@ -51,7 +51,7 @@ const CreateAccount = ({navigation}) => {
         loginbtn
         headerBg
         headerbgcolor={'white'}
-        loginmarginleft={'55%'}
+        loginmarginleft={'53.5%%'}
         headerShadow
         backIcon
         loginTitle={'Login'}
@@ -104,8 +104,7 @@ const CreateAccount = ({navigation}) => {
         <Text style={style.text1}>
           Your Password must be at least 6 characters
         </Text>
-        <View
-          style={style.check}>
+        <View style={style.check}>
           <CheckBox
             checkBoxColor={'#000'}
             checkedCheckBoxColor={'#E0281C'}

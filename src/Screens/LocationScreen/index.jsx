@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Text, View} from 'react-native';
-import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {Marker, Callout} from 'react-native-maps';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Button from 'src/Components/Button';
 import Textfield from 'src/Components/Textfield';
@@ -14,15 +14,30 @@ const Location = ({navigation}) => {
     latitudeDelta: 0.015,
     longitudeDelta: 0.0121,
   });
+  const handleMapTap = event => {
+    const {latitude, longitude} = event.nativeEvent.coordinate;
+    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+    setRegion(prevRegion => ({
+      ...prevRegion,
+      latitude,
+      longitude,
+    }));
+  };
+  const [index, setIndex] = useState(2);
+
   return (
     <View style={[style.main]}>
       <View style={style.container}>
         <MapView
           style={{flex: 1}}
-          provider={PROVIDER_GOOGLE}
-          region={region}
-          onRegionChangeComplete={region => setRegion(region)}>
-          <Marker coordinate={region} />
+          onPress={handleMapTap}
+          provider="google"
+          region={region}>
+          <Marker coordinate={region}>
+            <Callout>
+              <Text>I'm here</Text>
+            </Callout>
+          </Marker>
         </MapView>
       </View>
       {value === true ? (

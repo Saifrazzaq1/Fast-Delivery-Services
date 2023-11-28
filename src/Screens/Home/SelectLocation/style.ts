@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     width: '10%',
     right: 15,
-    top: 15,
+    top: 18,
   },
   buttonView: {
     marginHorizontal: 20,

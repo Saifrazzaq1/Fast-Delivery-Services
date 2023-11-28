@@ -1,16 +1,15 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {StyleSheet, TouchableOpacity, Image, Text, View} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {LOGOUT} from 'src/Redux/Reducers/Auth/actions';
+import Images from '../../Assets';
 import style from './style';
-import Images from'../../Assets'
-import {useNavigation} from '@react-navigation/native';
 
 const Header = ({
   guestbtn,
   menu,
-  onMenuPress,
   loginbtn,
   backIcon,
   heartIcon,
@@ -19,11 +18,12 @@ const Header = ({
   guestTitle,
   searchmarginRight,
   marginright,
+  marginLeft,
   headerShadow,
   loginmarginleft,
   searchIcon,
   locationIcon,
-  logoutIcon,
+  logoutIcon, //share Icon
   locationText,
   alignItems,
   locationtextPosition,
@@ -68,7 +68,13 @@ const Header = ({
       ) : null}
       {loginbtn && (
         <View>
-          <Text style={[style.text1,{marginLeft:loginmarginleft,color:logintextcolor}]}>{loginTitle}</Text>
+          <Text
+            style={[
+              style.text1,
+              {marginLeft: loginmarginleft, color: logintextcolor},
+            ]}>
+            {loginTitle}
+          </Text>
         </View>
       )}
       {guestbtn && (
@@ -88,9 +94,8 @@ const Header = ({
       ) : null}
       {logoutIcon ? (
         <TouchableOpacity
-          style={[style.signoutView, , {backgroundColor: iconBg}]}
-          onPress={LOGOUT}>
-          <FontAwesome5 name="sign-out-alt" size={logoutSize} color="black" />
+          style={[style.signoutView, , {backgroundColor: iconBg}]}>
+          <FontAwesome5 name="share-alt" size={logoutSize} color="black" />
         </TouchableOpacity>
       ) : null}
       {heartIcon ? (
@@ -99,36 +104,47 @@ const Header = ({
         </TouchableOpacity>
       ) : null}
       {locationIcon && (
-         <FontAwesome5 style={{marginRight:10}} name="map-marker-alt" size={18} color="#1C7584" />
+        <FontAwesome5
+          style={{marginRight: 10}}
+          name="map-marker-alt"
+          size={18}
+          color="#1C7584"
+        />
       )}
-      
-      
+
       {locationText ? (
-        <View style={{alignItems:alignItems,width:'100%',marginRight:marginright}}>
+        <View
+          style={{
+            alignItems: alignItems,
+            width: '100%',
+            marginRight: marginright,
+          }}>
           <Text
             style={[
               style.delivtext,
-              {textAlign: locationtextPosition, marginLeft: 0},
+              {textAlign: locationtextPosition, marginLeft: marginLeft},
             ]}>
             Delivering to
           </Text>
           <Text
             style={[
               style.joharText,
-              {textAlign: locationtextPosition, marginLeft: 0},
+              {textAlign: locationtextPosition, marginLeft: marginLeft},
             ]}>
             Johar Town, Lahore
           </Text>
         </View>
       ) : null}
-        {menu && (
-      <TouchableOpacity
-      onPress={()=> navigation.navigate('Profile')}
-      style={{position: 'absolute', right: 30}}
-    >
-      <Image style={{height: 23, width: 23, tintColor: 'red'}} source={Images.menuLines} />
-    </TouchableOpacity>
-        )}
+      {menu && (
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Profile')}
+          style={{position: 'absolute', right: 30}}>
+          <Image
+            style={{height: 23, width: 23, tintColor: 'red'}}
+            source={Images.menuLines}
+          />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

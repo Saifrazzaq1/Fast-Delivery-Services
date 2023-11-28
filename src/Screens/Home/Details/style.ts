@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {heightRef} from 'src/config/screenSize';
 
 const styles = StyleSheet.create({
-  body:{margin: 20},
+  body: {margin: 20},
   bgimg: {
     width: '100%',
     height: 220 * heightRef,
@@ -75,8 +75,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
     marginTop: 20,
+    marginBottom: 20,
   },
-  mainlistview: {flexDirection: 'row', marginVertical: 30},
+  mainlistview: {flexDirection: 'row'},
   mlisttext: {
     color: 'black',
     fontWeight: '500',
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
     width: 138,
     borderRadius: 10,
     marginLeft: 202,
+    marginBottom: 60,
     position: 'absolute',
   },
   centeredView: {
@@ -118,20 +120,26 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  act:{
+  act: {
     backgroundColor: '#1C7584',
     height: 4,
     marginLeft: -2,
     width: '105%',
   },
-  select:{
+  select: {
     height: 90,
     width: 5,
     backgroundColor: '#1C7584',
+    marginBottom: 30,
     marginRight: 5,
   },
-  btn:{flex: 1, backgroundColor: 'rgba(52, 52, 52, 0.8)'},
-  
+  noselect: {
+    height: 90,
+    width: 5,
+    marginRight: 5,
+    marginBottom: 30,
+  },
+  btn: {flex: 1, backgroundColor: 'rgba(52, 52, 52, 0.8)'},
 });
 
 export default styles;

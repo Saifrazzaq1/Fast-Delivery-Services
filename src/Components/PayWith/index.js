@@ -1,31 +1,18 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
-
+import React from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import Button from 'src/Components/Button';
-import Header from 'src/Components/Header';
 import Textfield from 'src/Components/Textfield';
 import Images from '../../Assets';
 import style from './style';
 
-const PayWith = ({
-  total,
-  riderTip,
-  setShowModal,
-  showModal,
-  serviceFee,
-  item,
-  radio,
-}) => {
- 
-
+const PayWith = ({setShowModal, showModal, radio, price}) => {
   return (
-    <ScrollView style={{backgroundColor: '#fff'}}>
+    <View style={{backgroundColor: '#fff', flex: 1, borderRadius: 10}}>
       <View style={style.view11}>
         <Text style={style.oshatext}>Pay with</Text>
       </View>
       <View style={{marginHorizontal: 20}}>
-        <View style={{}}>
+        <View>
           <TouchableOpacity
             onPress={() => {
               setradioActive(radio);
@@ -109,7 +96,7 @@ const PayWith = ({
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text style={style.textany}>Subtotal</Text>
-          <Text style={style.deltextnext}>AED {total}</Text>
+          <Text style={style.deltextnext}>AED {price}</Text>
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text style={style.textany}>Service Fee</Text>
@@ -125,14 +112,13 @@ const PayWith = ({
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text style={style.textanyT}>Total amount</Text>
-          <Text style={style.deltextnextT}>
-            AED {(finalBill = total + serviceFee + riderTip)}
-          </Text>
+          <Text style={style.deltextnextT}>AED {price}</Text>
         </View>
         <View
           style={{
             flexDirection: 'row',
-            marginTop: 130,
+            marginTop: 100,
+            paddingBottom: 20,
           }}>
           <Button
             btnheight={55}
@@ -140,7 +126,7 @@ const PayWith = ({
             showtitle2={false}
             title={'Place Order'}
             justifyContent={'center'}
-            buttonStyle={{marginTop: -110, width: '100%', alignItems: 'center'}}
+            buttonStyle={{marginTop: -40, width: '100%', alignItems: 'center'}}
             btnColor="#1C7584"
             textColor={'#fff'}
             textStyle={{marginHorizontal: 20}}
@@ -150,7 +136,7 @@ const PayWith = ({
           />
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 export default PayWith;
