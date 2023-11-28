@@ -4,7 +4,7 @@ import Header from 'src/Components/Header';
 import style from './style';
 import Textfield from 'src/Components/Textfield';
 import Button from 'src/Components/Button';
-import {addCard} from 'src/Redux/Reducers/CreditCard/action';
+import {ADD_Credit_Card} from 'src/Redux/Reducers/CreditCard/action';
 
 const AddCard = ({navigation}) => {
   const [nameOnCard, setNameOnCard] = useState('');
@@ -26,7 +26,7 @@ const AddCard = ({navigation}) => {
       cvv,
     };
 
-    addCard(cardInfo);
+    ADD_Credit_Card(cardInfo);
     navigation.navigate('AccountR', cardInfo);
   };
 

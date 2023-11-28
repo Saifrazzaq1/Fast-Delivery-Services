@@ -44,7 +44,6 @@ const RiderOrderDetials = ({route, navigation}) => {
       }
     });
   }, [route.params.Id]);
-
   return (
     <View style={style.head}>
       <Header
@@ -196,7 +195,7 @@ const RiderOrderDetials = ({route, navigation}) => {
         </View>
         <Button
           onPress={() => {
-            navigation.navigate('MapScreen');
+            navigation.navigate('MapScreen', {orderDetails});
           }}
           btnheight={45}
           btnColor="#1C7584"

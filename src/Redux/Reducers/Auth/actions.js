@@ -6,7 +6,6 @@ import {getError} from 'src/config/function';
 
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const USER_LOGIN = 'USER_LOGIN';
-export const Rider_LOGIN = 'USER_LOGIN';
 
 export const SIGNUP = (data, cb) => {
   const {method, url} = API.SIGNUP;
@@ -126,7 +125,7 @@ export const RiderLOGIN = data => {
   Api.request({method, url, data})
     .then(res => {
       dispatch({
-        type: Rider_LOGIN,
+        type: USER_LOGIN,
         payload: res,
       });
     })

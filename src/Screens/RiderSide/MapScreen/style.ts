@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import {heightRef} from 'src/config/screenSize';
 
 const styles = StyleSheet.create({
+  
   body:{
     flex: 1,
   },
@@ -95,8 +96,8 @@ const styles = StyleSheet.create({
   },
   orderView3: {
     paddingTop: 20,
-    marginTop: -18,
-    padding: 20,
+    marginBottom:100,
+   
     paddingBottom: 40,
     backgroundColor: '#fff',
   },
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
   },
   scroleView: {
     backgroundColor: 'rgba(52, 52, 52, 0.8)',
-    flex: 1,
+
   },
   scroleView1: {
     marginTop: 450,
@@ -135,7 +136,14 @@ const styles = StyleSheet.create({
     height: 37 * heightRef,
     width: 35,
   },
-
+mh:{marginHorizontal: 20},
+orderbtn:{
+  margin: 20,
+  alignItems: 'center',
+},
+flex:{flex: 1},
+row:{flexDirection: 'row'},
+addview:{flexDirection: 'row', marginTop: 10},
   smallView: {
     height: 25 * heightRef,
     width: 25,
@@ -187,8 +195,9 @@ const styles = StyleSheet.create({
   container1: {
     ...StyleSheet.absoluteFillObject,
     height: '100%',
-    marginTop: 25,
-    position: 'absolute',
+   
+   
+    
     overflow: 'hidden',
   },
   orderDetail: {
